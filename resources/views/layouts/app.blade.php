@@ -116,22 +116,12 @@ body_theme1
                                     method="get">
                                     <div class="search-box-inner align-self-center">
                                         <div class="search-box d-flex">
-                                            <select name="slug" id="" class="categoris">
-                                                <option value="">All</option>
-                                                @php
-                                                    $categories = \App\Models\Category::latest()->get();
-                                                @endphp
-                                                @foreach ($categories as $category)
-                                                    <option value="{{ $category->slug }}">{{ $category->name }}
-                                                    </option>
-                                                @endforeach
-                                            </select>
                                             <span class="input-group-btn">
                                                 <button type="submit"><i class="icon-search"></i></button>
                                             </span>
                                             <input class="form-control" type="text"
                                                 id="" name="search"
-                                                placeholder="Search by product name" required>
+                                                placeholder="Tìm kiếm" required>
                                             <div class="serch-result d-none">
                                             </div>
                                         </div>
@@ -321,7 +311,7 @@ body_theme1
                     <div class="col-lg-3">
                         <div class="left-category-area">
                             <div class="category-header">
-                                <h4><i class="icon-align-justify"></i> Categories</h4>
+                                <h4><i class="icon-align-justify"></i>Danh mục</h4>
                             </div>
                             <div class="category-list">
                                 @php

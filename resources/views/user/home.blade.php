@@ -158,7 +158,7 @@ Home
     <div class="container ">
         <div class="row gx-3">
             <div class="col-md-4">
-                <a href="#" class="genius-banner">
+                <a href="{{ $first_three_column_value->url1 }}" class="genius-banner">
                     <img src="{{ asset('storage') }}/{{ $first_three_column_value->image1 }}" alt="">
                     <div class="inner-content">
                         <p>{{ $first_three_column_value->title1 }}</p>

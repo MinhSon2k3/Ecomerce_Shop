@@ -57,6 +57,7 @@ class HomeController extends Controller
         $four_three = ManageSite::where('key', 'four_three_column')->first();
         $four_three_column_value = json_decode($four_three->value);
         return view('user.home', compact(
+            'categories',
             'categories1',
             'categories2',
             'categories3',
@@ -156,10 +157,11 @@ class HomeController extends Controller
 
     function search_product(Request $request)
     {
+    
         $category = Category::whereSlug($request->slug)->first();
         $categories = Category::latest()->get();
         $brands = Brand::latest()->get();
-        $products = Product::where('cat_id', $category->id)->where('name', 'LIKE', '%' . $request->search . '%')->latest()->get();
+        $products = Product::where('name', 'LIKE', '%' . $request->search . '%')->latest()->get();
         return view('user.shop', compact('categories', 'products', 'brands'));
     }
 
@@ -201,7 +203,8 @@ class HomeController extends Controller
     function brands(): View
     {
         $brands = Brand::latest()->get();
-        return view('user.brand', compact('brands'));
+        $categories = Category::latest()->get();
+        return view('user.brand', compact('brands','categories'));
     }
 
     function category(): View
