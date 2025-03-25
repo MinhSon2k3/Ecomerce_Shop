@@ -6,12 +6,12 @@
             <form action="{{ route('user.search') }}" class="input-group form-group" method="get"><span
                     class="input-group-btn">
                     <button type="submit"><i class="icon-search"></i></button></span>
-                <input class="form-control" name="search" type="text" placeholder="Search blog">
+                <input class="form-control" name="search" type="text" placeholder="Tìm kiếm">
             </form>
         </section>
         <!-- Widget Categories-->
         <section class="widget widget-categories card rounded p-4 mt-n3">
-            <h3 class="widget-title">Blog Categories</h3>
+            <h3 class="widget-title">Thể loại</h3>
             <ul>
                 @foreach ($categories as $category)
                 <li><a href="{{ route('user.blog.category', ['id'=>$category->id]) }}">{{ $category->name }}</a>
@@ -24,7 +24,7 @@
         </section>
         <!-- Widget Featured Posts-->
         <section class="widget widget-featured-posts card rounded p-4">
-            <h3 class="widget-title">Most Recent Added Posts</h3>
+            <h3 class="widget-title">Bài viết mới nhất được thêm vào</h3>
             @foreach ($recent_blogs as $rblog)
             <div class="entry">
                 <div class="entry-thumb"><a href="{{ route('user.blog_details', ['id'=>$rblog->id]) }}"><img

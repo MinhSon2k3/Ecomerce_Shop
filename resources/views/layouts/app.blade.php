@@ -79,14 +79,13 @@ body_theme1
                             @if (Auth::check())
                             <div class="login-register ">
                                 <a class="track-order-link mr-0" href="{{ route('user.dashboard') }}">
-                                   Dashboard
+                                <i class="fas fa-home"></i>
                                 </a>
                                 <a style="margin-left: 20px;" class="track-order-link mr-0" href="{{ route('user.logout') }}">
-                                    Logout
+                                <i class="fas fa-sign-out-alt"></i>
                                  </a>
                             </div>
                             @else
-
                             <div class="login-register ">
                                 <a class="track-order-link mr-0" href="{{ route('user.register') }}">
                                 <i class="fas fa-user"></i>
@@ -143,24 +142,24 @@ body_theme1
                                     </a>
                                 </div>
 
-                                <div class="toolbar-item hidden-on-mobile"><a href="{{ route('user.compare') }}">
+                                <!-- <div class="toolbar-item hidden-on-mobile"><a href="{{ route('user.compare') }}">
                                         <div><span class="compare-icon"><i class="icon-repeat"></i><span
                                                     class="count-label compare_count">{{ \App\Models\Compare::where('user_id', auth()->id())->count() }}</span></span><span
                                                 class="text-label">Compare</span></div>
                                     </a>
-                                </div>
+                                </div> -->
                                 <div class="toolbar-item hidden-on-mobile"><a href="{{ route('user.wishlist') }}">
                                         <div>
                                             <span class="compare-icon"><i class="icon-heart"></i><span
                                                     class="count-label cart_count">{{ \App\Models\Wishlist::where('user_id', auth()->id())->count() }}
-                                                </span></span><span class="text-label">Wishlist</span>
+                                                </span></span><span class="text-label">Yêu thích</span>
                                         </div>
                                     </a>
                                 </div>
                                 <div class="toolbar-item"><a href="">
                                         <div><span class="cart-icon"><i class="icon-shopping-cart"></i><span
                                                     class="count-label cart_count">{{ \App\Models\Cart::where('user_id', auth()->id())->sum('qty') }}
-                                                </span></span><span class="text-label">Cart</span></div>
+                                                </span></span><span class="text-label">Giỏ hàng</span></div>
                                     </a>
                                     @php
                                         $carts = \App\Models\Cart::where('user_id', auth()->id())
@@ -193,19 +192,19 @@ body_theme1
 
 
                                         @empty
-                                            Cart empty
+                                        Giỏ hàng trống
                                         @endforelse
                                         <div class="text-right">
                                             <p class="text-gray-dark py-2 mb-0"><span
-                                                    class="text-muted">Subtotal:</span> ${{ $sub_total }}</p>
+                                                    class="text-muted">Tổng tiền:</span> ${{ $sub_total }}</p>
                                         </div>
                                         <div class="d-flex justify-content-between">
                                             <div class="w-50 d-block"><a class="btn btn-primary btn-sm  mb-0"
-                                                    href="{{ route('user.cart') }}"><span>Cart</span></a>
+                                                    href="{{ route('user.cart') }}"><span>Giỏ hàng</span></a>
                                             </div>
                                             <div class="w-50 d-block text-end"><a
                                                     class="btn btn-primary btn-sm  mb-0"
-                                                    href="{{ route('user.checkout') }}"><span>Checkout</span></a>
+                                                    href="{{ route('user.checkout') }}"><span>Thanh toán</span></a>
                                             </div>
                                         </div>
 
@@ -248,16 +247,15 @@ body_theme1
                                     <nav class="slideable-menu">
                                         <ul>
                                             <li class="{{ Request::routeIs('user.home') ? 'active':''}}"><a href="/"><i
-                                                        class="icon-chevron-right"></i>Home</a></li>
+                                                        class="icon-chevron-right"></i>Trag chủ</a></li>
                                             <li class="{{ Request::routeIs('user.shop') ? 'active':''}}"><a href="{{ route('user.shop') }}"><i
-                                                        class="icon-chevron-right"></i>Shop</a></li>
+                                                        class="icon-chevron-right"></i>Sản phẩm</a></li>
                                             <li class="{{ Request::routeIs('user.category') ? 'active':''}}"><a
                                                     href="{{ route('user.category') }}"><i
-                                                        class="icon-chevron-right"></i>Category</a></li>
+                                                        class="icon-chevron-right"></i>Danh mục</a></li>
                                             <li class="{{ Request::routeIs('user.brand') ? 'active':''}}"><a
                                                     href="{{ route('user.brand') }}"><i
-                                                        class="icon-chevron-right"></i>Brand</a></li>
-
+                                                        class="icon-chevron-right"></i>Thương hiệu</a></li>
                                             <li class="{{ Request::routeIs('user.blog') ? 'active':''}}"><a
                                                     href="{{ route('user.blog') }}"><i
                                                         class="icon-chevron-right"></i>Blog</a></li>
@@ -371,10 +369,10 @@ body_theme1
                                     <li class="t-h-dropdown  {{ Request::routeIs('user.home') ? 'active':''}}">
                                         <a class="main-link" href="/">Home</a>
                                     </li>
-                                    <li class="{{ Request::routeIs('user.shop') ? 'active':''}}"><a href="{{ route('user.shop') }}">Shop</a></li>
-                                    <li class="{{ Request::routeIs('user.category') ? 'active':''}}"><a href="{{ route('user.category') }}">Category</a>
+                                    <li class="{{ Request::routeIs('user.shop') ? 'active':''}}"><a href="{{ route('user.shop') }}">Sản phẩm</a></li>
+                                    <li class="{{ Request::routeIs('user.category') ? 'active':''}}"><a href="{{ route('user.category') }}">Danh mục</a>
                                     </li>
-                                    <li class="{{ Request::routeIs('user.brand') ? 'active':''}}"><a href="{{ route('user.brand') }}">Brand</a></li>
+                                    <li class="{{ Request::routeIs('user.brand') ? 'active':''}}"><a href="{{ route('user.brand') }}">Thương hiệu</a></li>
                                     <li class="{{ Request::routeIs('user.blog') ? 'active':''}}"><a
                                             href="{{ route('user.blog') }}">Blog</a></li>
                                             {{-- <li class="{{ Request::routeIs('user.blog') ? 'active':''}}"><a
@@ -437,14 +435,11 @@ body_theme1
                 <div class="col-lg-4 col-md-6">
                     <!-- Contact Info-->
                     <section class="widget widget-light-skin">
-                        <h3 class="widget-title">Get In Touch</h3>
-                        <p class="mb-1"><strong>Address: </strong> {{ $footer_value->address }}</p>
-                        <p class="mb-1"><strong>Phone: </strong> {{$footer_value->phone}}</p>
+                        <h3 class="widget-title">Liên hệ</h3>
+                        <p class="mb-1"><strong>Địa chỉ: </strong> {{ $footer_value->address }}</p>
+                        <p class="mb-1"><strong>Số điện thoại: </strong> {{$footer_value->phone}}</p>
                         <p class="mb-3"><strong>Email: </strong> {{ $footer_value->email }}</p>
-                        <ul class="list-unstyled text-sm">
-                            <li><span class=""><strong>Monday-Friday: </strong></span>9:27 PM - 9:27 PM</li>
-                            <li><span class=""><strong>Saturday: </strong></span>9:27 PM - 9:27 PM</li>
-                        </ul>
+                        <br>
                         <div class="footer-social-links">
                             <a href="{{ $footer_value->facebook }}"><span><i class="fab fa-facebook-f"></i></span></a>
                             <a href="{{ $footer_value->twitter }}"><span><i class="fab fa-twitter"></i></span></a>
@@ -467,7 +462,7 @@ body_theme1
                 <div class="col-lg-4">
                     <!-- Subscription-->
                     <section class="widget">
-                        <h3 class="widget-title">Newsletter</h3>
+                        <h3 class="widget-title">ĐĂNG KÝ NHẬN TIN KHUYẾN MÃI</h3>
                         <form class="row subscriber-form"
                             action="{{ route('user.subscribe') }}" method="post">
                             @csrf

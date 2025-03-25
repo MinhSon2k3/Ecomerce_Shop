@@ -10,7 +10,7 @@
                     <ul class="breadcrumbs">
                         <li><a href="/">Home</a> </li>
                         <li class="separator"></li>
-                        <li>Orders</li>
+                        <li>Đơn hàng</li>
                     </ul>
                 </div>
             </div>
@@ -27,11 +27,11 @@
                             <table class="table table-bordered mb-0">
                                 <thead>
                                     <tr>
-                                        <th>Order #</th>
-                                        <th>Total</th>
-                                        <th>Order Status</th>
-                                        <th>Payment Status</th>
-                                        <th>Date Purchased</th>
+                                        <th>Đơn hàng</th>
+                                        <th>Tổng tiền</th>
+                                        <th>Trạng thái đơn hàng</th>
+                                        <th>Trạng thái thanh toán</th>
+                                        <th>Ngày mua</th>
                                         {{-- <th>Action</th> --}}
                                     </tr>
                                 </thead>

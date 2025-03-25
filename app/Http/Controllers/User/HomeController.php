@@ -53,7 +53,6 @@ class HomeController extends Controller
 
         $third_two_column = ManageSite::where('key', 'third_two_column')->first();
         $third_two_column_value = json_decode($third_two_column->value);
-
         $four_three = ManageSite::where('key', 'four_three_column')->first();
         $four_three_column_value = json_decode($four_three->value);
         return view('user.home', compact(
@@ -86,13 +85,13 @@ class HomeController extends Controller
         $wishlist = Wishlist::whereUserIdAndProductId(auth()->id(), $id)->first();
 
         if ($wishlist) {
-            return redirect()->back()->with('success', 'Product is already in wishlist');
+            return redirect()->back()->with('success', 'Sản phẩm đã có trong danh sách yêu thích');
         } else {
             Wishlist::create([
                 'user_id' => auth()->id(),
                 'product_id' => $id
             ]);
-            return redirect()->back()->with('success', 'Product added to successfully wishlist');
+            return redirect()->back()->with('success', 'Sản phẩm đã được thêm vào danh sách yêu thich');
         }
     }
 

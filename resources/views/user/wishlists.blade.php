@@ -10,7 +10,7 @@
                     <ul class="breadcrumbs">
                         <li><a href="/">Home</a> </li>
                         <li class="separator"></li>
-                        <li>Wishlist</li>
+                        <li>Yêu thích</li>
                     </ul>
                 </div>
             </div>
@@ -28,10 +28,10 @@
                             <table class="table table-bordered mb-0">
                                 <thead>
                                     <tr>
-                                        <th>Wishlist Product</th>
+                                        <th>Sản phẩm yêu thích</th>
                                         <th class="text-center"><a class="btn btn-sm btn-primary"
-                                                href="{{ route('user.wishlist.clear') }}"><span>Clear
-                                                    Wishlist</span></a></th>
+                                                href="{{ route('user.wishlist.clear') }}"><span>Xóa danh sách yêu thích</span></a>
+                                        </th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -51,18 +51,17 @@
                                                             <div class="d-inline text-success">In Stock</div>
                                                         </div>
                                                     </div>
-
                                                 </div>
+                                                <br>
                                                 <a class="product-button btn btn-primary btn-sm add_to_single_cart"
                                                     href="{{ route('user.add_to_cart', ['id'=>$wishlist->product->id]) }}"><i
-                                                        class="icon-shopping-cart"></i><span>To Cart</span>
+                                                        class="icon-shopping-cart"></i><span>&nbsp Thêm vào giỏ hàng</span>
                                                 </a>
                                             </td>
                                             <td class="text-center"><a class="remove-from-cart"
                                                     href="{{ route('user.wishlist.remove', ['id'=>$wishlist->id]) }}"
                                                     data-toggle="tooltip" title=""
-                                                    data-bs-original-title="Remove item" aria-label="Remove item"><i
-                                                        class="icon-x"></i></a></td>
+                                                    data-bs-original-title="Xóa" aria-label="Remove item"><i class="fas fa-trash"></i></a></td>
                                         </tr>
                                     @endforeach
 

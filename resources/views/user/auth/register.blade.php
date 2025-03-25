@@ -8,9 +8,9 @@
       <div class="row">
           <div class="col-lg-12">
             <ul class="breadcrumbs">
-                <li><a href="/">Home</a> </li>
+                <li><a href="/">Trang chủ</a> </li>
                 <li class="separator"></li>
-                <li>Login/Register</li>
+                <li>Đăng nhập/Đăng ký</li> 
               </ul>
           </div>
       </div>
@@ -21,7 +21,7 @@
             <div class="col-md-6">
                 <div class="card register-area">
                     <div class="card-body ">
-                        <h4 class="margin-bottom-1x text-center">Login</h4>
+                        <h4 class="margin-bottom-1x text-center">Đăng nhập</h4>
                         <form class="row" action="{{ route('user.make.login') }}"
                             method="POST">
                             @csrf
@@ -57,7 +57,7 @@
             <div class="col-md-6">
                 <div class="card register-area">
                     <div class="card-body ">
-                        <h4 class="margin-bottom-1x text-center">Register</h4>
+                        <h4 class="margin-bottom-1x text-center">Đăng ký</h4>
                         <form class="row" action="{{ route('user.make.register') }}"
                             method="POST">
                             @csrf

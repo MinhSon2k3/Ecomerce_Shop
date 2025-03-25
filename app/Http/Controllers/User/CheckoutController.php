@@ -109,8 +109,9 @@ class CheckoutController extends Controller
 
     public function stripePost(Request $request)
     {
+        dd($request->all());
         $total_amount = Cart::whereUserId(auth()->id())->sum('sub_total');
-
+        $stripeToken = $request->input('_token');
         Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
         $charge = Stripe\Charge::create([
             "amount" => 100 * $total_amount,
@@ -118,6 +119,7 @@ class CheckoutController extends Controller
             "source" => $request->stripeToken,
             "description" => "Payment Successfully From " . Auth::user()->name,
         ]);
+   
         if ($charge->status) {
 
             $order = new Order();

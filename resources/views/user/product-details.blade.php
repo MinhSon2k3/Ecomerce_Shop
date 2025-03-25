@@ -11,7 +11,7 @@
                         <li><a href="/">Home</a>
                         </li>
                         <li class="separator"></li>
-                        <li><a href="/shop">Shop</a>
+                        <li><a href="/shop">Sản phẩm</a>
                         </li>
                         <li class="separator"></li>
                         <li>{{ $product->name }}</li>

@@ -10,7 +10,7 @@
                     <ul class="breadcrumbs">
                         <li><a href="/">Home</a> </li>
                         <li class="separator">&nbsp;</li>
-                        <li>Category</li>
+                        <li>Danh mục</li>
                     </ul>
                 </div>
             </div>

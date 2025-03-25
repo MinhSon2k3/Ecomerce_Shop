@@ -81,8 +81,7 @@ Home
                 <div class="section-title">
                     <h2 class="h3">{{ $categories1->name }}</h2>
                     <div class="right-area">
-                        <a class="right_link" href="">View
-                            All <i class="icon-chevron-right"></i></a>
+                        <a class="right_link" href="">Xem tất cả <i class="icon-chevron-right"></i></a>
                     </div>
                 </div>
             </div>
@@ -167,7 +166,7 @@ Home
                 </a>
             </div>
             <div class="col-md-4">
-                <a href="#" class="genius-banner">
+                <a href="{{ $first_three_column_value->url2 }}" class="genius-banner">
                     <img src="{{ asset('storage') }}/{{ $first_three_column_value->image2 }}" alt="">
                     <div class="inner-content">
                         <p>{{ $first_three_column_value->title2 }}</p>
@@ -176,7 +175,7 @@ Home
                 </a>
             </div>
             <div class="col-md-4">
-                <a href="#" class="genius-banner">
+                <a href="{{ $first_three_column_value->url3 }}" class="genius-banner">
                     <img src="{{ asset('storage') }}/{{ $first_three_column_value->image3 }}" alt="">
                     <div class="inner-content">
                         <p>{{ $first_three_column_value->title3 }}</p>
@@ -195,8 +194,7 @@ Home
                 <div class="section-title">
                     <h2 class="h3">{{ $categories2->name }}</h2>
                     <div class="right-area">
-                        <a class="right_link" href="">View
-                            All <i class="icon-chevron-right"></i></a>
+                        <a class="right_link" href="">Xem tất cả<i class="icon-chevron-right"></i></a>
 
                     </div>
                 </div>
@@ -312,8 +310,7 @@ Home
                 <div class="section-title">
                     <h2 class="h3">{{ $categories3->name }}</h2>
                     <div class="right-area">
-                        <a class="right_link" href="">View
-                            All <i class="icon-chevron-right"></i></a>
+                        <a class="right_link" href="">Xem tất cả<i class="icon-chevron-right"></i></a>
 
                     </div>
                 </div>
@@ -359,9 +356,6 @@ Home
                                             class="icon-shopping-cart"></i>
                                     </a>
                                     @endif
-
-
-
                                 </div>
                             </div>
                             <div class="product-card-body">
@@ -420,8 +414,7 @@ Home
                 <div class="section-title">
                     <h2 class="h3">{{ $categories4->name }}</h2>
                     <div class="right-area">
-                        <a class="right_link" href="">View
-                            All <i class="icon-chevron-right"></i></a>
+                        <a class="right_link" href="">Xem tất cả<i class="icon-chevron-right"></i></a>
 
                     </div>
                 </div>

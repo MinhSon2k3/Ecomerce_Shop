@@ -10,7 +10,7 @@
                     <ul class="breadcrumbs">
                         <li><a href="/">Home</a> </li>
                         <li class="separator">&nbsp;</li>
-                        <li>Brand</li>
+                        <li>Thương hiệu</li>
                     </ul>
                 </div>
             </div>

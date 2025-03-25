@@ -10,7 +10,7 @@
                     <ul class="breadcrumbs">
                         <li><a href="/">Home</a> </li>
                         <li class="separator"></li>
-                        <li>Shop</li>
+                        <li>Sản phẩm</li>
                     </ul>
                 </div>
             </div>
@@ -99,7 +99,7 @@
                             class="icon-x"></i></span>
                     <!-- Widget Categories-->
                     <section class="widget widget-categories card rounded p-4">
-                        <h3 class="widget-title">Shop Categories</h3>
+                        <h3 class="widget-title">Danh mục</h3>
                         <ul id="category_list" class="category-scroll">
                             @foreach ($categories as $category)
                             <li class="has-children">
