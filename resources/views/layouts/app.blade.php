@@ -142,12 +142,7 @@ body_theme1
                                     </a>
                                 </div>
 
-                                <!-- <div class="toolbar-item hidden-on-mobile"><a href="{{ route('user.compare') }}">
-                                        <div><span class="compare-icon"><i class="icon-repeat"></i><span
-                                                    class="count-label compare_count">{{ \App\Models\Compare::where('user_id', auth()->id())->count() }}</span></span><span
-                                                class="text-label">Compare</span></div>
-                                    </a>
-                                </div> -->
+                                
                                 <div class="toolbar-item hidden-on-mobile"><a href="{{ route('user.wishlist') }}">
                                         <div>
                                             <span class="compare-icon"><i class="icon-heart"></i><span

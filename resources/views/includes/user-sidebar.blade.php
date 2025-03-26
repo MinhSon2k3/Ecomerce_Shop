@@ -22,7 +22,7 @@
         </div>
         <nav class="list-group">
             <a class="list-group-item {{ Request::routeIs('user.dashboard') ? 'active':''}} " href="{{ route('user.dashboard') }}"><i
-                    class="icon-command"></i>Tông quan</a>
+                    class="icon-command"></i>Tổng quan</a>
             <a class="list-group-item {{ Request::routeIs('user.profile') ? 'active':''}}" href="{{ route('user.dashboard.profile') }}"><i
                     class="icon-user"></i>Thông tin</a>
             <a class="list-group-item with-badge {{ Request::routeIs('user.order') ? 'active':''}}"

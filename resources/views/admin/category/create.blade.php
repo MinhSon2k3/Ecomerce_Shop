@@ -12,9 +12,9 @@
                 <div class="card mb-4">
                     <div class="card-body">
                         <div class="d-sm-flex align-items-center justify-content-between">
-                            <h3 class="mb-0 bc-title"><b>Create Category</b> </h3>
+                            <h3 class="mb-0 bc-title"><b>Tạo danh mục</b> </h3>
                             <a class="btn btn-primary btn-sm" href="{{ route('admin.category.index') }}"><i
-                                    class="fas fa-chevron-left"></i> Back</a>
+                                    class="fas fa-chevron-left"></i> Quay lại</a>
                         </div>
                     </div>
                 </div>
@@ -33,13 +33,12 @@
                                             enctype="multipart/form-data">
                                             @csrf
                                             <div class="form-group">
-                                                <label for="name">Set Image *</label>
+                                                <label for="name">Chọn ảnh *</label>
                                                 <br>
                                                 <img class="admin-img"
                                                     src="https://geniusdevs.com/codecanyon/omnimart40/assets/images/placeholder.png"
                                                     alt="No Image Found">
                                                 <br>
-                                                <span class="mt-1">Image Size Should Be 60 x 60.</span>
                                             </div>
 
                                             <div class="form-group position-relative">
@@ -54,7 +53,7 @@
                                             </div>
 
                                             <div class="form-group">
-                                                <label for="name">Name *</label>
+                                                <label for="name">Tên *</label>
                                                 <input type="text" name="name" class="form-control item-name"
                                                     id="name" placeholder="Enter Name" value="">
                                                 @error('name')
@@ -63,20 +62,20 @@
                                             </div>
 
                                             <div class="form-group">
-                                                <label for="meta_keywords">Meta Keywords
+                                                <label for="meta_keywords">Từ khóa keyword
                                                 </label>
                                                 <input type="text" name="meta_keyword" class="tags" id="meta_keywords"
-                                                    placeholder="Enter Meta Keywords" value="">
+                                                    placeholder="Nhập từ khóa" value="">
                                                 @error('meta_keyword')
                                                     <span class="text-danger">{{ $message }}</span>
                                                 @enderror
                                             </div>
 
                                             <div class="form-group">
-                                                <label for="meta_description">Meta Description
+                                                <label for="meta_description">Mô tả
                                                 </label>
                                                 <textarea name="meta_description" id="meta_description" class="form-control" rows="5"
-                                                    placeholder="Enter Meta Description"></textarea>
+                                                    placeholder="Nhập mô tả"></textarea>
                                                 @error('meta_description')
                                                     <span class="text-danger">{{ $message }}</span>
                                                 @enderror

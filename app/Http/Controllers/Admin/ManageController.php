@@ -41,19 +41,19 @@ class ManageController extends Controller
         $order = Order::findOrFail($id);
         $transaction = Transaction::whereOrderId($order->uuid)->first();
 
-        if ($order->payment_status == 'unpaid') {
-            $order->payment_status = "paid";
+        if ($order->payment_status == 'Chưa thanh toán') {
+            $order->payment_status = "Đã thanh toán";
             $order->save();
 
-            $transaction->payment_status = 'paid';
+            $transaction->payment_status = 'Đã thanh toán';
             $transaction->save();
-            return redirect()->back()->with('success', 'Status is in Paid');
+            return redirect()->back()->with('success', 'Status is in Đã thanh toán');
         } else {
-            $order->payment_status = "unpaid";
+            $order->payment_status = "Chưa thanh toán";
             $order->save();
-            $transaction->payment_status = 'unpaid';
+            $transaction->payment_status = 'Chưa thanh toán';
             $transaction->save();
-            return redirect()->back()->with('success', 'Status is in Unpaid');
+            return redirect()->back()->with('success', 'Status is in Chưa thanh toán');
         }
     }
     function pending_status($id)

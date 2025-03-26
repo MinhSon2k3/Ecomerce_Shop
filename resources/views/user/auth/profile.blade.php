@@ -29,7 +29,7 @@
                             @csrf
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="avater" class="form-label">Default file input example</label>
+                                    <label for="avater" class="form-label">Ảnh đại diện</label>
                                     <input class="form-control" type="file" name="photo" id="avater">
                                 </div>
                             </div>
@@ -52,30 +52,29 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="account-email">E-mail Address</label>
+                                    <label for="account-email">E-mail</label>
                                     <input class="form-control" name="email" type="email" id="account-email"
                                         value="{{ Auth::user()->email }}">
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="account-phone">Phone Number</label>
+                                    <label for="account-phone">Số điện thoại</label>
                                     <input class="form-control" name="phone" type="text" id="account-phone"
                                         value="{{ Auth::user()->phone }}">
                                 </div>
                             </div>
-                            <div class="col-md-6">
+                            <!-- <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="account-pass">New Password</label>
                                     <input class="form-control" name="password" type="text" id="account-pass"
                                         placeholder="Change your password">
                                 </div>
-                            </div>
+                            </div> -->
                             <div class="col-12">
                                 <hr class="mt-2 mb-3">
                                 <div class="d-flex flex-wrap justify-content-between align-items-center">
-                                    <button class="btn btn-primary margin-right-none" type="submit"><span>Update
-                                            Profile</span></button>
+                                    <button class="btn btn-primary margin-right-none" type="submit"><span>Cập nhật</span></button>
                                 </div>
                             </div>
                         </form>

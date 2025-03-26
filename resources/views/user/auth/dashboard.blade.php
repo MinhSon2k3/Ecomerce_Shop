@@ -11,7 +11,7 @@
                     <ul class="breadcrumbs">
                         <li><a href="/">Home</a> </li>
                         <li class="separator"></li>
-                        <li>Dashboard</li>
+                        <li>Tổng quan</li>
                     </ul>
                 </div>
             </div>
@@ -28,7 +28,7 @@
                         <div class="card round">
                             <div class="card-body text-center">
                                 <i class="icon-shopping-bag"></i>
-                                <p class="mt-3">All Order</p>
+                                <p class="mt-3">Tất cả đơn hàng</p>
                                 <h4><b>{{ $all_orders }}</b></h4>
                             </div>
                         </div>
@@ -37,7 +37,7 @@
                         <div class="card round">
                             <div class="card-body text-center">
                                 <i class="icon-shopping-bag"></i>
-                                <p class="mt-3">Completed Order</p>
+                                <p class="mt-3">Đơn hàng đã hoàn thành</p>
                                 <h4><b>{{ $delivered_orders }}</b></h4>
                             </div>
                         </div>
@@ -46,7 +46,7 @@
                         <div class="card round">
                             <div class="card-body text-center">
                                 <i class="icon-shopping-bag"></i>
-                                <p class="mt-3">Processing Order</p>
+                                <p class="mt-3">Đơn hàng đang xử lý</p>
                                 <h4><b>{{ $progress_orders }}</b></h4>
                             </div>
                         </div>
@@ -57,7 +57,7 @@
                         <div class="card round">
                             <div class="card-body text-center">
                                 <i class="icon-shopping-bag"></i>
-                                <p class="mt-3">Canceled Order</p>
+                                <p class="mt-3">Đơn hàng đã hủy</p>
                                 <h4><b>{{ $canceled_orders }}</b></h4>
                             </div>
                         </div>
@@ -66,7 +66,7 @@
                         <div class="card round">
                             <div class="card-body text-center">
                                 <i class="icon-shopping-bag"></i>
-                                <p class="mt-3">Pending Order</p>
+                                <p class="mt-3">Đơn hàng đang chờ xử lý</p>
                                 <h4><b>{{ $pending_orders }}</b></h4>
                             </div>
                         </div>

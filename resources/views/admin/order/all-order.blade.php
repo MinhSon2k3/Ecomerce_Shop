@@ -96,10 +96,10 @@
                                                     aria-labelledby="dropdownMenuButton">
                                                     <a class="dropdown-item" data-toggle="modal" data-target="#statusModal"
                                                         href="javascript:;"
-                                                        data-href="{{ route('admin.order.change.status',['id'=>$order->id]) }}">Paid</a>
+                                                        data-href="{{ route('admin.order.change.status',['id'=>$order->id]) }}">Đã thanh toán</a>
                                                     <a class="dropdown-item" data-toggle="modal" data-target="#statusModal"
                                                         href="javascript:;"
-                                                        data-href="{{ route('admin.order.change.status',['id'=>$order->id]) }}">Unpaid</a>
+                                                        data-href="{{ route('admin.order.change.status',['id'=>$order->id]) }}">Chưa thanh toán</a>
                                                 </div>
                                             </div>
                                         </td>
