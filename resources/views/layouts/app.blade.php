@@ -309,52 +309,49 @@ body_theme1
                             <div class="category-list">
                                 @php
                                     $categories1 = \App\Models\Category::where('status', 1)
-                                        ->limit(8)
-                                        ->with('sub_category')
+                                        ->with('sub_category.child_category')
                                         ->latest()
+                                        ->limit(8)
                                         ->get();
                                 @endphp
                                 @foreach ($categories1 as $category)
-                                    <div class="c-item">
-                                        <a class="d-block navi-link"
-                                            href="/shop/category/{{ $category->id }}">
-                                            <img class="lazy"
-                                                data-src="{{ asset('storage') }}/{{ $category->image }}">
-                                            <span class="text-gray-dark">{{ $category->name }}</span>
+                                <div class="c-item">
+                                    <a class="d-block navi-link" href="/shop/category/{{ $category->id }}">
+                                        <img class="lazy" data-src="{{ asset('storage') }}/{{ $category->image }}">
+                                        <span class="text-gray-dark">{{ $category->name }}</span>
+                                        @if (!empty($category->sub_category) && count($category->sub_category) > 0)
                                             <i class="icon-chevron-right"></i>
-                                        </a>
+                                        @endif
+                                    </a>
+
+                                    @if (!empty($category->sub_category) && count($category->sub_category) > 0)
                                         <div class="sub-c-box">
                                             <div class="child-c-box">
                                                 @foreach ($category->sub_category as $sub_category)
-                                                    <a class="title"
-                                                        href="/shop/category/{{ $sub_category->id }}/{{ $category->id }}">
+                                                    <a class="title" href="/shop/category/{{ $sub_category->id }}/{{ $category->id }}">
                                                         {{ $sub_category->name }}
                                                         <i class="icon-chevron-right"></i>
                                                     </a>
-                                                    <div class="child-category">
-                                                        @foreach ($sub_category->child_category as $child_category)
-                                                            <a
-                                                                href="/shop/category/{{ $child_category->id }}/{{ $category->id }}/{{ $sub_category->id }}">{{ $child_category->name }}</a>
-                                                        @endforeach
 
-                                                    </div>
+                                                    @if (!empty($sub_category->child_category) && count($sub_category->child_category) > 0)
+                                                        <div class="child-category">
+                                                            @foreach ($sub_category->child_category as $child_category)
+                                                                <a href="/shop/category/{{ $child_category->id }}/{{ $category->id }}/{{ $sub_category->id }}">
+                                                                    {{ $child_category->name }}
+                                                                </a>
+                                                            @endforeach
+                                                        </div>
+                                                    @endif
                                                 @endforeach
                                             </div>
                                         </div>
-                                    </div>
+                                    @endif
+                                </div>
                                 @endforeach
-                                <!-- <a href="{{ route('user.category') }}"
-                                    class="d-block navi-link view-all-category">
-                                    <img class="lazy"
-                                        data-src="https://geniusdevs.com/codecanyon/omnimart40/assets/images/category.jpg"
-                                        alt="">
-                                    <span class="text-gray-dark">All Categories</span>
-                                </a> -->
+
                             </div>
 
-
                         </div>
-
 
                     </div>
                     <div class="col-lg-9 d-flex justify-content-between">

@@ -39,17 +39,6 @@
                                             <a class="product-button wishlist_store" href="{{ route('user.register') }}"
                                                 title="Wishlist"><i class="icon-heart"></i></a>
                                         @endif
-
-                                        @if (Auth::user() && Auth::user()->id)
-                                            <a data-target="" class="product-button product_compare"
-                                                href="{{ route('user.add_to_compare', ['id' => $product->id]) }}"
-                                                title="Compare"><i class="icon-repeat"></i></a>
-                                        @else
-                                            <a data-target="" class="product-button product_compare"
-                                                href="{{ route('user.register') }}" title="Compare"><i
-                                                    class="icon-repeat"></i></a>
-                                        @endif
-
                                         @if (Auth::user() && Auth::user()->id)
                                             <a class="product-button add_to_single_cart" data-target="563"
                                                 href="{{ route('user.add_to_cart', ['id' => $product->id]) }}"

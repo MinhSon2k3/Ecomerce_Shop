@@ -103,9 +103,6 @@
                                         <span class="wishlist1">Wishlist</span>
                                         <span class="wishlist2 d-none">Added To Wishlist</span>
                                     </a>
-                                    <a class="btn btn-primary btn-sm  product_compare"
-                                        href="{{ route('user.add_to_compare', ['id' => $product->id]) }}"><span><i
-                                                class="icon-repeat"></i>Compare</span></a>
                                 </div>
 
                                 {{-- <div class="d-flex align-items-center">

@@ -45,10 +45,11 @@ class HomeController extends Controller
         $home_page_value = json_decode($home_page->value);
         $first_three_column = ManageSite::where('key', 'first_three_column')->first();
         $first_three_column_value = json_decode($first_three_column->value);
+       
+    
 
         $second_three_column = ManageSite::where('key', 'second_three_column')->first();
         $second_three_column_value = json_decode($second_three_column->value);
-
         $third_two_column = ManageSite::where('key', 'third_two_column')->first();
         $third_two_column_value = json_decode($third_two_column->value);
         $four_three = ManageSite::where('key', 'four_three_column')->first();

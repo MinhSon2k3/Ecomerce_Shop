@@ -47,7 +47,7 @@
                                                         <h4 class="product-title"><a
                                                                 href="{{ route('user.product_details', ['slug'=>$wishlist->product->slug]) }}">{{$wishlist->product->name}}</a></h4>
                                                         <div class="text-lg mb-1">$ {{ $wishlist->product->current_price }}</div>
-                                                        <div class="text-sm">Availability:
+                                                        <div class="text-sm">Tình trạng:
                                                             <div class="d-inline text-success">In Stock</div>
                                                         </div>
                                                     </div>
