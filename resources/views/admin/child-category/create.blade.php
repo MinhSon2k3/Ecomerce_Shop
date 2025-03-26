@@ -42,9 +42,9 @@
                                             </div>
 
                                             <div class="form-group">
-                                                <label for="slug">Category *</label>
+                                                <label for="slug">Danh mục*</label>
                                                 <select name="cat_id" id="cat_id" class="form-control">
-                                                    <option value="">Select Category</option>
+                                                    <option value="">Chọn danh mục</option>
                                                     @foreach ($categories as $category)
                                                         <option value="{{ $category->id }}">{{ $category->name }}</option>
                                                     @endforeach
@@ -55,7 +55,7 @@
                                             </div>
 
                                             <div class="form-group">
-                                                <label for="slug">Sub Category *</label>
+                                                <label for="slug">Danh mục phụ*</label>
                                                 <select name="sub_cat_id" id="sub_cat_id" class="form-control">
                                                     <option value="">Select Category</option>
                                                 </select>

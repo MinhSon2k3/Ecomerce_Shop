@@ -348,13 +348,13 @@ body_theme1
                                         </div>
                                     </div>
                                 @endforeach
-                                <a href="{{ route('user.category') }}"
+                                <!-- <a href="{{ route('user.category') }}"
                                     class="d-block navi-link view-all-category">
                                     <img class="lazy"
                                         data-src="https://geniusdevs.com/codecanyon/omnimart40/assets/images/category.jpg"
                                         alt="">
                                     <span class="text-gray-dark">All Categories</span>
-                                </a>
+                                </a> -->
                             </div>
 
 
@@ -367,7 +367,7 @@ body_theme1
                             <nav class="site-menu">
                                 <ul>
                                     <li class="t-h-dropdown  {{ Request::routeIs('user.home') ? 'active':''}}">
-                                        <a class="main-link" href="/">Home</a>
+                                        <a class="main-link" href="/">Trang chủ</a>
                                     </li>
                                     <li class="{{ Request::routeIs('user.shop') ? 'active':''}}"><a href="{{ route('user.shop') }}">Sản phẩm</a></li>
                                     <li class="{{ Request::routeIs('user.category') ? 'active':''}}"><a href="{{ route('user.category') }}">Danh mục</a>

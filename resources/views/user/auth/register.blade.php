@@ -27,7 +27,7 @@
                             @csrf
                             <div class="col-sm-12">
                                 <div class="form-group">
-                                    <label for="reg-email">E-mail Address</label>
+                                    <label for="reg-email">E-mail</label>
                                     <input class="form-control" type="email" name="email_login" placeholder="E-mail Address"
                                         id="reg-email" value="{{ old('email_login') }}">
                                         @error('email_login')
@@ -37,7 +37,7 @@
                             </div>
                             <div class="col-sm-12">
                                 <div class="form-group">
-                                    <label for="reg-pass">Password</label>
+                                    <label for="reg-pass">Mật khẩu</label>
                                     <input class="form-control" type="password" name="password_login" placeholder="Password"
                                         id="login-pass">
                                         @error('password_login')
@@ -48,7 +48,7 @@
                             </div>
                             <div class="col-12 text-center">
                                 <button class="btn btn-primary margin-bottom-none"
-                                    type="submit"><span>Login</span></button>
+                                    type="submit"><span>Đăng nhập</span></button>
                             </div>
                         </form>
                     </div>
@@ -63,7 +63,7 @@
                             @csrf
                             <div class="col-sm-6">
                                 <div class="form-group">
-                                    <label for="reg-fn">First Name</label>
+                                    <label for="reg-fn">Tên</label>
                                     <input class="form-control" type="text" name="first_name" placeholder="First Name"
                                         id="reg-fn" value="{{ old('first_name') }}">
                                         @error('first_name')
@@ -73,7 +73,7 @@
                             </div>
                             <div class="col-sm-6">
                                 <div class="form-group">
-                                    <label for="reg-ln">Last Name</label>
+                                    <label for="reg-ln">Họ</label>
                                     <input class="form-control" type="text" name="last_name" placeholder="Last Name"
                                         id="reg-ln" value="{{ old('last_name') }}">
                                         @error('last_name')
@@ -83,7 +83,7 @@
                             </div>
                             <div class="col-sm-6">
                                 <div class="form-group">
-                                    <label for="reg-email">E-mail Address</label>
+                                    <label for="reg-email">E-mail</label>
                                     <input class="form-control" type="email" name="email" placeholder="E-mail Address"
                                         id="reg-email" value="{{ old('email') }}">
                                         @error('email')
@@ -93,7 +93,7 @@
                             </div>
                             <div class="col-sm-6">
                                 <div class="form-group">
-                                    <label for="reg-phone">Phone Number</label>
+                                    <label for="reg-phone">Số điện thoại</label>
                                     <input class="form-control" name="phone" type="text" placeholder="Phone Number"
                                         id="reg-phone" value="{{ old('phone') }}">
                                         @error('phone')
@@ -104,7 +104,7 @@
 
                             <div class="col-sm-6">
                                 <div class="form-group">
-                                    <label for="reg-pass">Password</label>
+                                    <label for="reg-pass">Mật khẩu</label>
                                     <input class="form-control" type="password" name="password" placeholder="Password"
                                         id="reg-pass">
                                         @error('password')
@@ -115,14 +115,14 @@
                             </div>
                             <div class="col-sm-6">
                                 <div class="form-group">
-                                    <label for="reg-pass-confirm">Confirm Password</label>
+                                    <label for="reg-pass-confirm">Xác nhận mật khẩu</label>
                                     <input class="form-control" type="password" name="password_confirmation"
                                         placeholder="Confirm Password" id="reg-pass-confirm">
                                 </div>
                             </div>
                             <div class="col-12 text-center">
                                 <button class="btn btn-primary margin-bottom-none"
-                                    type="submit"><span>Register</span></button>
+                                    type="submit"><span>Đăng ký</span></button>
                             </div>
                         </form>
                     </div>

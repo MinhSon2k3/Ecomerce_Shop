@@ -13,9 +13,9 @@
                 <div class="card mb-4">
                     <div class="card-body">
                         <div class="d-sm-flex align-items-center justify-content-between">
-                            <h3 class="mb-0 bc-title"><b>Categories</b></h3>
+                            <h3 class="mb-0 bc-title"><b>Danh mục</b></h3>
                             <a class="btn btn-primary  btn-sm" href="{{ route('admin.category.create') }}"><i
-                                    class="fas fa-plus"></i> Add</a>
+                                    class="fas fa-plus"></i> Thêm</a>
                         </div>
                     </div>
                 </div>
@@ -52,14 +52,14 @@
                                                     <button class="btn btn-success btn-sm  dropdown-toggle" type="button"
                                                         id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
                                                         aria-expanded="false">
-                                                        {{ $category->status == 1 ? 'Enable' : 'Disable' }}
+                                                        {{ $category->status == 1 ? 'Hiển thị' : 'Ẩn' }}
                                                     </button>
                                                     <div class="dropdown-menu animated--fade-in"
                                                         aria-labelledby="dropdownMenuButton">
                                                         <a class="dropdown-item"
-                                                            href="{{ route('admin.category.change.status', ['id' => $category->id]) }}">Enable</a>
+                                                            href="{{ route('admin.category.change.status', ['id' => $category->id]) }}">Hiển thị</a>
                                                         <a class="dropdown-item"
-                                                            href="{{ route('admin.category.change.status', ['id' => $category->id]) }}">Disable</a>
+                                                            href="{{ route('admin.category.change.status', ['id' => $category->id]) }}">Ẩn</a>
                                                     </div>
                                                 </div>
                                             </td>
@@ -117,7 +117,6 @@
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
     </div>

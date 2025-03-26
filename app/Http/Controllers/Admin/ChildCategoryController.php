@@ -45,6 +45,7 @@ class ChildCategoryController extends Controller
         $child_category = ChildCategory::findOrFail($id);
         $categories = Category::latest()->get();
         $sub_categories = SubCategory::latest()->get();
+     
         return view('admin.child-category.update', compact('child_category', 'categories', 'sub_categories'));
     }
     function update(Request $request, $id): RedirectResponse

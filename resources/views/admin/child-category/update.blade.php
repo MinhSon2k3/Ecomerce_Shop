@@ -52,13 +52,15 @@
                                                 @enderror
                                             </div>
 
+                                           <!-- Chọn danh mục -->
                                             <div class="form-group">
-                                                <label for="slug">Category *</label>
+                                                <label for="cat_id">Danh mục *</label>
                                                 <select name="cat_id" id="cat_id" class="form-control">
-                                                    <option value="">Select Category</option>
+                                                    <option value="">Chọn danh mục</option>
                                                     @foreach ($categories as $category)
-                                                        <option @selected($category->id == $child_category->cat_id) value="{{ $category->id }}">
-                                                            {{ $category->name }}</option>
+                                                        <option value="{{ $category->id }}" @selected($category->id == $child_category->cat_id)>
+                                                            {{ $category->name }}
+                                                        </option>
                                                     @endforeach
                                                 </select>
                                                 @error('cat_id')
@@ -66,15 +68,22 @@
                                                 @enderror
                                             </div>
 
+                                            <!-- Chọn danh mục phụ -->
                                             <div class="form-group">
-                                                <label for="slug">Sub Category *</label>
+                                                <label for="sub_cat_id">Danh mục phụ *</label>
                                                 <select name="sub_cat_id" id="sub_cat_id" class="form-control">
-                                                    <option value="">Select Category</option>
+                                                    <option value="">Chọn danh mục phụ</option>
+                                                    @foreach ($sub_categories as $subCategory)
+                                                        <option value="{{ $subCategory->id }}" @selected($subCategory->id == $child_category->sub_cat_id)>
+                                                            {{ $subCategory->name }}
+                                                        </option>
+                                                    @endforeach
                                                 </select>
                                                 @error('sub_cat_id')
                                                     <span class="text-danger">{{ $message }}</span>
                                                 @enderror
                                             </div>
+
 
                                             <div class="form-group">
                                                 <button type="submit" class="btn btn-secondary ">Submit</button>

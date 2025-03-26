@@ -26,7 +26,7 @@ class RegisterController extends Controller
             'phone' => [
                 'required',
                 'unique:users',
-                'regex:/^[0-9]{11}$/',
+                'regex:/^[0-9]{10}$/',
             ],
             'password' => [
                 'required',
@@ -43,7 +43,7 @@ class RegisterController extends Controller
             'email.email' => 'Please enter a valid email address.',
             'email.unique' => 'The email address is already in use.',
             'phone.required' => 'The phone number field is required.',
-            'phone.regex' => 'Please enter a valid 11-digit phone number.',
+            'phone.regex' => 'Please enter a valid 10-digit phone number.',
             'phone.unique' => 'The phone number is already in use.',
             'password.required' => 'The password field is required.',
             'password.confirmed' => 'The password confirmation does not match.',

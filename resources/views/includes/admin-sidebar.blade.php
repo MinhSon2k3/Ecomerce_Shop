@@ -46,7 +46,7 @@
                             </li>
                             <li>
                                 <a class="sub-link" href="{{ route('admin.sub-category.index') }}">
-                                    <span class="sub-item">Danh mục phu</span>
+                                    <span class="sub-item">Danh mục phụ</span>
                                 </a>
                             </li>
                             <li>

@@ -170,7 +170,7 @@ Create Product
                             <div class="card-body">
 
                                 <div class="form-group">
-                                    <label for="category_id">Chọn danh mụ<colgroup></colgroup> *</label>
+                                    <label for="category_id">Chọn danh mục<colgroup></colgroup> *</label>
                                     <select name="cat_id" id="category_id"
                                         data-href="https://geniusdevs.com/codecanyon/omnimart40/admin/get/subcategory"
                                         class="form-control">

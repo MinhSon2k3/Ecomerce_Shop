@@ -36,8 +36,6 @@ class HomeController extends Controller
         $categories2 = $categories->get(1);
         $categories3 = $categories->get(2);
         $categories4 = $categories->get(3);
-
-
         $categories = Category::latest()->get();
         $services = Service::limit(4)->latest()->get();
         $blogs = Blog::limit(10)->latest()->get();
