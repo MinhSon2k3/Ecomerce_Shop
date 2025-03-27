@@ -316,7 +316,7 @@ body_theme1
                                 @endphp
                                 @foreach ($categories1 as $category)
                                 <div class="c-item">
-                                    <a class="d-block navi-link" href="/shop/category/{{ $category->id }}">
+                                    <a class="d-block navi-link" href="/shop/category/{{ $category->slug}}">
                                         <img class="lazy" data-src="{{ asset('storage') }}/{{ $category->image }}">
                                         <span class="text-gray-dark">{{ $category->name }}</span>
                                         @if (!empty($category->sub_category) && count($category->sub_category) > 0)

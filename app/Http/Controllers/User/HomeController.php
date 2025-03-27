@@ -173,7 +173,7 @@ class HomeController extends Controller
     }
 
     function product_by_sub_category($id, $cat_id): View
-    {
+    {   
         $categories = Category::latest()->get();
         $brands = Brand::latest()->get();
         $products = Product::where(['sub_cat_id' => $id, 'cat_id' => $cat_id])->latest()->get();
@@ -196,7 +196,7 @@ class HomeController extends Controller
         $categories = Category::latest()->get();
         $brands = Brand::latest()->get();
         $products = Product::where('brand_id', $brand->id)->latest()->get();
-      
+
         return view('user.shop', compact('categories', 'products', 'brands'));
     }
 

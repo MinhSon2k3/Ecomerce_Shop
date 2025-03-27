@@ -3,9 +3,9 @@
         <div class="padding-top-2x hidden-lg-up"></div>
         <!-- Order Summary Widget-->
         <section class="card widget widget-featured-posts widget-order-summary p-4">
-            <h3 class="widget-title">Order Summary</h3>
+            <h3 class="widget-title">Hóa đơn</h3>
 
-            <p class="free-shippin-aa"><em>Free Shipping After order $1,000.00</em></p>
+            <!-- <p class="free-shippin-aa"><em>Free Shipping After order $1,000.00</em></p> -->
             @php
                 
                 $total_cart = \App\Models\Cart::whereUserId(auth()->id())->sum('sub_total');
@@ -16,23 +16,23 @@
             <table class="table">
                 <tbody>
                     <tr>
-                        <td>Cart Subtotal:</td>
-                        <td class="text-gray-dark">$ {{ $total_cart }}</td>
+                        <td>Giá đơn hàng:</td>
+                        <td class="text-gray-dark">{{ $total_cart }}</td>
                     </tr>
                     <tr>
-                        <td>Shipping:</td>
-                        <td class="text-gray-dark">$20.00</td>
+                        <td>Phí Ship:</td>
+                        <td class="text-gray-dark">20</td>
                     </tr>
                     <tr>
-                        <td class="text-lg text-primary">Order total</td>
-                        <td class="text-lg text-primary grand_total_set">$ {{ $total_cart - 20 }}</td>
+                        <td class="text-lg text-primary">Tổng hóa đơn</td>
+                        <td class="text-lg text-primary grand_total_set">{{ $total_cart + 20 }}</td>
                     </tr>
                 </tbody>
             </table>
         </section>
         <!-- Items in Cart Widget-->
         <section class="card widget widget-featured-posts widget-featured-products p-4">
-            <h3 class="widget-title">Items In Your Cart</h3>
+            <h3 class="widget-title">Sản phẩm trong đơn hàng</h3>
 
             @foreach ($carts as $cart)
                 <div class="entry">
@@ -45,7 +45,7 @@
                                 href="{{ route('user.product_details', ['slug'=>$cart->product->slug]) }}">
                                 {{ Illuminate\Support\Str::substr($cart->product->name,0,10)}}
                             </a></h4>
-                        <span class="entry-meta">{{ $cart->qty }} x ${{ $cart->total }}</span>
+                        <span class="entry-meta">{{ $cart->qty }} x {{ $cart->total }}</span>
                     </div>
                 </div>
             @endforeach
