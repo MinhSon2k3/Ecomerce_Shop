@@ -3,7 +3,7 @@
 
 <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>@yield('title') | Pakistan online ( Online bazaar )</title>
+    <title>Home Admin</title>
     <meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
     <link rel="icon" type="image/x-icon"
         href="https://geniusdevs.com/codecanyon/omnimart40/assets/images/1629651232pre.png" />

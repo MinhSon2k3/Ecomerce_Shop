@@ -12,9 +12,9 @@
                 <div class="card mb-4">
                     <div class="card-body">
                         <div class="d-sm-flex align-items-center justify-content-between">
-                            <h3 class="mb-0 bc-title"><b>Create Child Category</b> </h3>
+                            <h3 class="mb-0 bc-title"><b>Tạo danh mục con</b> </h3>
                             <a class="btn btn-primary btn-sm" href="{{ route('admin.child-category.index') }}"><i
-                                    class="fas fa-chevron-left"></i> Back</a>
+                                    class="fas fa-chevron-left"></i> Quay lại</a>
                         </div>
                     </div>
                 </div>
@@ -33,9 +33,9 @@
                                             method="POST" enctype="multipart/form-data">
                                             @csrf
                                             <div class="form-group">
-                                                <label for="name">Name *</label>
+                                                <label for="name">Tên *</label>
                                                 <input type="text" name="name" class="form-control item-name"
-                                                    id="name" placeholder="Enter Name" value="">
+                                                    id="name" placeholder="Nhập tên" value="">
                                                 @error('name')
                                                     <span class="text-danger">{{ $message }}</span>
                                                 @enderror
@@ -57,7 +57,7 @@
                                             <div class="form-group">
                                                 <label for="slug">Danh mục phụ*</label>
                                                 <select name="sub_cat_id" id="sub_cat_id" class="form-control">
-                                                    <option value="">Select Category</option>
+                                                    <option value="">Chọn danh mục phụ</option>
                                                 </select>
                                                 @error('sub_cat_id')
                                                     <span class="text-danger">{{ $message }}</span>
@@ -65,7 +65,7 @@
                                             </div>
 
                                             <div class="form-group">
-                                                <button type="submit" class="btn btn-secondary ">Submit</button>
+                                                <button type="submit" class="btn btn-secondary ">Lưu</button>
                                             </div>
                                         </form>
                                     </div>
@@ -78,7 +78,6 @@
         </div>
     </div>
 @endsection
-
 @section('footer')
     <script>
         $("#cat_id").on('change',function(){

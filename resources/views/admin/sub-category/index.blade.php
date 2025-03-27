@@ -13,13 +13,12 @@
                 <div class="card mb-4">
                     <div class="card-body">
                         <div class="d-sm-flex align-items-center justify-content-between">
-                            <h3 class="mb-0 bc-title"><b>Sub Categories</b></h3>
+                            <h3 class="mb-0 bc-title"><b>Danh mục phụ</b></h3>
                             <a class="btn btn-primary  btn-sm" href="{{ route('admin.sub-category.create') }}"><i
-                                    class="fas fa-plus"></i> Add</a>
+                                    class="fas fa-plus"></i>Thêm</a>
                         </div>
                     </div>
                 </div>
-
                 <!-- DataTales -->
                 <div class="card shadow mb-4">
                     <div class="card-body">
@@ -28,10 +27,10 @@
                                 cellspacing="0">
                                 <thead>
                                     <tr>
-                                        <th>Name</th>
-                                        <th>Category</th>
-                                        <th>Status</th>
-                                        <th>Actions</th>
+                                        <th>Tên</th>
+                                        <th>Danh mục</th>
+                                        <th>Trạng thái</th>
+                                        <th>Hành động</th>
                                     </tr>
                                 </thead>
 
@@ -51,14 +50,14 @@
                                                     <button class="btn btn-success btn-sm  dropdown-toggle" type="button"
                                                         id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
                                                         aria-expanded="false">
-                                                        {{ $category->status == 1 ? 'Enable' : 'Disable' }}
+                                                        {{ $category->status == 1 ? 'Hiển thị' : 'Ẩn' }}
                                                     </button>
                                                     <div class="dropdown-menu animated--fade-in"
                                                         aria-labelledby="dropdownMenuButton">
                                                         <a class="dropdown-item"
-                                                            href="{{ route('admin.sub-category.change.status', ['id' => $category->id]) }}">Enable</a>
+                                                            href="{{ route('admin.sub-category.change.status', ['id' => $category->id]) }}">Hiển thị</a>
                                                         <a class="dropdown-item"
-                                                            href="{{ route('admin.sub-category.change.status', ['id' => $category->id]) }}">Disable</a>
+                                                            href="{{ route('admin.sub-category.change.status', ['id' => $category->id]) }}">Ẩn</a>
                                                     </div>
                                                 </div>
                                             </td>
@@ -93,20 +92,20 @@
 
                                                         <!-- Modal Body -->
                                                         <div class="modal-body">
-                                                            You are going to delete this category. All contents related with
-                                                            this category will be lost. Do you want
-                                                            to delete it?
+                                                        Bạn sắp xóa danh mục phụ này. Tất cả nội dung liên quan đến
+                                                        danh mục này sẽ bị mất. Bạn có muốn
+                                                        xóa nó không?
                                                         </div>
 
                                                         <!-- Modal footer -->
                                                         <div class="modal-footer">
                                                             <button type="button" class="btn btn-secondary"
-                                                                data-dismiss="modal">Cancel</button>
+                                                                data-dismiss="modal">Hủy bỏ</button>
                                                             <form
                                                                 action="{{ route('admin.sub-category.delete', ['id' => $category->id]) }}"
                                                                 class="d-inline btn-ok" method="get">
                                                                 <button type="submit"
-                                                                    class="btn btn-danger">Delete</button>
+                                                                    class="btn btn-danger">Xóa</button>
                                                             </form>
                                                         </div>
 

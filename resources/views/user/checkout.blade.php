@@ -21,21 +21,21 @@
                 @include('includes.steps')
                 <div class="card">
                     <div class="card-body">
-                        <h6>Billing Address</h6>
+                        <h6>Địa chỉ thanh toán</h6>
                         <form id="checkoutBilling"
                             action="{{ route('user.billing_address') }}" method="POST">
                             @csrf
                             <div class="row">
                                 <div class="col-sm-6">
                                     <div class="form-group">
-                                        <label for="checkout-fn">First Name</label>
+                                        <label for="checkout-fn">Tên</label>
                                         <input class="form-control" disabled name="bill_first_name" type="text" required=""
                                             id="checkout-fn" value="{{ Auth::user()->first_name }}">
                                     </div>
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="form-group">
-                                        <label for="checkout-ln">Last Name</label>
+                                        <label for="checkout-ln">Họ</label>
                                         <input class="form-control" disabled name="bill_last_name" type="text" required=""
                                             id="checkout-ln" value="{{ Auth::user()->last_name }}">
                                     </div>
@@ -44,14 +44,14 @@
                             <div class="row">
                                 <div class="col-sm-6">
                                     <div class="form-group">
-                                        <label for="checkout_email_billing">E-mail Address</label>
+                                        <label for="checkout_email_billing">E-mail</label>
                                         <input class="form-control" disabled name="bill_email" type="email" required=""
                                             id="checkout_email_billing" value="{{ Auth::user()->email }}">
                                     </div>
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="form-group">
-                                        <label for="checkout-phone">Phone Number</label>
+                                        <label for="checkout-phone">Số điện thoại</label>
                                         <input class="form-control" name="phone" type="text" id="checkout-phone"
                                             required="" value="{{ $billing_address->phone }}">
 
@@ -62,7 +62,7 @@
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="form-group">
-                                        <label for="checkout-phone">Address1</label>
+                                        <label for="checkout-phone">Địa chỉ 1</label>
                                         <input class="form-control" name="address1" type="text" id="checkout-phone"
                                             required="" value="{{ $billing_address->address1 }}">
                                             @error('address1')
@@ -72,7 +72,7 @@
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="form-group">
-                                        <label for="checkout-phone">Address2</label>
+                                        <label for="checkout-phone">Địa chỉ 2</label>
                                         <input class="form-control" name="address2" type="text" id="checkout-phone"
                                             required="" value="{{ $billing_address->address2 }}">
                                             @error('address2')
@@ -93,7 +93,7 @@
 
                                 <div class="col-sm-6">
                                     <div class="form-group">
-                                        <label for="checkout-phone">Company</label>
+                                        <label for="checkout-phone">Công ty</label>
                                         <input class="form-control" name="company" type="text" id="checkout-phone"
                                             required="" value="{{ $billing_address->company }}">
 
@@ -101,7 +101,7 @@
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="form-group">
-                                        <label for="checkout-phone">City</label>
+                                        <label for="checkout-phone">Thành phố</label>
                                         <input class="form-control" name="city" type="text" id="checkout-phone"
                                             required="" value="{{ $billing_address->city }}">
                                             @error('city')
@@ -114,20 +114,19 @@
                             <div class="form-group">
                                 <div class="custom-control custom-checkbox">
                                     <input class="custom-control-input" type="checkbox" id="trams__condition">
-                                    <label class="custom-control-label" for="trams__condition">This site is protected by
-                                        reCAPTCHA and the <a href="http://localhost/my/omnimart3/privacy-policy"
-                                            target="_blank">Privacy Policy</a> and <a
-                                            href="http://localhost/my/omnimart3/terms-and-service" target="_blank">Terms of
-                                            Service</a> apply.</label>
+                                    <label class="custom-control-label" for="trams__condition">Trang web này được bảo vệ bởi
+                                    reCAPTCHA và <a href="http://localhost/my/omnimart3/privacy-policy"
+                                            target="_blank">Chính sách quyền riêng tư</a> và <a
+                                            href="http://localhost/my/omnimart3/terms-and-service" target="_blank">Điều khoản dịch vụ</a>.</label>
                                 </div>
                             </div>
 
                             <div class="d-flex justify-content-between paddin-top-1x mt-4">
                                 <a class="btn btn-primary btn-sm"
                                     href="https://geniusdevs.com/codecanyon/omnimart40/cart"><span class="hidden-xs-down"><i
-                                            class="icon-arrow-left"></i>Back To Cart</span></a>
+                                            class="icon-arrow-left"></i>Quay lại giỏ hàng</span></a>
                                 <button disabled="" id="continue__button" class="btn btn-primary  btn-sm"
-                                    type="button"><span class="hidden-xs-down">Continue</span><i
+                                    type="button"><span class="hidden-xs-down">Tiếp tục</span><i
                                         class="icon-arrow-right"></i></button>
                             </div>
                         </form>

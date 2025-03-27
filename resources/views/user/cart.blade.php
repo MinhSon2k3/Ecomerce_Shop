@@ -10,7 +10,7 @@
                     <ul class="breadcrumbs">
                         <li><a href="/">Home</a> </li>
                         <li class="separator"></li>
-                        <li>Cart</li>
+                        <li>Giỏ hàng</li>
                     </ul>
                 </div>
             </div>
@@ -25,12 +25,11 @@
                         <table class="table table-bordered">
                             <thead>
                                 <tr>
-                                    <th>Product Name</th>
-                                    <th>Product Price</th>
-                                    <th class="text-center">Quantity</th>
-                                    <th class="text-center">Subtotal</th>
-                                    <th class="text-center"><a class="btn btn-sm btn-primary" href="{{ route('user.cart.clear') }}"><span>Clear
-                                                Cart</span></a>
+                                    <th>Sản phẩm</th>
+                                    <th>Giá</th>
+                                    <th class="text-center">Số lượng</th>
+                                    <th class="text-center">Tổng tiền</th>
+                                    <th class="text-center"><a class="btn btn-sm btn-primary" href="{{ route('user.cart.clear') }}"><span>Xóa khỏi giỏ hàng</span></a>
                                     </th>
                                 </tr>
                             </thead>
@@ -56,16 +55,15 @@
                                             </div>
                                         </td>
                                         <td class="text-center text-lg">${{ $cart->total }}</td>
-                                        <td class="text-center">
-                                            <form action="{{ route('user.cart.update') }}" method="POST" >
-                                                @csrf
-                                                <div class="product-quantity">
-                                                    <input type="number " name="qty" value="{{ $cart->qty }}" class="qtyValue cartcart-amount" >
-                                                    <input type="hidden" value="{{ $cart->id }}" name="id"
-                                                        id="">
-                                                        <button type="submit" style="display: none"></button>
-                                                </div>
-                                            </form>
+                                        <td class="text-center align-middle">
+                                            <div class="d-flex justify-content-center align-items-center">
+                                                <form action="{{ route('user.cart.update') }}" method="POST" class="d-flex align-items-center">
+                                                    @csrf
+                                                    <input type="number" name="qty" value="{{ $cart->qty }}" class="form-control text-center me-2" style="width: 70px; height: 38px;">
+                                                    <input type="hidden" value="{{ $cart->id }}" name="id">
+                                                    <button type="submit" class="btn btn-warning">Lưu</button>
+                                                </form>
+                                            </div>
                                         </td>
                                         <td class="text-center text-lg">${{ $cart->sub_total }}</td>
                                         <td class="text-center"><a class="remove-from-cart"
@@ -87,15 +85,15 @@
                         <div class="text-right text-lg column d-none"><span class="text-muted">Discount () : </span><span
                                 class="text-gray-dark">$0.00</span></div>
 
-                        <div class="text-right column text-lg"><span class="text-muted">Subtotal: </span><span
+                        <div class="text-right column text-lg"><span class="text-muted">Tổng đơn hàng: </span><span
                                 class="text-gray-dark">$ {{ $total_cart }}</span></div>
                     </div>
                     <div class="shopping-cart-footer">
                         <div class="column"><a class="btn btn-primary "
                                 href="/shop"><span><i
-                                        class="icon-arrow-left"></i> Back to Shopping</span></a></div>
+                                        class="icon-arrow-left"></i>Quay lại mua sắm</span></a></div>
                         <div class="column"><a class="btn btn-primary"
-                                href="{{ route('user.checkout') }}"><span>Checkout</span></a>
+                                href="{{ route('user.checkout') }}"><span>Thanh toán</span></a>
                         </div>
                     </div>
                 </div>

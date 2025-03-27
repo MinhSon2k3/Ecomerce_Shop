@@ -51,11 +51,10 @@
                                                     <span class="text-danger">{{ $message }}</span>
                                                 @enderror
                                             </div>
-
                                             <div class="form-group">
                                                 <label for="name">Tên *</label>
                                                 <input type="text" name="name" class="form-control item-name"
-                                                    id="name" placeholder="Enter Name" value="">
+                                                    id="name" placeholder="Nhập tên" value="">
                                                 @error('name')
                                                     <span class="text-danger">{{ $message }}</span>
                                                 @enderror
@@ -91,7 +90,7 @@
                                             </div>
 
                                             <div class="form-group">
-                                                <button type="submit" class="btn btn-secondary ">Submit</button>
+                                                <button type="submit" class="btn btn-secondary ">Lưu</button>
                                             </div>
                                         </form>
                                     </div>

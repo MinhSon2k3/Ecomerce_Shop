@@ -12,9 +12,9 @@
                 <div class="card mb-4">
                     <div class="card-body">
                         <div class="d-sm-flex align-items-center justify-content-between">
-                            <h3 class="mb-0 bc-title"><b>Create Sub Category</b> </h3>
+                            <h3 class="mb-0 bc-title"><b>Thêm danh mục phụ</b> </h3>
                             <a class="btn btn-primary btn-sm" href="{{ route('admin.sub-category.index') }}"><i
-                                    class="fas fa-chevron-left"></i> Back</a>
+                                    class="fas fa-chevron-left"></i> Quay lại</a>
                         </div>
                     </div>
                 </div>
@@ -33,7 +33,7 @@
                                             method="POST" enctype="multipart/form-data">
                                             @csrf
                                             <div class="form-group">
-                                                <label for="name">Name *</label>
+                                                <label for="name">Tên *</label>
                                                 <input type="text" name="name" class="form-control item-name"
                                                     id="name" placeholder="Enter Name" value="">
                                                 @error('name')
@@ -42,9 +42,9 @@
                                             </div>
 
                                             <div class="form-group">
-                                                <label for="slug">Parent Category *</label>
+                                                <label for="slug">Danh mục cha *</label>
                                                 <select name="cat_id" id="cat_id" class="form-control">
-                                                    <option value="">Select Category</option>
+                                                    <option value="">Chọn danh mục cha</option>
                                                     @foreach ($categories as $category)
                                                         <option value="{{ $category->id }}">{{ $category->name }}</option>
                                                     @endforeach
@@ -55,7 +55,7 @@
                                             </div>
 
                                             <div class="form-group">
-                                                <button type="submit" class="btn btn-secondary ">Submit</button>
+                                                <button type="submit" class="btn btn-secondary ">Lưu</button>
                                             </div>
                                         </form>
                                     </div>

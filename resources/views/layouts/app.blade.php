@@ -461,13 +461,13 @@ body_theme1
                             <div class="col-sm-12">
                                 <div class="input-group">
                                     <input class="form-control" type="email" name="email"
-                                        placeholder="Your e-mail">
+                                        placeholder="Nhập e-mail">
                                     <span class="input-group-addon"><i class="icon-mail"></i></span>
                                 </div>
                             </div>
                             <div class="col-sm-12">
                                 <button class="btn btn-primary btn-block mt-2" type="submit">
-                                    <span>Subscribe</span>
+                                    <span>Đăng ký</span>
                                 </button>
                             </div>
                         </form>

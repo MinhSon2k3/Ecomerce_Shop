@@ -191,10 +191,12 @@ class HomeController extends Controller
 
     function product_by_brand($slug): View
     {
-        $brand = Brand::whereSlug($slug)->first();
+        
+        $brand = Brand::whereSlug($slug)->first();  
         $categories = Category::latest()->get();
         $brands = Brand::latest()->get();
-        $products = Product::where('cat_id', $brand->id)->latest()->get();
+        $products = Product::where('brand_id', $brand->id)->latest()->get();
+      
         return view('user.shop', compact('categories', 'products', 'brands'));
     }
 
