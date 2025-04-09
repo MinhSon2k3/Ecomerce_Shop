@@ -42,7 +42,7 @@ class CategoryController extends Controller
         $category->meta_description = $request->meta_description;
         $category->serial = $request->serial;
         $category->save();
-        return redirect()->route('admin.category.index')->with('success', 'Category add successfully');
+        return redirect()->route('admin.category.index')->with('success', 'Thêm danh mục thành công');
     }
     function edit($id): View
     {
@@ -72,7 +72,7 @@ class CategoryController extends Controller
         $category->meta_description = $request->meta_description;
         $category->serial = $request->serial;
         $category->save();
-        return redirect()->route('admin.category.index')->with('success', 'Category Update successfully');
+        return redirect()->route('admin.category.index')->with('success', 'Cập nhật danh mục thành công');
     }
     function delete($id): RedirectResponse
     {
@@ -82,7 +82,7 @@ class CategoryController extends Controller
             File::delete($path);
         }
         $category->delete();
-        return redirect()->route('admin.category.index')->with('success', 'Category Delete successfully');
+        return redirect()->route('admin.category.index')->with('success', 'Xóa danh mục thành công');
     }
 
     function update_status($id): RedirectResponse
@@ -92,12 +92,12 @@ class CategoryController extends Controller
             $category->status = 0;
             $category->save();
 
-            return redirect()->route('admin.category.index')->with('success', 'Category Status un-active successfully');
+            return redirect()->route('admin.category.index')->with('success', 'Đã ẩn danh mục');
         } else {
             $category->status = 1;
             $category->save();
 
-            return redirect()->route('admin.category.index')->with('success', 'Category Status active successfully');
+            return redirect()->route('admin.category.index')->with('success', 'Đã hiển thị danh mục');
         }
     }
 }

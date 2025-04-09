@@ -34,7 +34,7 @@ class SubCategoryController extends Controller
         $sub_category->slug = Str::slug($request->name);
         $sub_category->cat_id = $request->cat_id;
         $sub_category->save();
-        return redirect()->route('admin.sub-category.index')->with('success', 'SubCategory add successfully');
+        return redirect()->route('admin.sub-category.index')->with('success', 'Thêm thành công danh mục con');
     }
     function edit($id): View
     {
@@ -54,12 +54,12 @@ class SubCategoryController extends Controller
         $sub_category->slug = Str::slug($request->name);
         $sub_category->cat_id = $request->cat_id;
         $sub_category->save();
-        return redirect()->route('admin.sub-category.index')->with('success', 'SubCategory Update successfully');
+        return redirect()->route('admin.sub-category.index')->with('success', 'Cập nhật danh mục phụ thành công');
     }
     function delete($id): RedirectResponse
     {
         SubCategory::findOrFail($id)->delete();
-        return redirect()->route('admin.sub-category.index')->with('success', 'SubCategory Delete successfully');
+        return redirect()->route('admin.sub-category.index')->with('success', 'Đã xóa thành công danh mục phụ');
     }
 
     function update_status($id): RedirectResponse
@@ -69,11 +69,11 @@ class SubCategoryController extends Controller
             $sub_category->status = 0;
             $sub_category->save();
 
-            return redirect()->route('admin.sub-category.index')->with('success', 'SubCategory Status un-active successfully');
+            return redirect()->route('admin.sub-category.index')->with('success', 'Đã ẩn danh mục phụ');
         } else {
             $sub_category->status = 1;
             $sub_category->save();
-            return redirect()->route('admin.sub-category.index')->with('success', 'SubCategory Status active successfully');
+            return redirect()->route('admin.sub-category.index')->with('success', 'Đã hiển thị danh mục phụ');
         }
     }
 }

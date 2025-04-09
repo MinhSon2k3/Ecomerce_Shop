@@ -197,10 +197,9 @@
                                             placeholder="Enter Your Transaction Number" required="">
                                     </div>
                                     <p></p>
-                                    <p>Account Number : 434 3434 3334</p>
-                                    <p>Pay With Bank Transfer.</p>
-                                    <p>Account Name : Jhon Due</p>
-                                    <p>Account Email : demo@gmail.com</p>
+                                    <p>Số tài khoản: 434 3434 3334</p>
+                                    <p>Tên tài khoản : Jhon Due</p>
+                                    <p>Email : demo@gmail.com</p>
                                     <p></p>
                                 </div>
                                 <div class="modal-footer"> 
@@ -209,8 +208,7 @@
                                         name="payment_method" value="Bank"> 
                                     <button class="btn btn-primary btn-sm" type="button"
                                         data-bs-dismiss="modal">Cancel</button>
-                                    <button class="btn btn-primary btn-sm" type="submit"><span>Checkout With Bank
-                                            Transfer</span></button>
+                                    <button class="btn btn-primary btn-sm" type="submit"><span>Thanh toán bằng chuyển khoản ngân hàng</span></button>
 
                                 </div>
                             </form>

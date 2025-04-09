@@ -33,7 +33,6 @@
         <!-- Items in Cart Widget-->
         <section class="card widget widget-featured-posts widget-featured-products p-4">
             <h3 class="widget-title">Sản phẩm trong đơn hàng</h3>
-
             @foreach ($carts as $cart)
                 <div class="entry">
                     <div class="entry-thumb"><a

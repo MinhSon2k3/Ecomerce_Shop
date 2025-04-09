@@ -59,40 +59,40 @@ class ManageController extends Controller
     function pending_status($id)
     {
         $order = Order::findOrFail($id);
-        $order->order_status = 'pending';
+        $order->order_status = 'Chưa xử lý';
         $order->save();
         $transaction = Transaction::whereOrderId($order->uuid)->first();
-        $transaction->payment_status = 'pending';
+        $transaction->payment_status = 'Chưa xử lý';
         $transaction->save();
         return redirect()->back()->with('success', 'Status is in pending');
     }
     function progress_status($id)
     {
         $order = Order::findOrFail($id);
-        $order->order_status = 'progress';
+        $order->order_status = 'Đang vận chuyển';
         $order->save();
         $transaction=Transaction::whereOrderId($order->uuid)->first();
-        $transaction->payment_status='progress';
+        $transaction->payment_status='Đang vận chuyển';
             $transaction->save();
         return redirect()->back()->with('success', 'Status is in progress');
     }
     function delivered_status($id)
     {
         $order = Order::findOrFail($id);
-        $order->order_status = 'delivered';
+        $order->order_status = 'Đã giao';
         $order->save();
         $transaction=Transaction::whereOrderId($order->uuid)->first();
-        $transaction->payment_status='delivered';
+        $transaction->payment_status='Đã giao';
             $transaction->save();
         return redirect()->back()->with('success', 'Status is in delivered');
     }
     function canceled_status($id)
     {
         $order = Order::findOrFail($id);
-        $order->order_status = 'canceled';
+        $order->order_status = 'Hủy';
         $order->save();
         $transaction=Transaction::whereOrderId($order->uuid)->first();
-        $transaction->payment_status='canceled';
+        $transaction->payment_status='Hủy';
             $transaction->save();
         return redirect()->back()->with('success', 'Status is in canceled');
     }

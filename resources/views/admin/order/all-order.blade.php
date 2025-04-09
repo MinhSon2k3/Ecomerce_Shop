@@ -114,17 +114,16 @@
                                                     aria-labelledby="dropdownMenuButton">
                                                     <a class="dropdown-item" data-toggle="modal" data-target="#statusModal"
                                                         href="javascript:;"
-                                                        data-href="{{ route('admin.order.change.pending.status', ['id'=>$order->id]) }}">Pending</a>
+                                                        data-href="{{ route('admin.order.change.pending.status', ['id'=>$order->id]) }}">Chưa xử lý</a>
                                                     <a class="dropdown-item" data-toggle="modal" data-target="#statusModal"
                                                         href="javascript:;"
-                                                        data-href="{{ route('admin.order.change.progress.status', ['id'=>$order->id]) }}">In
-                                                        Progress</a>
+                                                        data-href="{{ route('admin.order.change.progress.status', ['id'=>$order->id]) }}">Đang vận chuyển</a>
                                                     <a class="dropdown-item" data-toggle="modal"
                                                         data-target="#statusModal" href="javascript:;"
-                                                        data-href="{{ route('admin.order.change.delivered.status', ['id'=>$order->id]) }}">Delivered</a>
+                                                        data-href="{{ route('admin.order.change.delivered.status', ['id'=>$order->id]) }}">Đã giao</a>
                                                     <a class="dropdown-item" data-toggle="modal"
                                                         data-target="#statusModal" href="javascript:;"
-                                                        data-href="{{ route('admin.order.change.canceled.status', ['id'=>$order->id]) }}">Canceled</a>
+                                                        data-href="{{ route('admin.order.change.canceled.status', ['id'=>$order->id]) }}">Hủy</a>
                                                 </div>
                                             </div>
                                         </td>

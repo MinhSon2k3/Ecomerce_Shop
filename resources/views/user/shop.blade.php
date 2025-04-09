@@ -91,83 +91,22 @@
                         <h3 class="widget-title">Danh mục</h3>
                         <ul id="category_list" class="category-scroll">
                             @foreach ($categories as $category)
-                            <li class="has-children">
-                                <a class="category_search" href="#" data-href="Women-Clothing">{{ $category->name }}</a>
+                                <li class="has-children">
+                                    <a class="category_search" href="#" data-href="Women-Clothing">{{ $category->name }}</a>
 
-                                <ul id="subcategory_list">
-                                    @foreach ($category->sub_category as $sub_category)
-                                    <li class="">
-                                        <a class="subcategory" href="{{ route('user.shop.sub.category', ['id'=>$sub_category->id,'cat_id'=>$category->id]) }}" data-href="Womens-Underwear">{{ $sub_category->name }}</a>
-                                        <ul id="childcategory_list">
-                                        @foreach ($sub_category->child_category as $child_category)
+                                    <ul id="subcategory_list">
+                                        @foreach ($category->sub_category as $sub_category)
                                             <li class="">
-                                                <a class="childcategory" href="{{ route('user.shop.child.category', ['id'=>$child_category->id,'sub_id'=>$sub_category->id,'cat_id'=>$category->id]) }}" data-href="Pajama-Sets">{{ $child_category->name }}</a>
-
+                                                <a class="subcategory" href="{{ route('user.shop.sub.category', ['id' => $sub_category->id, 'cat_id' => $category->id]) }}" data-href="Womens-Underwear">
+                                                    {{ $sub_category->name }}
+                                                </a>
                                             </li>
-                                            @endforeach
-                                        </ul>
-                                    </li>
-                                    @endforeach
-                                </ul>
-                            </li>
+                                        @endforeach
+                                    </ul>
+                                </li>
                             @endforeach 
                         </ul>
-                    </section>
-
-                    <!-- Widget Brand Filter-->
-                    {{-- <section class="widget widget-categories card rounded p-4">
-                        <h3 class="widget-title">Filter by Brand</h3>
-                        <div class="custom-control custom-checkbox">
-                            <input class="custom-control-input brand-select" type="checkbox" value=""
-                                id="all-brand">
-                            <label class="custom-control-label" for="all-brand">All Brands</label>
-                        </div>
-                        <div class="custom-control custom-checkbox">
-                            <input class="custom-control-input brand-select" type="checkbox" value="Adidas"
-                                id="Adidas">
-                            <label class="custom-control-label" for="Adidas">Adidas</label>
-                        </div>
-                        <div class="custom-control custom-checkbox">
-                            <input class="custom-control-input brand-select" type="checkbox" value="Lavie"
-                                id="Lavie">
-                            <label class="custom-control-label" for="Lavie">Lavie</label>
-                        </div>
-                        <div class="custom-control custom-checkbox">
-                            <input class="custom-control-input brand-select" type="checkbox" value="Skyart"
-                                id="Skyart">
-                            <label class="custom-control-label" for="Skyart">Skyart</label>
-                        </div>
-                        <div class="custom-control custom-checkbox">
-                            <input class="custom-control-input brand-select" type="checkbox" value="Nike"
-                                id="Nike">
-                            <label class="custom-control-label" for="Nike">Nike</label>
-                        </div>
-                        <div class="custom-control custom-checkbox">
-                            <input class="custom-control-input brand-select" type="checkbox" value="Samsung"
-                                id="Samsung">
-                            <label class="custom-control-label" for="Samsung">Samsung</label>
-                        </div>
-                        <div class="custom-control custom-checkbox">
-                            <input class="custom-control-input brand-select" type="checkbox" value="Yamaha"
-                                id="Yamaha">
-                            <label class="custom-control-label" for="Yamaha">Yamaha</label>
-                        </div>
-                        <div class="custom-control custom-checkbox">
-                            <input class="custom-control-input brand-select" type="checkbox" value="HM"
-                                id="HM">
-                            <label class="custom-control-label" for="HM">H.M</label>
-                        </div>
-                        <div class="custom-control custom-checkbox">
-                            <input class="custom-control-input brand-select" type="checkbox" value="Loreal"
-                                id="Loreal">
-                            <label class="custom-control-label" for="Loreal">Loreal</label>
-                        </div>
-                        <div class="custom-control custom-checkbox">
-                            <input class="custom-control-input brand-select" type="checkbox" value="Ascis"
-                                id="Ascis">
-                            <label class="custom-control-label" for="Ascis">Ascis</label>
-                        </div>
-                    </section> --}}
+                    </section>             
                 </aside>
             </div>
         </div>

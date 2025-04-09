@@ -44,7 +44,6 @@ class ProductController extends Controller
             'previous_price' => 'required',
             'cat_id' => 'required|exists:categories,id',
             'sub_cat_id' => 'required|exists:sub_categories,id',
-            'child_cat_id' => 'required|exists:child_categories,id',
             'brand_id' => 'required|exists:brands,id',
             'total_stock' => 'required',
         ]);
@@ -71,9 +70,9 @@ class ProductController extends Controller
         $product->previous_price = $request->previous_price;
         $product->cat_id = $request->cat_id;
         $product->sub_cat_id = $request->sub_cat_id;
-        $product->child_cat_id = $request->child_cat_id;
         $product->brand_id = $request->brand_id;
         $product->total_stock = $request->total_stock;
+       
         $product->save();
         return redirect()->route('admin.product.index')->with('success', 'Product Add successfully');
     }

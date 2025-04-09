@@ -27,7 +27,6 @@ return new class extends Migration
             $table->string('previous_price');
             $table->foreignId('cat_id')->constrained('categories')->cascadeOnDelete();
             $table->foreignId('sub_cat_id')->constrained('sub_categories')->cascadeOnDelete();
-            $table->foreignId('child_cat_id')->constrained('child_categories')->cascadeOnDelete();
             $table->foreignId('brand_id')->constrained('brands')->cascadeOnDelete();
             $table->string('total_stock');
             $table->integer('status')->default(1);

@@ -35,7 +35,7 @@ class LoginController extends Controller
         ]);
         $admin = Auth::guard('admin')->attempt(['email' => $request->email, 'password' => $request->password]);
         if ($admin) {
-            return redirect()->route('admin.dashboard')->with('success', 'Login successfully');
+            return redirect()->route('admin.dashboard')->with('success', 'Đăng nhập thành công');
         } else {
             return redirect()->back()->with('error', 'Invalid username and password');
         }

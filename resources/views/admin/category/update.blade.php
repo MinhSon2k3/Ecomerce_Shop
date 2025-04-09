@@ -106,7 +106,6 @@
                                                     <span class="text-danger">{{ $message }}</span>
                                                 @enderror
                                             </div>
-
                                             <div class="form-group">
                                                 <button type="submit" class="btn btn-secondary ">Lưu</button>
                                             </div>

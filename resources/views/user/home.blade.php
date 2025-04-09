@@ -79,7 +79,7 @@ Home
                 <div class="section-title">
                     <h2 class="h3">{{ $categories1->name }}</h2>
                     <div class="right-area">
-                        <a class="right_link" href="">Xem tất cả <i class="icon-chevron-right"></i></a>
+                        <a class="right_link" href="{{ route('user.shop') }}">Xem tất cả <i class="icon-chevron-right"></i></a>
                     </div>
                 </div>
             </div>
@@ -181,8 +181,7 @@ Home
                 <div class="section-title">
                     <h2 class="h3">{{ $categories2->name }}</h2>
                     <div class="right-area">
-                        <a class="right_link" href="">Xem tất cả<i class="icon-chevron-right"></i></a>
-
+                        <a class="right_link" href="{{ route('user.shop') }}">Xem tất cả<i class="icon-chevron-right"></i></a>
                     </div>
                 </div>
             </div>
@@ -286,7 +285,7 @@ Home
                 <div class="section-title">
                     <h2 class="h3">{{ $categories3->name }}</h2>
                     <div class="right-area">
-                        <a class="right_link" href="">Xem tất cả<i class="icon-chevron-right"></i></a>
+                        <a class="right_link" href="{{ route('user.shop') }}">Xem tất cả<i class="icon-chevron-right"></i></a>
 
                     </div>
                 </div>
@@ -381,7 +380,7 @@ Home
                 <div class="section-title">
                     <h2 class="h3">{{ $categories4->name }}</h2>
                     <div class="right-area">
-                        <a class="right_link" href="">Xem tất cả<i class="icon-chevron-right"></i></a>
+                        <a class="right_link" href="{{ route('user.shop') }}">Xem tất cả<i class="icon-chevron-right"></i></a>
 
                     </div>
                 </div>

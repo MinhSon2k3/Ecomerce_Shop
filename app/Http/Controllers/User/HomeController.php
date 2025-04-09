@@ -110,10 +110,12 @@ class HomeController extends Controller
 
     function add_to_cart($id): RedirectResponse
     {
+       
         $product = Product::findOrFail($id);
+      
+    
         $cart = Cart::whereUserIdAndProductId(auth()->id(), $id)->first();
-
-
+    
         if ($cart) {
             $cart->qty = $cart->qty + 1;
             $cart->sub_total = $cart->total * $cart->qty;
@@ -121,6 +123,7 @@ class HomeController extends Controller
             return redirect()->back()->with('success', 'Product update successfully');
         } else {
             $number = str_replace(",", "", $product->current_price);
+                        
             Cart::create([
                 'user_id' => auth()->id(),
                 'product_id' => $id,
@@ -147,9 +150,9 @@ class HomeController extends Controller
 
     function shop(Request $request): View
     {
-        $categories = Category::latest()->get();
-        $brands = Brand::latest()->get();
-        $products = Product::latest()->get();
+        $categories = Category::where('status', 1)->latest()->get();
+        $brands = Brand::where('status', 1)->latest()->get();
+        $products = Product::where('status', 1)->latest()->get();
         return view('user.shop', compact('categories', 'products', 'brands'));
     }
 
@@ -180,7 +183,6 @@ class HomeController extends Controller
         return view('user.shop', compact('categories', 'products', 'brands'));
     }
 
-
     function product_by_child_category($id, $cat_id, $sub_id): View
     {
         $categories = Category::latest()->get();
@@ -202,14 +204,17 @@ class HomeController extends Controller
 
     function brands(): View
     {
-        $brands = Brand::latest()->get();
+        $brands = Brand::where('status', 1)->latest()->get();
         $categories = Category::latest()->get();
         return view('user.brand', compact('brands','categories'));
     }
 
     function category(): View
     {
-        $categories = Category::latest()->get();
+        $categories = Category::where('status', 1)
+        ->with('sub_category') // nếu bạn cần load sub_category
+        ->latest()
+        ->get();
         return view('user.category', compact('categories'));
     }
 
@@ -262,11 +267,14 @@ class HomeController extends Controller
     function subscribe(Request $request): RedirectResponse
     {
         $validate = $request->validate([
-            'email' => 'required|email|exists:subscribes'
+            'email' => 'required|email|unique:subscribes,email'
         ]);
+    
         Subscribe::create($validate);
-        return redirect()->back()->with('success', 'Subscribe successfully');
+    
+        return redirect()->back()->with('success', 'Đăng ký thành công');
     }
+    
 
     function contact(): View
     {

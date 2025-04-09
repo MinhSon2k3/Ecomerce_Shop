@@ -31,7 +31,7 @@ class LoginController extends Controller
         ]);
         $user = Auth::attempt(['email' => $request->email_login, 'password' => $request->password_login]);
         if ($user) {
-            return redirect()->route('user.dashboard')->with('success', 'Login successfully');
+            return redirect()->route('user.dashboard')->with('success', 'Đăng nhập thành công');
         } else {
             return redirect()->route('user.register')->with('error', 'Invalid email and password');
         }

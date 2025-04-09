@@ -261,34 +261,27 @@ body_theme1
                                 <div class="tab-pane fade" id="mcat" role="tabpanel"
                                     aria-labelledby="mcat-tab">
                                     <nav class="slideable-menu">
-                                        <div class="widget-categories mobile-cat">
-                                            <ul id="category_list">
-                                                @foreach ($categories as $category)
-                                                    <li class="has-children">
-                                                        <a class="category_search"
-                                                            href="/shop/category/{{ $category->id }}">{{$category->name}}
-                                                            <span><i class="icon-chevron-down"></i></span>
-                                                        </a>
-                                                        <ul id="subcategory_list">
-                                                            @foreach ($category->sub_category as $sub_category)
-                                                            <li class="">
+                                    <div class="widget-categories mobile-cat">
+                                        <ul id="category_list">
+                                            @foreach ($categories as $category)
+                                                <li class="has-children">
+                                                    <a class="category_search"
+                                                        href="/shop/category/{{ $category->id }}">{{ $category->name }}
+                                                        <span><i class="icon-chevron-down"></i></span>
+                                                    </a>
+                                                    <ul id="subcategory_list">
+                                                        @foreach ($category->sub_category as $sub_category)
+                                                            <li>
                                                                 <a class="subcategory"
                                                                     href="/shop/category/{{ $sub_category->id }}/{{ $category->id }}">{{ $sub_category->name }}</a>
-                                                                <ul id="childcategory_list">
-                                                                    @foreach ($sub_category->child_category as $child_category)
-                                                                    <li class="">
-                                                                        <a class="childcategory"
-                                                                            href="/shop/category/{{ $child_category->id }}/{{ $category->id }}/{{ $sub_category->id }}">{{ $child_category->name }}</a>
-                                                                    </li>
-                                                                    @endforeach
-                                                                </ul>
                                                             </li>
-                                                            @endforeach
-                                                        </ul>
-                                                    </li>
-                                                @endforeach
-                                            </ul>
-                                        </div>
+                                                        @endforeach
+                                                    </ul>
+                                                </li>
+                                            @endforeach
+                                        </ul>
+                                    </div>
+
                                     </nav>
                                 </div>
                             </div>
@@ -309,48 +302,35 @@ body_theme1
                             <div class="category-list">
                                 @php
                                     $categories1 = \App\Models\Category::where('status', 1)
-                                        ->with('sub_category.child_category')
+                                        ->with('sub_category') // chỉ lấy sub_category, không lấy child_category
                                         ->latest()
                                         ->limit(8)
                                         ->get();
                                 @endphp
                                 @foreach ($categories1 as $category)
-                                <div class="c-item">
-                                    <a class="d-block navi-link" href="/shop/category/{{ $category->slug}}">
-                                        <img class="lazy" data-src="{{ asset('storage') }}/{{ $category->image }}">
-                                        <span class="text-gray-dark">{{ $category->name }}</span>
+                                    <div class="c-item">
+                                        <a class="d-block navi-link" href="/shop/category/{{ $category->slug }}">
+                                            <img class="lazy" data-src="{{ asset('storage') }}/{{ $category->image }}">
+                                            <span class="text-gray-dark">{{ $category->name }}</span>
+                                            @if (!empty($category->sub_category) && count($category->sub_category) > 0)
+                                                <i class="icon-chevron-right"></i>
+                                            @endif
+                                        </a>
+
                                         @if (!empty($category->sub_category) && count($category->sub_category) > 0)
-                                            <i class="icon-chevron-right"></i>
-                                        @endif
-                                    </a>
-
-                                    @if (!empty($category->sub_category) && count($category->sub_category) > 0)
-                                        <div class="sub-c-box">
-                                            <div class="child-c-box">
-                                                @foreach ($category->sub_category as $sub_category)
-                                                    <a class="title" href="/shop/category/{{ $sub_category->id }}/{{ $category->id }}">
-                                                        {{ $sub_category->name }}
-                                                        <i class="icon-chevron-right"></i>
-                                                    </a>
-
-                                                    @if (!empty($sub_category->child_category) && count($sub_category->child_category) > 0)
-                                                        <div class="child-category">
-                                                            @foreach ($sub_category->child_category as $child_category)
-                                                                <a href="/shop/category/{{ $child_category->id }}/{{ $category->id }}/{{ $sub_category->id }}">
-                                                                    {{ $child_category->name }}
-                                                                </a>
-                                                            @endforeach
-                                                        </div>
-                                                    @endif
-                                                @endforeach
+                                            <div class="sub-c-box">
+                                                <div class="child-c-box">
+                                                    @foreach ($category->sub_category as $sub_category)
+                                                        <a class="title" href="/shop/category/{{ $sub_category->id }}/{{ $category->id }}">
+                                                            {{ $sub_category->name }}
+                                                        </a>
+                                                    @endforeach
+                                                </div>
                                             </div>
-                                        </div>
-                                    @endif
-                                </div>
+                                        @endif
+                                    </div>
                                 @endforeach
-
                             </div>
-
                         </div>
 
                     </div>

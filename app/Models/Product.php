@@ -27,7 +27,6 @@ class Product extends Model
         'previous_price',
         'cat_id',
         'sub_cat_id',
-        'child_cat_id',
         'brand_id',
         'total_stock',
     ];

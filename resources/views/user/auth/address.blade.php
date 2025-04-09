@@ -8,9 +8,9 @@ Address
             <div class="row">
                 <div class="col-lg-12">
                     <ul class="breadcrumbs">
-                        <li><a href="/">Home</a> </li>
+                        <li><a href="/">Trang chủ</a> </li>
                         <li class="separator"></li>
-                        <li>Address</li>
+                        <li>Địa chỉ</li>
                     </ul>
                 </div>
             </div>
@@ -30,7 +30,7 @@ Address
                            
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="account-fn">Address 1</label>
+                                    <label for="account-fn">Địa chỉ</label>
                                     <input class="form-control"  name="address1" type="text" id="account-fn"
                                         value="{{ $address->address1 }}">
                                     @error('address1')
@@ -40,7 +40,7 @@ Address
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="account-ln">Address 1</label>
+                                    <label for="account-ln">Địa chỉ phụ</label>
                                     <input class="form-control" type="text" name="address2" id="account-ln"
                                         value="{{ $address->address2}}">
                                         @error('address2')
@@ -60,7 +60,7 @@ Address
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="account-phone">City</label>
+                                    <label for="account-phone">Thành phố</label>
                                     <input class="form-control" name="city" type="text" id="account-phone"
                                         value="{{ $address->city }}">
                                         @error('city')
@@ -70,15 +70,14 @@ Address
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="account-pass">Company</label>
+                                    <label for="account-pass">Công ty</label>
                                     <input class="form-control" name="company" value="{{ $address->company }}" type="text" id="account-pass">
                                 </div>
                             </div>
                             <div class="col-12">
                                 <hr class="mt-2 mb-3">
                                 <div class="d-flex flex-wrap justify-content-between align-items-center">
-                                    <button class="btn btn-primary margin-right-none" type="submit"><span>Update
-                                            Address</span></button>
+                                    <button class="btn btn-primary margin-right-none" type="submit"><span>Cập nhật địa chỉ</span></button>
                                 </div>
                             </div>
                         </form>
