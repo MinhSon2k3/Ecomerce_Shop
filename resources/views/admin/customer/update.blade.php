@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 @section('title')
-    Update Customer
+    Cập Nhật Khách Hàng
 @endsection
 @section('content')
     <div class="content">
@@ -8,14 +8,14 @@
 
             <div class="container-fluid">
 
-                <!-- Page Heading -->
+                <!-- Tiêu đề trang -->
                 <div class="card mb-4">
                     <div class="card-body">
                         <div class="d-sm-flex align-items-center justify-content-between">
-                            <h3 class=" mb-0  pl-3"><b>Customers Details</b> </h3>
+                            <h3 class=" mb-0  pl-3"><b>Chi Tiết Khách Hàng</b> </h3>
                             <a class="btn btn-primary btn-sm"
                                 href="{{ route('admin.customer') }}"><i
-                                    class="fas fa-chevron-left"></i> Back</a>
+                                    class="fas fa-chevron-left"></i> Quay lại</a>
                         </div>
                     </div>
                 </div>
@@ -35,41 +35,41 @@
                                             @endphp
                                             <tbody>
                                                 <tr>
-                                                    <th>First Name</th>
+                                                    <th>Tên</th>
                                                     <td> <input type="text" name="first_name" class="form-control"
                                                             id="text" value="{{ $name[0] }}"></td>
                                                 </tr>
                                                 <tr>
-                                                    <th>Last Name</th>
+                                                    <th>Họ</th>
                                                     <td><input type="text" name="last_name" class="form-control"
                                                             id="text" value="{{ $name[1] }}"></td>
                                                 </tr>
                                                 <tr>
-                                                    <th>Email Address</th>
+                                                    <th>Địa Chỉ Email</th>
                                                     <td><input type="text" name="email" class="form-control"
                                                             id="text" value="{{ $user->email }}"></td>
                                                 </tr>
                                                 <tr>
-                                                    <th>Phone Number</th>
+                                                    <th>Số Điện Thoại</th>
                                                     <td><input type="text" name="phone" class="form-control"
                                                             id="text" value="{{ $user->phone }}"></td>
                                                 </tr> 
                                                 <tr>
-                                                    <th>Password</th>
+                                                    <th>Mật khẩu</th>
                                                     <td><input type="password" name="password" class="form-control"
-                                                            id="text" placeholder="Password" value=""></td>
+                                                            id="text" placeholder="Mật khẩu" value=""></td>
                                                 </tr> 
                                                 <tr>
-                                                    <th>Total Orders</th>
-                                                    <td>{{ \App\Models\Order::whereUserId($user->phone)->count() }}</td>
+                                                    <th>Tổng Đơn Hàng</th>
+                                                    <td>{{ \App\Models\Order::where('user_id', $user->id)->count() }}</td>
                                                 </tr>
                                                 <tr>
-                                                    <th>Joined</th>
+                                                    <th>Ngày Tham Gia</th>
                                                     <td>{{ $user->created_at->diffForHumans() }}</td>
                                                 </tr>
                                             </tbody>
                                         </table>
-                                        <button type="submit" class="btn btn-secondary ">Submit</button>
+                                        <button type="submit" class="btn btn-secondary ">Cập nhật</button>
                                     </div>
                                 </div>
                             </div>

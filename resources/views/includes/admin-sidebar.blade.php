@@ -100,7 +100,7 @@
                             </li>
                             <li class="">
                                 <a class="sub-link" href="{{ route('admin.progress.order') }}">
-                                    <span class="sub-item">Đơn hàng đang xử lý</span>
+                                    <span class="sub-item">Đơn hàng đang vận chuyển</span>
                                 </a>
                             </li>
                             <li class="">

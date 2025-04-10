@@ -47,7 +47,7 @@
                                             <td>
                                             <div class="dropdown">
                                                 <!-- Nút hiển thị trạng thái hiện tại -->
-                                                <button class="btn btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                <button class="btn btn-sm btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                     {{ $product->status == 1 ? 'Hiện' : 'Ẩn' }}
                                                 </button>
                                                 <div class="dropdown-menu animated--fade-in" aria-labelledby="dropdownMenuButton">

@@ -1,19 +1,19 @@
 @extends('layouts.admin')
 @section('title')
-    Customer List
+    Danh Sách Khách Hàng
 @endsection
 @section('content')
     <div class="content">
         <div class="page-inner">
 
-            <!-- Start of Main Content -->
+            <!-- Bắt đầu nội dung chính -->
             <div class="container-fluid">
 
-                <!-- Page Heading -->
+                <!-- Tiêu đề trang -->
                 <div class="card mb-4">
                     <div class="card-body">
                         <div class="d-sm-flex align-items-center justify-content-between">
-                            <h3 class=" mb-0 "><b>Customers List</b></h3>
+                            <h3 class=" mb-0 "><b>Danh Sách Khách Hàng</b></h3>
                         </div>
                     </div>
                 </div>
@@ -27,10 +27,10 @@
 
                                 <thead>
                                     <tr>
-                                        <th>Name</th>
+                                        <th>Tên</th>
                                         <th>Email</th>
-                                        <th>Phone</th>
-                                        <th>Actions</th>
+                                        <th>Số điện thoại</th>
+                                        <th>Hành động</th>
                                     </tr>
                                 </thead>
 
@@ -78,26 +78,25 @@
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
 
-                    <!-- Modal Header -->
+                    <!-- Tiêu đề modal -->
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Confirm Delete?</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">Xác nhận xóa?</h5>
                         <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">×</span>
                         </button>
                     </div>
 
-                    <!-- Modal Body -->
+                    <!-- Nội dung modal -->
                     <div class="modal-body">
-                        You are going to delete this Admin. All contents related with this admin will be lost. Do you want
-                        to delete it?
+                        Bạn sắp xóa Admin này. Tất cả các nội dung liên quan đến admin này sẽ bị mất. Bạn có muốn xóa không?
                     </div>
 
-                    <!-- Modal footer -->
+                    <!-- Footer modal -->
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Hủy</button>
                         <form action="" class="d-inline btn-ok" method="get">
                             @csrf
-                            <button type="submit" class="btn btn-danger">Delete</button>
+                            <button type="submit" class="btn btn-danger">Xóa</button>
                         </form>
                     </div>
 

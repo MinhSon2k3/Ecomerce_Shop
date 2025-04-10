@@ -1,32 +1,32 @@
 @extends('layouts.admin')
 @section('title')
-    All Order
+    Tất cả Đơn Hàng
 @endsection
 @section('content')
     <div class="content">
         <div class="page-inner">
             <div class="container-fluid">
 
-                <!-- Page Heading -->
+                <!-- Tiêu đề trang -->
                 <div class="card mb-4">
                     <div class="card-body">
                         <div class="d-sm-flex align-items-center justify-content-between">
-                            <h3 class=" mb-0 bc-title"><b>All Orders</b></h3>
+                            <h3 class=" mb-0 bc-title"><b>Tất cả Đơn Hàng</b></h3>
                             {{-- <div class="right">
                                 <a href="https://geniusdevs.com/codecanyon/omnimart40/admin/order/csv/export"
-                                    class="btn btn-info btn-sm d-inline-block">CSV Export</a>
+                                    class="btn btn-info btn-sm d-inline-block">Xuất CSV</a>
                                 <form class="d-inline-block"
                                     action="https://geniusdevs.com/codecanyon/omnimart40/admin/bulk/deletes" method="get">
                                     <input type="hidden" value="" name="ids[]" id="bulk_delete">
                                     <input type="hidden" value="orders" name="table">
-                                    <button class="btn btn-danger btn-sm">Delete</button>
+                                    <button class="btn btn-danger btn-sm">Xóa</button>
                                 </form>
                             </div> --}}
                         </div>
                     </div>
                 </div>
 
-                <!-- DataTales -->
+                <!-- Bảng dữ liệu -->
                 <div class="card shadow mb-4">
                     <div class="card-body">
 
@@ -34,28 +34,27 @@
                             <div class="row mb-4 justify-content-center">
                                 <div class="col-md-6 col-sm-6 col-lg-4">
                                     <div class="form-group p-0">
-                                        <label for="start_date">Start Date *</label>
+                                        <label for="start_date">Ngày bắt đầu *</label>
                                         <input type="text" name="start_date" id="datepicker"
-                                            class="form-control datepicker" id="start_date" placeholder="Start Date"
+                                            class="form-control datepicker" id="start_date" placeholder="Ngày bắt đầu"
                                             value="">
                                     </div>
                                 </div>
                                 <div class="col-md-6 col-sm-6 col-lg-4">
                                     <div class="form-group  p-0">
-                                        <label for="end_date">End Date *</label>
+                                        <label for="end_date">Ngày kết thúc *</label>
                                         <input type="text" name="end_date" id="datepicker1"
-                                            class="form-control datepicker" id="end_date" placeholder="End Date"
+                                            class="form-control datepicker" id="end_date" placeholder="Ngày kết thúc"
                                             value="">
                                     </div>
                                 </div>
                                 <div class="col-lg-12 text-center mt-3">
-                                    <button class="btn btn-success py-1 mr-2">Filter</button>
+                                    <button class="btn btn-success py-1 mr-2">Lọc</button>
                                     <a href="https://geniusdevs.com/codecanyon/omnimart40/admin/orders"
-                                        class="btn btn-info py-1">Reset</a>
+                                        class="btn btn-info py-1">Đặt lại</a>
                                 </div>
                             </div>
                         </form> --}}
-
 
                         <div class="gd-responsive-table">
                             <table class="table table-bordered table-striped" id="admin-table" width="100%"
@@ -63,20 +62,17 @@
 
                                 <thead>
                                     <tr>
-                                        <th> <input type="checkbox" data-target="order-bulk-delete"
-                                                class="form-control bulk_all_delete"> </th>
-                                        <th>Order ID</th>
-                                        <th>Total Amount</th>
-                                        <th>Payment Status</th>
-                                        <th>Order Status</th>
-                                        {{-- <th>Actions</th> --}}
+                                        
+                                        <th>Mã Đơn Hàng</th>
+                                        <th>Tổng Số Tiền</th>
+                                        <th>Tình Trạng Thanh Toán</th>
+                                        <th>Tình Trạng Đơn Hàng</th>
+                                        {{-- <th>Hành Động</th> --}}
                                     </tr>
                                 </thead>
                                 <tbody>
                                     @foreach ($orders as $order)
                                     <tr id="order-bulk-delete">
-                                        <td><input type="checkbox" class="bulk-item" value="156"></td>
-
                                         <td>
                                             {{ $order->uuid }}
                                         </td>
@@ -105,7 +101,7 @@
                                         </td>
                                         <td>
                                             <div class="dropdown">
-                                                <button class="btn Pending  btn-sm dropdown-toggle" type="button"
+                                                <button class="btn Pending  btn-sm btn-success dropdown-toggle" type="button"
                                                     id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
                                                     aria-expanded="false">
                                                     {{ $order->order_status }}
@@ -156,7 +152,7 @@
 
                         <!-- Modal Header -->
                         <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Update Status?</h5>
+                            <h5 class="modal-title" id="exampleModalLabel">Cập nhật trạng thái?</h5>
                             <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">×</span>
                             </button>
@@ -164,13 +160,13 @@
 
                         <!-- Modal Body -->
                         <div class="modal-body">
-                            You are going to update the status. Do you want proceed?
+                            Bạn sắp cập nhật trạng thái. Bạn có muốn tiếp tục không?
                         </div>
 
                         <!-- Modal footer -->
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                            <a href="" class="btn btn-ok btn-success">Update</a>
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Hủy</button>
+                            <a href="" class="btn btn-ok btn-success">Cập nhật</a>
                         </div>
 
                     </div>
@@ -183,7 +179,7 @@
 
                         <!-- Modal Header -->
                         <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Confirm Delete?</h5>
+                            <h5 class="modal-title" id="exampleModalLabel">Xác nhận xóa?</h5>
                             <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">×</span>
                             </button>
@@ -191,18 +187,17 @@
 
                         <!-- Modal Body -->
                         <div class="modal-body">
-                            You are going to delete this order. All contents related with this order will be lost. Do you
-                            want to delete it?
+                            Bạn sắp xóa đơn hàng này. Tất cả các nội dung liên quan đến đơn hàng sẽ bị mất. Bạn có muốn xóa không?
                         </div>
 
                         <!-- Modal footer -->
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Hủy</button>
                             <form action="" class="d-inline btn-ok" method="POST">
 
                                 <input type="hidden" name="_token" value="5G7KJnWZJiKt6I6pMExOheNmLtALmb20am98At1S">
                                 <input type="hidden" name="_method" value="DELETE"> <button type="submit"
-                                    class="btn btn-danger">Delete</button>
+                                    class="btn btn-danger">Xóa</button>
 
                             </form>
                         </div>

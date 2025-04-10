@@ -17,22 +17,22 @@ class ManageController extends Controller
     }
     function pending_order(): View
     {
-        $orders = Order::whereOrderStatus('pending')->latest()->get();
+        $orders = Order::whereOrderStatus('Chưa xử lý')->latest()->get();
         return view('admin.order.pending-order', compact('orders'));
     }
     function progress_order(): View
     {
-        $orders = Order::whereOrderStatus('progress')->latest()->get();
+        $orders = Order::whereOrderStatus('Đang vận chuyển')->latest()->get();
         return view('admin.order.progress-order', compact('orders'));
     }
     function delivered_order(): View
     {
-        $orders = Order::whereOrderStatus('delivered')->latest()->get();
+        $orders = Order::whereOrderStatus('Đã giao')->latest()->get();
         return view('admin.order.delivered-order', compact('orders'));
     }
     function canceled_order(): View
     {
-        $orders = Order::whereOrderStatus('canceled')->latest()->get();
+        $orders = Order::whereOrderStatus('Hủy')->latest()->get();
         return view('admin.order.canceled-order', compact('orders'));
     }
 
