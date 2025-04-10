@@ -64,7 +64,7 @@ class ManageController extends Controller
         $transaction = Transaction::whereOrderId($order->uuid)->first();
         $transaction->payment_status = 'Chưa xử lý';
         $transaction->save();
-        return redirect()->back()->with('success', 'Status is in pending');
+        return redirect()->back()->with('success', 'Đang xử lý');
     }
     function progress_status($id)
     {
@@ -74,7 +74,7 @@ class ManageController extends Controller
         $transaction=Transaction::whereOrderId($order->uuid)->first();
         $transaction->payment_status='Đang vận chuyển';
             $transaction->save();
-        return redirect()->back()->with('success', 'Status is in progress');
+        return redirect()->back()->with('success', 'Đơn hàng đang vận chuyển');
     }
     function delivered_status($id)
     {
@@ -84,7 +84,7 @@ class ManageController extends Controller
         $transaction=Transaction::whereOrderId($order->uuid)->first();
         $transaction->payment_status='Đã giao';
             $transaction->save();
-        return redirect()->back()->with('success', 'Status is in delivered');
+        return redirect()->back()->with('success', 'Đơn hơn đã giao');
     }
     function canceled_status($id)
     {
@@ -94,7 +94,7 @@ class ManageController extends Controller
         $transaction=Transaction::whereOrderId($order->uuid)->first();
         $transaction->payment_status='Hủy';
             $transaction->save();
-        return redirect()->back()->with('success', 'Status is in canceled');
+        return redirect()->back()->with('success', 'Đơn hàng đã bị hủy');
     }
 
     function transactions()

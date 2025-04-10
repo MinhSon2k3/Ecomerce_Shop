@@ -81,7 +81,7 @@
                                                     <div class="modal-content">
                                                         <!-- Modal Header -->
                                                         <div class="modal-header">
-                                                            <h5 class="modal-title" id="exampleModalLabel">Confirm Delete?
+                                                            <h5 class="modal-title" id="exampleModalLabel">Xác nhận xóa?
                                                             </h5>
                                                             <button class="close" type="button" data-dismiss="modal"
                                                                 aria-label="Close">
@@ -91,20 +91,18 @@
 
                                                         <!-- Modal Body -->
                                                         <div class="modal-body">
-                                                            You are going to delete this brand. All contents related with
-                                                            this brand will be lost. Do you want
-                                                            to delete it?
+                                                        Bạn sắp xóa thương hiệu này. Tất cả nội dung liên quan đến thương hiệu này sẽ bị mất. Bạn có muốn xóa nó không?
                                                         </div>
 
                                                         <!-- Modal footer -->
                                                         <div class="modal-footer">
                                                             <button type="button" class="btn btn-secondary"
-                                                                data-dismiss="modal">Cancel</button>
+                                                                data-dismiss="modal">Hủy bỏ</button>
                                                             <form
                                                                 action="{{ route('admin.brand.delete', ['id' => $brand->id]) }}"
                                                                 class="d-inline btn-ok" method="get">
                                                                 <button type="submit"
-                                                                    class="btn btn-danger">Delete</button>
+                                                                    class="btn btn-danger">Xóa</button>
                                                             </form>
                                                         </div>
 

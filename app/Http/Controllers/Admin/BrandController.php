@@ -37,7 +37,7 @@ class BrandController extends Controller
         $brand->name = $request->name;
         $brand->slug = Str::slug($request->name);
         $brand->save();
-        return redirect()->route('admin.brand.index')->with('success', 'Brand add successfully');
+        return redirect()->route('admin.brand.index')->with('success', 'Thêm thương hiệu thành công');
     }
     function edit($id): View
     {
@@ -62,7 +62,7 @@ class BrandController extends Controller
         $brand->name = $request->name;
         $brand->slug = Str::slug($request->name);
         $brand->save();
-        return redirect()->route('admin.brand.index')->with('success', 'Brand Update successfully');
+        return redirect()->route('admin.brand.index')->with('success', 'Cập nhật thành công');
     }
     function delete($id): RedirectResponse
     {
@@ -72,7 +72,7 @@ class BrandController extends Controller
             File::delete($path);
         }
         $brand->delete();
-        return redirect()->route('admin.brand.index')->with('success', 'Brand Delete successfully');
+        return redirect()->route('admin.brand.index')->with('success', 'Xóa thương hiệu thành công');
     }
 
     function update_status($id): RedirectResponse
@@ -82,12 +82,12 @@ class BrandController extends Controller
             $brand->status = 0;
             $brand->save();
 
-            return redirect()->route('admin.brand.index')->with('success', 'Brand Status un-active successfully');
+            return redirect()->route('admin.brand.index')->with('success', 'Đã ẩn thương hiêụ');
         } else {
             $brand->status = 1;
             $brand->save();
 
-            return redirect()->route('admin.brand.index')->with('success', 'Brand Status active successfully');
+            return redirect()->route('admin.brand.index')->with('success', 'Đã hiển thị thương hiệu');
         }
     }
 }

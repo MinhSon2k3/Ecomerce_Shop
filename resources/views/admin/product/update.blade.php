@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 @section('title')
-    Update Product
+    Cập nhật sản phẩm
 @endsection
 @section('content')
     <div class="content">
@@ -12,17 +12,15 @@
                 <div class="card mb-4">
                     <div class="card-body">
                         <div class="d-sm-flex align-items-center justify-content-between">
-                            <h3 class="mb-0 bc-title"><b>Create Product</b> </h3>
-                            <a class="btn btn-primary   btn-sm"
+                            <h3 class="mb-0 bc-title"><b>Cập nhật sản phẩm</b> </h3>
+                            <a class="btn btn-primary btn-sm"
                                 href="{{ route('admin.product.index') }}"><i
-                                    class="fas fa-chevron-left"></i> Back</a>
+                                    class="fas fa-chevron-left"></i> Quay lại</a>
                         </div>
                     </div>
                 </div>
 
                 <!-- Form -->
-
-
                 <div class="row">
                     <div class="col-lg-12">
                     </div>
@@ -37,9 +35,9 @@
                             <div class="card">
                                 <div class="card-body">
                                     <div class="form-group">
-                                        <label for="name">Name *</label>
+                                        <label for="name">Tên sản phẩm *</label>
                                         <input type="text" name="name" class="form-control item-name" id="name"
-                                            placeholder="Enter Name" value="{{ $product->name }}">
+                                            placeholder="Nhập tên sản phẩm" value="{{ $product->name }}">
                                         @error('name')
                                             <span class="text-danger">{{ $message }}</span>
                                         @enderror
@@ -50,7 +48,7 @@
                             <div class="card">
                                 <div class="card-body">
                                     <div class="form-group pb-0  mb-0">
-                                        <label class="d-block">Featured Image *</label>
+                                        <label class="d-block">Hình ảnh đại diện *</label>
                                     </div>
                                     <div class="form-group pb-0 pt-0 mt-0 mb-0">
                                         <img class="admin-img lg" src="{{ asset('storage') }}/{{ $product->featured_image }}">
@@ -59,27 +57,27 @@
                                         <label class="file">
                                             <input type="file" accept="image/*" class="upload-photo"
                                                 name="featured_image" id="file" aria-label="File browser example">
-                                            <span class="file-custom text-left">Upload Image...</span>
+                                            <span class="file-custom text-left">Tải lên hình ảnh...</span>
                                         </label>
                                         <br>
-                                        <span class="mt-1 text-info">Image Size Should Be 800 x 800. or square size</span>
+                                        <span class="mt-1 text-info">Kích thước hình ảnh nên là 800 x 800 hoặc kích thước vuông</span>
                                     </div>
                                 </div>
                             </div>
                             <div class="card">
                                 <div class="card-body">
                                     <div class="form-group">
-                                        <label for="sort_details">Short Description *</label>
-                                        <textarea name="short_description" id="sort_details" class="form-control" placeholder="Short Description">{{ $product->short_description }}</textarea>
+                                        <label for="sort_details">Mô tả ngắn *</label>
+                                        <textarea name="short_description" id="sort_details" class="form-control" placeholder="Mô tả ngắn">{{ $product->short_description }}</textarea>
                                         @error('short_description')
                                             <span class="text-danger">{{ $message }}</span>
                                         @enderror
                                     </div>
 
                                     <div class="form-group">
-                                        <label for="details">Description *</label>
+                                        <label for="details">Mô tả chi tiết *</label>
                                         <textarea name="description" id="description" class="form-control text-editor" rows="6"
-                                            placeholder="Enter Description">{{ $product->description }}</textarea>
+                                            placeholder="Nhập mô tả chi tiết">{{ $product->description }}</textarea>
                                         @error('description')
                                             <span class="text-danger">{{ $message }}</span>
                                         @enderror
@@ -89,10 +87,9 @@
                             <div class="card">
                                 <div class="card-body">
                                     <div class="form-group mb-2">
-                                        <label for="tags">Product Tags
-                                        </label>
+                                        <label for="tags">Thẻ sản phẩm</label>
                                         <input type="text" name="tags" class="tags" id="tags"
-                                            placeholder="Tags" value="{{ $product->tags}}">
+                                            placeholder="Nhập thẻ" value="{{ $product->tags}}">
                                         @error('tags')
                                             <span class="text-danger">{{ $message }}</span>
                                         @enderror
@@ -102,20 +99,18 @@
                             <div class="card">
                                 <div class="card-body">
                                     <div class="form-group">
-                                        <label for="meta_keywords">Meta Keywords
-                                        </label>
+                                        <label for="meta_keywords">Từ khóa meta</label>
                                         <input type="text" name="meta_keyword" class="tags" id="meta_keywords"
-                                            placeholder="Enter Meta Keywords" value="{{ $product->meta_keyword }}">
+                                            placeholder="Nhập từ khóa meta" value="{{ $product->meta_keyword }}">
                                         @error('meta_keyword')
                                             <span class="text-danger">{{ $message }}</span>
                                         @enderror
                                     </div>
 
                                     <div class="form-group">
-                                        <label for="meta_description">Meta Description
-                                        </label>
+                                        <label for="meta_description">Mô tả meta</label>
                                         <textarea name="meta_description" id="meta_description" class="form-control" rows="5"
-                                            placeholder="Enter Meta Description">{{ $product->meta_description }}</textarea>
+                                            placeholder="Nhập mô tả meta">{{ $product->meta_description }}</textarea>
                                         @error('meta_description')
                                             <span class="text-danger">{{ $message }}</span>
                                         @enderror
@@ -126,20 +121,19 @@
                         <div class="col-lg-4">
                             <div class="card">
                                 <div class="card-body">
-                                    <button type="submit" class="btn btn-secondary mr-2">Save</button>
+                                    <button type="submit" class="btn btn-secondary mr-2">Lưu</button>
                                 </div>
                             </div>
                             <div class="card">
                                 <div class="card-body">
                                     <div class="form-group">
-                                        <label for="discount_price">Current Price
-                                            *</label>
+                                        <label for="discount_price">Giá hiện tại *</label>
                                         <div class="input-group mb-3">
                                             <div class="input-group-prepend">
                                                 <span class="input-group-text">$</span>
                                             </div>
                                             <input type="text" id="current_price" name="current_price"
-                                                class="form-control" placeholder="Enter Current Price" min="1"
+                                                class="form-control" placeholder="Nhập giá hiện tại" min="1"
                                                 step="0.1" value="{{ $product->current_price }}">
                                             @error('current_price')
                                                 <span class="text-danger">{{ $message }}</span>
@@ -148,14 +142,13 @@
                                     </div>
 
                                     <div class="form-group">
-                                        <label for="previous_price">Previous Price
-                                        </label>
+                                        <label for="previous_price">Giá trước đó</label>
                                         <div class="input-group mb-3">
                                             <div class="input-group-prepend">
                                                 <span class="input-group-text">$</span>
                                             </div>
                                             <input type="text" id="previous_price" name="previous_price"
-                                                class="form-control" placeholder="Enter Previous Price" min="1"
+                                                class="form-control" placeholder="Nhập giá trước đó" min="1"
                                                 step="0.1" value="{{ $product->previous_price }}">
                                             @error('previous_price')
                                                 <span class="text-danger">{{ $message }}</span>
@@ -168,10 +161,10 @@
                                 <div class="card-body">
 
                                     <div class="form-group">
-                                        <label for="category_id">Select Category *</label>
+                                        <label for="category_id">Chọn danh mục *</label>
                                         <select name="cat_id" id="category_id"
                                             class="form-control">
-                                            <option value="" selected>Select One</option>
+                                            <option value="" selected>Chọn một</option>
                                             @foreach ($categories as $category)
                                                 <option value="{{ $category->id }}" @selected($product->cat_id == $category->id)>{{ $category->name }}</option>
                                             @endforeach
@@ -182,30 +175,19 @@
                                     </div>
 
                                     <div class="form-group">
-                                        <label for="subcategory_id">Select Sub Category </label>
+                                        <label for="subcategory_id">Chọn danh mục con</label>
                                         <select name="sub_cat_id" id="subcategory_id"
                                             class="form-control">
-                                            <option value="">Select One</option>
+                                            <option value="">Chọn một</option>
                                         </select>
                                         @error('sub_cat_id')
                                             <span class="text-danger">{{ $message }}</span>
                                         @enderror
                                     </div>
-
                                     <div class="form-group">
-                                        <label for="childcategory_id">Select Child Category </label>
-                                        <select name="child_cat_id" id="childcategory_id" class="form-control">
-                                            <option value="">Select One</option>
-                                        </select>
-                                        @error('child_cat_id')
-                                            <span class="text-danger">{{ $message }}</span>
-                                        @enderror
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label for="brand_id">Select Brand </label>
+                                        <label for="brand_id">Chọn thương hiệu</label>
                                         <select name="brand_id" id="brand_id" class="form-control">
-                                            <option value="" selected>Select Brand</option>
+                                            <option value="" selected>Chọn thương hiệu</option>
                                             @foreach ($brands as $brand)
                                                 <option value="{{ $brand->id }}" @selected($product->brand_id == $brand->id) >{{ $brand->name }}</option>
                                             @endforeach
@@ -219,11 +201,10 @@
                             <div class="card">
                                 <div class="card-body">
                                     <div class="form-group">
-                                        <label for="stock">Total in stock
-                                            *</label>
+                                        <label for="stock">Tổng số trong kho *</label>
                                         <div class="input-group mb-3">
                                             <input type="number" id="stock" name="total_stock" class="form-control"
-                                                placeholder="Total in stock" value="{{ $product->total_stock }}">
+                                                placeholder="Tổng số trong kho" value="{{ $product->total_stock }}">
                                                  @error('total_stock')
                                                 <span class="text-danger">{{ $message }}</span>
                                             @enderror
@@ -257,25 +238,6 @@
             })
         })
         }, 2000);
-
-
-        setTimeout(() => {
-            $("#subcategory_id").on('change', function() {
-            const sub_cat_id = $(this).val();
-            $.ajax({
-                type: 'POST',
-                url: "{{ route('admin.product.get.child-category') }}",
-                data: {
-                    sub_cat_id,
-                    "_token": "{{ csrf_token() }}",
-                },
-                success: (data) => {
-                    $("#childcategory_id").html(data);
-                }
-            })
-        })
-        }, 3000);
-
 
     </script>
 @endsection

@@ -120,7 +120,7 @@ class HomeController extends Controller
             $cart->qty = $cart->qty + 1;
             $cart->sub_total = $cart->total * $cart->qty;
             $cart->save();
-            return redirect()->back()->with('success', 'Product update successfully');
+            return redirect()->back()->with('success', 'Cập nhật giỏ hàng thành công');
         } else {
             $number = str_replace(",", "", $product->current_price);
                         
@@ -133,7 +133,7 @@ class HomeController extends Controller
             ]);
 
             Wishlist::whereProductId($id)->delete();
-            return redirect()->back()->with('success', 'Product add to cart successfully');
+            return redirect()->back()->with('success', 'Thêm vào giỏ hàng thành công');
         }
     }
 
