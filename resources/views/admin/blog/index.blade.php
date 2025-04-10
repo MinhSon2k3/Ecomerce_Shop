@@ -6,26 +6,26 @@
     <div class="content">
         <div class="page-inner">
 
-            <!-- Start of Main Content -->
+            <!-- Bắt đầu nội dung chính -->
             <div class="container-fluid">
 
-                <!-- Page Heading -->
+                <!-- Tiêu đề trang -->
                 <div class="card mb-4">
                     <div class="card-body">
                         <div class="d-sm-flex align-items-center justify-content-between">
-                            <h3 class="mb-0 bc-title"><b>Manage Blogs</b> </h3>
+                            <h3 class="mb-0 bc-title"><b>Quản Lý Blog</b> </h3>
 
                             <div class="right">
                                 <a class="btn btn-primary  btn-sm"
                                     href="{{ route('admin.blog.create') }}"><i
-                                        class="fas fa-plus"></i> Add</a>
+                                        class="fas fa-plus"></i> Thêm mới</a>
                             </div>
                         </div>
 
                     </div>
                 </div>
 
-                <!-- DataTales -->
+                <!-- Bảng dữ liệu -->
                 <div class="card shadow mb-4">
                     <div class="card-body">
                         <div class="gd-responsive-table">
@@ -34,10 +34,10 @@
 
                                 <thead>
                                     <tr>
-                                        <th>Image</th>
-                                        <th>Title</th>
-                                        <th>Category</th>
-                                        <th>Actions</th>
+                                        <th>Hình ảnh</th>
+                                        <th>Tiêu đề</th>
+                                        <th>Danh mục</th>
+                                        <th>Thao tác</th>
                                     </tr>
                                 </thead>
 
@@ -80,37 +80,36 @@
             </div>
 
         </div>
-        <!-- End of Main Content -->
+        <!-- Kết thúc nội dung chính -->
 
-
-
+        <!-- Modal xác nhận xóa -->
         <div class="modal fade" id="confirm-delete" tabindex="-1" role="dialog"
             aria-labelledby="confirm-deleteModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
 
-                    <!-- Modal Header -->
+                    <!-- Tiêu đề modal -->
                     <div class="modal-header">
-                        <h3 class="modal-title" id="exampleModalLabel">Confirm Delete?</h3>
+                        <h3 class="modal-title" id="exampleModalLabel">Xác nhận xóa?</h3>
                         <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">×</span>
                         </button>
                     </div>
 
-                    <!-- Modal Body -->
+                    <!-- Nội dung modal -->
                     <div class="modal-body">
-                        You are going to delete this post. All contents related with this post will be lost. Do you want to
-                        delete it?
+                        Bạn sắp xóa bài viết này. Tất cả nội dung liên quan đến bài viết sẽ bị mất. Bạn có chắc muốn
+                        xóa không?
                     </div>
 
-                    <!-- Modal footer -->
+                    <!-- Chân modal -->
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Hủy</button>
                         <form action="" class="d-inline btn-ok" method="POST">
 
                             <input type="hidden" name="_token" value="9lFLEAFcgYjfSFHUE8vybB25TYSlp7HpisWNlEBp">
                             <input type="hidden" name="_method" value="DELETE">
-                            <button type="submit" class="btn btn-danger">Delete</button>
+                            <button type="submit" class="btn btn-danger">Xóa</button>
 
                         </form>
                     </div>

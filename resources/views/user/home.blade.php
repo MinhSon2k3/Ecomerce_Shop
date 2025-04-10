@@ -17,11 +17,14 @@ Home
                                     <div class="title text-body">{{ $slider->title }}</div>
                                     <div class="subtitle text-body">{{ $slider->details }}</div>
                                 </div>
-                                <a class="btn btn-primary scale-up delay-1" href="{{ $slider->url }}"> <span>Buy
-                                        Now</span>
-                                </a>
+                                <div class="btn-container">
+                                    <a class="btn btn-primary scale-up delay-1" href="{{ $slider->url }}">
+                                        <span>Buy Now</span>
+                                    </a>
+                                </div>
                             </div>
                         </div>
+
                         @endforeach
 
                     </div>
@@ -481,3 +484,39 @@ Home
 </div>
 
 @endsection
+<style>
+    .item {
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    height: 100%; /* Ensure the container takes full height */
+}
+
+.item-inner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.btn-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+a.btn {
+    padding: 10px 20px;
+    font-size: 16px;
+    text-align: center;
+    text-decoration: none;
+}
+
+</style>

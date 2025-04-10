@@ -82,22 +82,26 @@
                                         </td>
 
                                         <td>
-                                            <div class="dropdown">
-                                                <button class="btn btn-success btn-sm dropdown-toggle" type="button"
-                                                    id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
-                                                    aria-expanded="false">
-                                                    {{ $order->payment_status }}
-                                                </button>
-                                                <div class="dropdown-menu animated--fade-in"
-                                                    aria-labelledby="dropdownMenuButton">
+                                        <div class="dropdown">
+                                            <button class="btn btn-success btn-sm dropdown-toggle" type="button"
+                                                id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                {{ $order->payment_status }}
+                                            </button>
+                                            <div class="dropdown-menu animated--fade-in"
+                                                aria-labelledby="dropdownMenuButton">
+                                                @if($order->payment_status != 'Đã thanh toán')
                                                     <a class="dropdown-item" data-toggle="modal" data-target="#statusModal"
                                                         href="javascript:;"
                                                         data-href="{{ route('admin.order.change.status',['id'=>$order->id]) }}">Đã thanh toán</a>
-                                                    <a class="dropdown-item" data-toggle="modal" data-target="#statusModal"
-                                                        href="javascript:;"
-                                                        data-href="{{ route('admin.order.change.status',['id'=>$order->id]) }}">Chưa thanh toán</a>
-                                                </div>
+                                                @endif
+                                                @if($order->payment_status != 'Chưa thanh toán')
+                                                <a class="dropdown-item" data-toggle="modal" data-target="#statusModal"
+                                                    href="javascript:;"
+                                                    data-href="{{ route('admin.order.change.status',['id'=>$order->id]) }}">Chưa thanh toán</a>
+                                                @endif
                                             </div>
+                                        </div>
+
                                         </td>
                                         <td>
                                             <div class="dropdown">

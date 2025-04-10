@@ -44,16 +44,15 @@ class ManageController extends Controller
         if ($order->payment_status == 'Chưa thanh toán') {
             $order->payment_status = "Đã thanh toán";
             $order->save();
-
             $transaction->payment_status = 'Đã thanh toán';
             $transaction->save();
-            return redirect()->back()->with('success', 'Status is in Đã thanh toán');
+            return redirect()->back()->with('success', ' Đã thanh toán');
         } else {
             $order->payment_status = "Chưa thanh toán";
             $order->save();
             $transaction->payment_status = 'Chưa thanh toán';
             $transaction->save();
-            return redirect()->back()->with('success', 'Status is in Chưa thanh toán');
+            return redirect()->back()->with('success', ' Chưa thanh toán');
         }
     }
     function pending_status($id)
@@ -62,7 +61,8 @@ class ManageController extends Controller
         $order->order_status = 'Chưa xử lý';
         $order->save();
         $transaction = Transaction::whereOrderId($order->uuid)->first();
-        $transaction->payment_status = 'Chưa xử lý';
+        $transaction->order_status = 'Chưa xử lý';
+       
         $transaction->save();
         return redirect()->back()->with('success', 'Đang xử lý');
     }
@@ -72,7 +72,7 @@ class ManageController extends Controller
         $order->order_status = 'Đang vận chuyển';
         $order->save();
         $transaction=Transaction::whereOrderId($order->uuid)->first();
-        $transaction->payment_status='Đang vận chuyển';
+        $transaction->order_status='Đang vận chuyển';
             $transaction->save();
         return redirect()->back()->with('success', 'Đơn hàng đang vận chuyển');
     }
@@ -92,7 +92,7 @@ class ManageController extends Controller
         $order->order_status = 'Hủy';
         $order->save();
         $transaction=Transaction::whereOrderId($order->uuid)->first();
-        $transaction->payment_status='Hủy';
+        $transaction->order_status='Hủy';
             $transaction->save();
         return redirect()->back()->with('success', 'Đơn hàng đã bị hủy');
     }

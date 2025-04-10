@@ -22,7 +22,7 @@
                 <div class="card mb-4">
                     <div class="card-body">
                         <div class="d-sm-flex align-items-center justify-content-between">
-                            <h3 class="mb-0 bc-title"><b>Basic Information</b></h3>
+                            <h3 class="mb-0 bc-title"><b>Thông tin Website</b></h3>
 
                         </div>
                     </div>
@@ -43,22 +43,19 @@
                                 <div>
                                     <div class="row">
                                         <div class="col-xl-3 col-lg-3">
-                                            <div class="nav flex-column m-3 nav-pills nav-secondary" id="v-pills-tab"
-                                                role="tablist" aria-orientation="vertical">
-                                                <a class="nav-link active" data-toggle="pill" href="#basic">Basic
-                                                    Information</a>
-                                                <a class="nav-link" data-toggle="pill" href="#herosectionbanner">Hero
-                                                    Section Banner</a>
-                                                <a class="nav-link" data-toggle="pill" href="#media">Media</a>
-                                                <a class="nav-link" data-toggle="pill" href="#seo">Seo</a>
-                                                <a class="nav-link" data-toggle="pill" href="#ftc">First Three Column</a>
-                                                <a class="nav-link" data-toggle="pill" href="#stc">Second Three
-                                                    Column</a>
-                                                <a class="nav-link" data-toggle="pill" href="#ttc">Thrid Two Column</a>
-                                                <a class="nav-link" data-toggle="pill" href="#ftc1">Four Three Column</a>
-                                                <a class="nav-link" data-toggle="pill" href="#footer">Footer &amp; Contact
-                                                    Page</a>
-                                            </div>
+                                        <div class="nav flex-column m-3 nav-pills nav-secondary" id="v-pills-tab"
+                                            role="tablist" aria-orientation="vertical">
+                                            <a class="nav-link active" data-toggle="pill" href="#basic">Thông tin cơ bản</a>
+                                            <a class="nav-link" data-toggle="pill" href="#herosectionbanner">Banner phần Hero</a>
+                                            <a class="nav-link" data-toggle="pill" href="#media">Phương tiện</a>
+                                            <a class="nav-link" data-toggle="pill" href="#seo">Seo</a>
+                                            <a class="nav-link" data-toggle="pill" href="#ftc">Ba cột đầu tiên</a>
+                                            <a class="nav-link" data-toggle="pill" href="#stc">Ba cột tiếp theo</a>
+                                            <a class="nav-link" data-toggle="pill" href="#ttc">Hai cột thứ ba</a>
+                                            <a class="nav-link" data-toggle="pill" href="#ftc1">Bốn cột thứ ba</a>
+                                            <a class="nav-link" data-toggle="pill" href="#footer">Footer &amp; Trang liên hệ</a>
+                                        </div>
+
                                         </div>
                                         <div class="col-xl-9 col-lg-9">
                                             <div class="">
@@ -72,7 +69,7 @@
                                                                 <div class="row justify-content-center">
                                                                     <div class="col-lg-8">
                                                                         <div class="form-group">
-                                                                            <label for="title">App Name *</label>
+                                                                            <label for="title">Tên ứng dụng*</label>
                                                                             <input type="text" name="app_name"
                                                                                 value="{{ $basic_value->app_name }}"
                                                                                 class="form-control" id="app_name"
@@ -85,7 +82,7 @@
                                                                     </div>
                                                                     <div class="col-lg-8">
                                                                         <div class="form-group">
-                                                                            <label for="home_page_title">Home Page Title
+                                                                            <label for="home_page_title">Tiêu đề trang chủ
                                                                                 *</label>
                                                                             <input type="text" name="home_page_title"
                                                                                 class="form-control" id="home_page_title"
@@ -101,169 +98,113 @@
                                                                 </div>
                                                             </form>
                                                         </div>
+                                                        <!-- MAIN-CONTENT -->
                                                         <div id="herosectionbanner" class="tab-pane"><br>
-                                                            <form action="{{ route('admin.manage-site.home_page') }}"
-                                                                method="post" enctype="multipart/form-data">
-                                                                   @csrf
-                                                                <input type="hidden" name="key" value="home_page"
-                                                                    id="">
+                                                            <form action="{{ route('admin.manage-site.home_page') }}" method="post" enctype="multipart/form-data">
+                                                                @csrf
+                                                                <input type="hidden" name="key" value="home_page" id="">
                                                                 <div class="form-group">
-                                                                    <label for="name">Image 1 *</label>
+                                                                    <label for="name">Hình ảnh 1 *</label>
                                                                     <br>
-                                                                    <img class="admin-img"
-                                                                        src="{{ asset('storage') }}/{{ $home_page_value->image1 }}"
-                                                                        alt="No Image Found">
+                                                                    <img class="admin-img" src="{{ asset('storage') }}/{{ $home_page_value->image1 }}" alt="Không tìm thấy hình ảnh">
                                                                     <br>
-                                                                    <span class="mt-1">Image Size Should Be 496 x
-                                                                        204.</span>
+                                                                    <span class="mt-1">Kích thước hình ảnh nên là 496 x 204.</span>
                                                                 </div>
                                                                 <div class="form-group position-relative">
                                                                     <label class="file">
-                                                                        <input type="file" accept="image/*"
-                                                                            class="upload-photo" name="image1"
-                                                                            id="file"
-                                                                            aria-label="File browser example">
-                                                                        <span class="file-custom text-left">Upload
-                                                                            Image...</span>
+                                                                        <input type="file" accept="image/*" class="upload-photo" name="image1" id="file" aria-label="File browser example">
+                                                                        <span class="file-custom text-left">Tải hình ảnh lên...</span>
                                                                     </label>
                                                                 </div>
 
                                                                 <div class="form-group">
-                                                                    <label for="title1">Title *</label>
-                                                                    <input type="text" name="title1"
-                                                                        class="form-control" id="title1"
-                                                                        placeholder="Enter Title"
-                                                                        value="{{ $home_page_value->title1 }}">
+                                                                    <label for="title1">Tiêu đề *</label>
+                                                                    <input type="text" name="title1" class="form-control" id="title1" placeholder="Nhập Tiêu đề" value="{{ $home_page_value->title1 }}">
                                                                 </div>
                                                                 <div class="form-group">
-                                                                    <label for="subtitle1">Subtitle </label>
-                                                                    <input type="text" name="sub_title1"
-                                                                        class="form-control" id="sub_title1"
-                                                                        placeholder="Enter Subtitle"value="{{ $home_page_value->sub_title1 }}">
+                                                                    <label for="subtitle1">Phụ đề </label>
+                                                                    <input type="text" name="sub_title1" class="form-control" id="sub_title1" placeholder="Nhập Phụ đề" value="{{ $home_page_value->sub_title1 }}">
                                                                 </div>
                                                                 <div class="form-group">
                                                                     <label for="url1">URL 1 *</label>
-                                                                    <input type="url" name="url1"
-                                                                        class="form-control" id="url1"
-                                                                        placeholder="Enter Url"
-                                                                        value="{{ $home_page_value->url1 }}">
+                                                                    <input type="url" name="url1" class="form-control" id="url1" placeholder="Nhập URL" value="{{ $home_page_value->url1 }}">
                                                                 </div>
 
                                                                 <hr>
                                                                 <div class="form-group">
-                                                                    <label for="name">Image 1 *</label>
+                                                                    <label for="name">Hình ảnh 2 *</label>
                                                                     <br>
-                                                                    <img class="admin-img"
-                                                                        src="{{ asset('storage') }}/{{ $home_page_value->image2 }}"
-                                                                        alt="No Image Found">
+                                                                    <img class="admin-img" src="{{ asset('storage') }}/{{ $home_page_value->image2 }}" alt="Không tìm thấy hình ảnh">
                                                                     <br>
-                                                                    <span class="mt-1">Image Size Should Be 496 x
-                                                                        204.</span>
+                                                                    <span class="mt-1">Kích thước hình ảnh nên là 496 x 204.</span>
                                                                 </div>
                                                                 <div class="form-group position-relative">
                                                                     <label class="file">
-                                                                        <input type="file" accept="image/*"
-                                                                            class="upload-photo" name="image2"
-                                                                            id="file"
-                                                                            aria-label="File browser example">
-                                                                        <span class="file-custom text-left">Upload
-                                                                            Image...</span>
+                                                                        <input type="file" accept="image/*" class="upload-photo" name="image2" id="file" aria-label="File browser example">
+                                                                        <span class="file-custom text-left">Tải hình ảnh lên...</span>
                                                                     </label>
                                                                 </div>
 
                                                                 <div class="form-group">
-                                                                    <label for="title1">Title *</label>
-                                                                    <input type="text" name="title2"
-                                                                        class="form-control" id="title2"
-                                                                        placeholder="Enter Title"
-                                                                        value="{{ $home_page_value->title2 }}">
+                                                                    <label for="title1">Tiêu đề *</label>
+                                                                    <input type="text" name="title2" class="form-control" id="title2" placeholder="Nhập Tiêu đề" value="{{ $home_page_value->title2 }}">
                                                                 </div>
                                                                 <div class="form-group">
-                                                                    <label for="subtitle1">Subtitle </label>
-                                                                    <input type="text" name="sub_title2"
-                                                                        class="form-control" id="sub_title2"
-                                                                        placeholder="Enter Subtitle"value="{{ $home_page_value->sub_title2 }}">
+                                                                    <label for="subtitle1">Phụ đề </label>
+                                                                    <input type="text" name="sub_title2" class="form-control" id="sub_title2" placeholder="Nhập Phụ đề" value="{{ $home_page_value->sub_title2 }}">
                                                                 </div>
                                                                 <div class="form-group">
                                                                     <label for="url1">URL 2 *</label>
-                                                                    <input type="url" name="url2"
-                                                                        class="form-control" id="url2"
-                                                                        placeholder="Enter Url"
-                                                                        value="{{ $home_page_value->url2 }}">
+                                                                    <input type="url" name="url2" class="form-control" id="url2" placeholder="Nhập URL" value="{{ $home_page_value->url2 }}">
                                                                 </div>
 
-                                                                <input type="hidden" name="old_image1"
-                                                                    value="{{ $home_page_value->image1 }}"
-                                                                    id="">
-                                                                <input type="hidden" name="old_image2"
-                                                                    value="{{ $home_page_value->image2 }}"
-                                                                    id="">
+                                                                <input type="hidden" name="old_image1" value="{{ $home_page_value->image1 }}" id="">
+                                                                <input type="hidden" name="old_image2" value="{{ $home_page_value->image2 }}" id="">
                                                                 <div class="form-group d-flex justify-content-center">
-                                                                    <button type="submit"
-                                                                        class="btn btn-secondary ">Submit</button>
+                                                                    <button type="submit" class="btn btn-secondary">Gửi</button>
                                                                 </div>
                                                             </form>
                                                         </div>
+                                                        <!-- MAIN-CONTENT -->
+
+                                                        <!-- Media -->
                                                         <div id="media" class="tab-pane"><br>
-                                                            <form action="{{ route('admin.manage-site.media') }}"
-                                                                method="post" enctype="multipart/form-data">
+                                                            <form action="{{ route('admin.manage-site.media') }}" method="post" enctype="multipart/form-data">
                                                                 @csrf
-                                                                <input type="hidden" name="key" value="media"
-                                                                    id="">
+                                                                <input type="hidden" name="key" value="media" id="">
                                                                 <div class="row justify-content-center">
                                                                     <div class="col-lg-8">
-                                                                        <ul
-                                                                            class="nav nav-pills nav-justified nav-secondary nav-pills-no-bd">
+                                                                        <ul class="nav nav-pills nav-justified nav-secondary nav-pills-no-bd">
                                                                             <li class="nav-item">
-                                                                                <a class="nav-link active"
-                                                                                    data-toggle="pill"
-                                                                                    href="#logo">Logo</a>
+                                                                                <a class="nav-link active" data-toggle="pill" href="#logo">Logo</a>
                                                                             </li>
                                                                             <li class="nav-item">
-                                                                                <a class="nav-link" data-toggle="pill"
-                                                                                    href="#favicon">Favicon</a>
+                                                                                <a class="nav-link" data-toggle="pill" href="#favicon">Favicon</a>
                                                                             </li>
                                                                             <li class="nav-item">
-                                                                                <a class="nav-link" data-toggle="pill"
-                                                                                    href="#loader">Loader</a>
+                                                                                <a class="nav-link" data-toggle="pill" href="#loader">Loader</a>
                                                                             </li>
                                                                         </ul>
 
                                                                         <div class="tab-content">
-                                                                            <div id="logo"
-                                                                                class="container tab-pane active"><br>
+                                                                            <div id="logo" class="container tab-pane active"><br>
                                                                                 <div class="row justify-content-center">
 
                                                                                     <div class="col-lg-12 ">
 
                                                                                         <div class="form-group">
-                                                                                            <label for="name">Current
-                                                                                                Image</label>
+                                                                                            <label for="name">Hình ảnh hiện tại</label>
                                                                                             <div class="col-lg-12 pb-1">
-                                                                                                <img class="admin-setting-img"
-                                                                                                    src="{{ asset('storage') }}/{{ $media_value->logo }}"
-                                                                                                    alt="No Image Found">
+                                                                                                <img class="admin-setting-img" src="{{ asset('storage') }}/{{ $media_value->logo }}" alt="Không tìm thấy hình ảnh">
                                                                                             </div>
-                                                                                            <span>Image Size Should Be 140 x
-                                                                                                40.</span>
+                                                                                            <span>Kích thước hình ảnh nên là 140 x 40.</span>
                                                                                         </div>
-                                                                                        <input type="hidden"
-                                                                                            name="old_logo"
-                                                                                            value="{{ $media_value->logo }}"
-                                                                                            id="">
+                                                                                        <input type="hidden" name="old_logo" value="{{ $media_value->logo }}" id="">
 
-                                                                                        <div
-                                                                                            class="form-group position-relative ">
+                                                                                        <div class="form-group position-relative ">
                                                                                             <label class="file">
-                                                                                                <input type="file"
-                                                                                                    accept="image/*"
-                                                                                                    class="upload-photo"
-                                                                                                    name="logo"
-                                                                                                    id="file"
-                                                                                                    aria-label="File browser example">
-                                                                                                <span
-                                                                                                    class="file-custom text-left">Upload
-                                                                                                    Image...</span>
+                                                                                                <input type="file" accept="image/*" class="upload-photo" name="logo" id="file" aria-label="File browser example">
+                                                                                                <span class="file-custom text-left">Tải hình ảnh lên...</span>
                                                                                             </label>
                                                                                         </div>
 
@@ -272,40 +213,24 @@
                                                                                 </div>
                                                                             </div>
 
-                                                                            <div id="favicon"
-                                                                                class="container tab-pane">
+                                                                            <div id="favicon" class="container tab-pane">
                                                                                 <br>
                                                                                 <div class="row justify-content-center">
 
                                                                                     <div class="col-lg-12">
 
                                                                                         <div class="form-group">
-                                                                                            <label for="name">Current
-                                                                                                Image</label>
+                                                                                            <label for="name">Hình ảnh hiện tại</label>
                                                                                             <div class="col-lg-12 pb-1">
-                                                                                                <img class="admin-setting-img my-mw-100"
-                                                                                                    src="{{ asset('storage') }}/{{ $media_value->favicon }}"
-                                                                                                    alt="No Image Found">
+                                                                                                <img class="admin-setting-img my-mw-100" src="{{ asset('storage') }}/{{ $media_value->favicon }}" alt="Không tìm thấy hình ảnh">
                                                                                             </div>
-                                                                                            <span>Image Size Should Be 16 x
-                                                                                                16.</span>
+                                                                                            <span>Kích thước hình ảnh nên là 16 x 16.</span>
                                                                                         </div>
-                                                                                        <input type="hidden"
-                                                                                            name="old_favicon"
-                                                                                            value="{{ $media_value->favicon }}"
-                                                                                            id="">
-                                                                                        <div
-                                                                                            class="form-group position-relative ">
+                                                                                        <input type="hidden" name="old_favicon" value="{{ $media_value->favicon }}" id="">
+                                                                                        <div class="form-group position-relative ">
                                                                                             <label class="file">
-                                                                                                <input type="file"
-                                                                                                    accept="image/*"
-                                                                                                    class="upload-photo"
-                                                                                                    name="favicon"
-                                                                                                    id="file"
-                                                                                                    aria-label="File browser example">
-                                                                                                <span
-                                                                                                    class="file-custom text-left">Upload
-                                                                                                    Image...</span>
+                                                                                                <input type="file" accept="image/*" class="upload-photo" name="favicon" id="file" aria-label="File browser example">
+                                                                                                <span class="file-custom text-left">Tải hình ảnh lên...</span>
                                                                                             </label>
                                                                                         </div>
 
@@ -314,50 +239,29 @@
                                                                                 </div>
                                                                             </div>
 
-                                                                            <div id="loader"
-                                                                                class="container tab-pane">
+                                                                            <div id="loader" class="container tab-pane">
                                                                                 <br>
                                                                                 <div class="row justify-content-center">
 
                                                                                     <div class="col-lg-12">
                                                                                         <div class="form-group">
                                                                                             <label class="switch-primary">
-                                                                                                <input type="checkbox"
-                                                                                                    class="switch switch-bootstrap "
-                                                                                                    name="is_loader"
-                                                                                                    value="1" checked>
-                                                                                                <span
-                                                                                                    class="switch-body"></span>
-                                                                                                <span
-                                                                                                    class="switch-text">Display
-                                                                                                    Loader</span>
+                                                                                                <input type="checkbox" class="switch switch-bootstrap" name="is_loader" value="1" checked>
+                                                                                                <span class="switch-body"></span>
+                                                                                                <span class="switch-text">Hiển thị Loader</span>
                                                                                             </label>
                                                                                         </div>
                                                                                         <div class="form-group">
-                                                                                            <label for="name">Current
-                                                                                                Image</label>
+                                                                                            <label for="name">Hình ảnh hiện tại</label>
                                                                                             <div class="col-lg-12 pb-1">
-                                                                                                <img class="admin-setting-img my-mw-100"
-                                                                                                    src="{{ asset('storage') }}/{{ $media_value->loader }}"
-                                                                                                    alt="No Image Found">
+                                                                                                <img class="admin-setting-img my-mw-100" src="{{ asset('storage') }}/{{ $media_value->loader }}" alt="Không tìm thấy hình ảnh">
                                                                                             </div>
                                                                                         </div>
-                                                                                        <input type="hidden"
-                                                                                            name="old_loader"
-                                                                                            value="{{ $media_value->loader }}"
-                                                                                            id="">
-                                                                                        <div
-                                                                                            class="form-group position-relative ">
+                                                                                        <input type="hidden" name="old_loader" value="{{ $media_value->loader }}" id="">
+                                                                                        <div class="form-group position-relative ">
                                                                                             <label class="file">
-                                                                                                <input type="file"
-                                                                                                    accept="image/*"
-                                                                                                    class="upload-photo"
-                                                                                                    name="loader"
-                                                                                                    id="file"
-                                                                                                    aria-label="File browser example">
-                                                                                                <span
-                                                                                                    class="file-custom text-left">Upload
-                                                                                                    Image...</span>
+                                                                                                <input type="file" accept="image/*" class="upload-photo" name="loader" id="file" aria-label="File browser example">
+                                                                                                <span class="file-custom text-left">Tải hình ảnh lên...</span>
                                                                                             </label>
                                                                                         </div>
                                                                                     </div>
@@ -369,141 +273,102 @@
                                                                     </div>
                                                                 </div>
                                                                 <div class="form-group d-flex justify-content-center">
-                                                                    <button type="submit"
-                                                                        class="btn btn-secondary ">Submit</button>
+                                                                    <button type="submit" class="btn btn-secondary">Gửi</button>
                                                                 </div>
                                                             </form>
                                                         </div>
-                                                        <div id="seo" class="tab-pane"><br>
-                                                            <form action="{{ route('admin.manage-site.seo') }}"
-                                                                method="post" enctype="multipart/form-data">
-                                                                 @csrf
+                                                        <!-- Media -->
+
+                                                        <!-- SEO -->
+                                                         <div id="seo" class="tab-pane"><br>
+                                                            <form action="{{ route('admin.manage-site.seo') }}" method="post" enctype="multipart/form-data">
+                                                                @csrf
                                                                 <div class="row justify-content-center">
-                                                                    <input type="hidden" name="key" id=""
-                                                                        value="seo">
+                                                                    <input type="hidden" name="key" id="" value="seo">
                                                                     <div class="col-lg-8">
                                                                         <div class="form-group">
-                                                                            <label for="meta_keywords">Site Meta Keywords
-                                                                                *</label>
-                                                                            <input type="text" name="meta_keyword"
-                                                                                class="tags" id="meta_keyword"
-                                                                                placeholder="Site Meta Keywords"
+                                                                            <label for="meta_keywords">Từ khóa SEO của trang web *</label>
+                                                                            <input type="text" name="meta_keyword" class="tags" id="meta_keyword"
+                                                                                placeholder="Nhập từ khóa SEO của trang web"
                                                                                 value="{{ $seo_value->meta_keyword }}">
                                                                         </div>
 
                                                                         <div class="form-group">
-                                                                            <label for="meta_description">Site Meta
-                                                                                Description
-                                                                                *</label>
+                                                                            <label for="meta_description">Mô tả SEO của trang web *</label>
                                                                             <textarea name="meta_description" id="meta_description" class="form-control" rows="5"
-                                                                                placeholder="Enter Site Meta Description">{{ $seo_value->meta_description }}</textarea>
+                                                                                placeholder="Nhập mô tả SEO của trang web">{{ $seo_value->meta_description }}</textarea>
                                                                         </div>
-
                                                                     </div>
-
                                                                 </div>
+
                                                                 <div class="form-group d-flex justify-content-center">
-                                                                    <button type="submit"
-                                                                        class="btn btn-secondary ">Submit</button>
+                                                                    <button type="submit" class="btn btn-secondary">Lưu thay đổi</button>
                                                                 </div>
                                                             </form>
-
                                                         </div>
+                                                        <!-- SEO -->
+
+                                                        <!-- FOOTER -->
                                                         <div id="footer" class="tab-pane"><br>
-                                                            <form action="{{ route('admin.manage-site.footer') }}"
-                                                                method="post" enctype="multipart/form-data">
+                                                            <form action="{{ route('admin.manage-site.footer') }}" method="post" enctype="multipart/form-data">
                                                                 @csrf
                                                                 <div class="row justify-content-center">
                                                                     <div class="col-lg-8">
-                                                                        <input type="hidden" name="key"
-                                                                            value="footer" id="">
+                                                                        <input type="hidden" name="key" value="footer" id="">
                                                                         <div class="tab-content">
 
-                                                                            <div id="footer_basic"
-                                                                                class="container tab-pane active"><br>
+                                                                            <div id="footer_basic" class="container tab-pane active"><br>
                                                                                 <div class="row justify-content-center">
 
                                                                                     <div class="col-lg-12">
 
                                                                                         <div class="form-group">
-                                                                                            <label
-                                                                                                for="footer_address">Store
-                                                                                                Address *</label>
-                                                                                            <input type="text"
-                                                                                                name="address"
-                                                                                                class="form-control"
-                                                                                                id="address"
-                                                                                                placeholder="Store Address"
-                                                                                                value="{{ $footer_value->address }}">
+                                                                                            <label for="footer_address">Địa chỉ cửa hàng *</label>
+                                                                                            <input type="text" name="address" class="form-control" id="address"
+                                                                                                placeholder="Địa chỉ cửa hàng" value="{{ $footer_value->address }}">
                                                                                         </div>
 
                                                                                         <div class="form-group">
-                                                                                            <label for="phone">Store
-                                                                                                Phone Number *</label>
-                                                                                            <input type="text"
-                                                                                                name="phone"
-                                                                                                class="form-control"
-                                                                                                id="phone"
-                                                                                                placeholder="Store Phone Number"
-                                                                                                value="{{ $footer_value->phone }}">
-                                                                                        </div>
-
-
-                                                                                        <div class="form-group">
-                                                                                            <label for="email">Store
-                                                                                                Email *</label>
-                                                                                            <input type="email"
-                                                                                                name="email"
-                                                                                                class="form-control"
-                                                                                                id="email"
-                                                                                                placeholder="Email"
-                                                                                                value="{{ $footer_value->email }}">
-                                                                                        </div>
-                                                                                        <div class="form-group">
-                                                                                            <label for="email">Store Facebook *</label>
-                                                                                            <input type="url"
-                                                                                                name="facebook"
-                                                                                                class="form-control"
-                                                                                                id="facebook"
-                                                                                                placeholder="Facebook Link"
-                                                                                                value="{{ $footer_value->facebook }}">
-                                                                                        </div>
-                                                                                        <div class="form-group">
-                                                                                            <label for="email">Store Twitter/X *</label>
-                                                                                            <input type="url"
-                                                                                                name="twitter"
-                                                                                                class="form-control"
-                                                                                                id="twitter"
-                                                                                                placeholder="Twitter Link"
-                                                                                                value="{{ $footer_value->twitter }}">
+                                                                                            <label for="phone">Số điện thoại cửa hàng *</label>
+                                                                                            <input type="text" name="phone" class="form-control" id="phone"
+                                                                                                placeholder="Số điện thoại cửa hàng" value="{{ $footer_value->phone }}">
                                                                                         </div>
 
                                                                                         <div class="form-group">
-                                                                                            <label for="email">Store Youtube *</label>
-                                                                                            <input type="url"
-                                                                                                name="youtube"
-                                                                                                class="form-control"
-                                                                                                id="youtube"
-                                                                                                placeholder="Youtube Link"
-                                                                                                value="{{ $footer_value->youtube }}">
-                                                                                        </div>
-                                                                                        <div class="form-group">
-                                                                                            <label for="email">Store Linkedin *</label>
-                                                                                            <input type="url"
-                                                                                                name="linkedin"
-                                                                                                class="form-control"
-                                                                                                id="linkedin"
-                                                                                                placeholder="LinkeDin Link"
-                                                                                                value="{{ $footer_value->linkedin }}">
+                                                                                            <label for="email">Email cửa hàng *</label>
+                                                                                            <input type="email" name="email" class="form-control" id="email"
+                                                                                                placeholder="Email" value="{{ $footer_value->email }}">
                                                                                         </div>
 
                                                                                         <div class="form-group">
-                                                                                            <label
-                                                                                                for="copy_right">Copyright
-                                                                                                *</label>
-                                                                                            <textarea name="copyright" id="copyright" class="form-control" rows="3" placeholder="Copyright">{{ $footer_value->copyright }}</textarea>
+                                                                                            <label for="email">Facebook cửa hàng *</label>
+                                                                                            <input type="url" name="facebook" class="form-control" id="facebook"
+                                                                                                placeholder="Link Facebook" value="{{ $footer_value->facebook }}">
                                                                                         </div>
 
+                                                                                        <div class="form-group">
+                                                                                            <label for="email">Twitter/X cửa hàng *</label>
+                                                                                            <input type="url" name="twitter" class="form-control" id="twitter"
+                                                                                                placeholder="Link Twitter" value="{{ $footer_value->twitter }}">
+                                                                                        </div>
+
+                                                                                        <div class="form-group">
+                                                                                            <label for="email">Youtube cửa hàng *</label>
+                                                                                            <input type="url" name="youtube" class="form-control" id="youtube"
+                                                                                                placeholder="Link Youtube" value="{{ $footer_value->youtube }}">
+                                                                                        </div>
+
+                                                                                        <div class="form-group">
+                                                                                            <label for="email">LinkedIn cửa hàng *</label>
+                                                                                            <input type="url" name="linkedin" class="form-control" id="linkedin"
+                                                                                                placeholder="Link LinkedIn" value="{{ $footer_value->linkedin }}">
+                                                                                        </div>
+
+                                                                                        <div class="form-group">
+                                                                                            <label for="copy_right">Bản quyền *</label>
+                                                                                            <textarea name="copyright" id="copyright" class="form-control" rows="3"
+                                                                                                    placeholder="Bản quyền">{{ $footer_value->copyright }}</textarea>
+                                                                                        </div>
 
                                                                                     </div>
 
@@ -517,12 +382,13 @@
                                                                 </div>
 
                                                                 <div class="form-group d-flex justify-content-center">
-                                                                    <button type="submit"
-                                                                        class="btn btn-secondary ">Submit</button>
+                                                                    <button type="submit" class="btn btn-secondary">Gửi</button>
                                                                 </div>
                                                             </form>
 
                                                         </div>
+                                                        <!-- FOOTER -->
+
                                                         <div id="ftc" class="tab-pane"><br>
                                                             <form
                                                                 action="{{ route('admin.manage-site.first_three_column') }}"
@@ -823,6 +689,7 @@
                                                                 </div>
                                                             </form>
                                                         </div>
+
                                                         <div id="ftc1" class="tab-pane"><br>
                                                             <form
                                                                 action="{{ route('admin.manage-site.four_three_column') }}"
@@ -972,6 +839,7 @@
                                                                 </div>
                                                             </form>
                                                         </div>
+                                                        
                                                         <div id="ttc" class="tab-pane"><br>
                                                             <form
                                                                 action="{{ route('admin.manage-site.third_two_column') }}"

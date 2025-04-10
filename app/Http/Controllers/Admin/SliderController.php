@@ -23,8 +23,6 @@ class SliderController extends Controller
     function store(Request $request): RedirectResponse
     {
         $request->validate([
-            'title' => 'required',
-            'details' => 'required',
             'url' => 'required',
             'image' => 'required|image|mimes:jpg,png,jpeg|max:2096',
         ]);
@@ -49,8 +47,7 @@ class SliderController extends Controller
     function update(Request $request, $id): RedirectResponse
     {
         $request->validate([
-            'title' => 'required',
-            'details' => 'required',
+            
             'url' => 'required',
             'image' => 'nullable|image|mimes:jpg,png,jpeg|max:2096',
         ]);
