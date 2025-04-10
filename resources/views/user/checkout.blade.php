@@ -7,7 +7,7 @@
         <div class="container">
             <div class="column">
                 <ul class="breadcrumbs">
-                    <li><a href="/">Home</a> </li>
+                    <li><a href="/">Trang chủ</a> </li>
                     <li class="separator"></li>
                     <li>Billing address</li>
                 </ul>

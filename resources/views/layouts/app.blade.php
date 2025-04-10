@@ -270,12 +270,17 @@ body_theme1
                                                         <span><i class="icon-chevron-down"></i></span>
                                                     </a>
                                                     <ul id="subcategory_list">
+                                                    @if($category->sub_category && $category->sub_category->isNotEmpty())
                                                         @foreach ($category->sub_category as $sub_category)
                                                             <li>
-                                                                <a class="subcategory"
-                                                                    href="/shop/category/{{ $sub_category->id }}/{{ $category->id }}">{{ $sub_category->name }}</a>
+                                                                <a class="subcategory" href="/shop/category/{{ $sub_category->id }}/{{ $category->id }}">
+                                                                    {{ $sub_category->name }}
+                                                                </a>
                                                             </li>
                                                         @endforeach
+                                                    @else
+                                                        <li>Không có danh mục con.</li>
+                                                    @endif
                                                     </ul>
                                                 </li>
                                             @endforeach

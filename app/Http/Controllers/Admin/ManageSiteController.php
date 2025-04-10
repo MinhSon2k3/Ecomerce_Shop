@@ -64,7 +64,7 @@ class ManageSiteController extends Controller
         ];
         $manage_site->value = json_encode($value);
         $manage_site->save();
-        return redirect()->back()->with('success', $request->key . ' Update Successfully');
+        return redirect()->back()->with('success', $request->key . 'Cập nhật thành công');
     }
     function media(Request $request)
     {
@@ -94,7 +94,7 @@ class ManageSiteController extends Controller
         ];
         $manage_site->value = json_encode($value);
         $manage_site->save();
-        return redirect()->back()->with('success', $request->key . ' Update Successfully');
+        return redirect()->back()->with('success', $request->key . ' Cập nhật thành công');
     }
     function seo(Request $request)
     {
@@ -106,7 +106,7 @@ class ManageSiteController extends Controller
         $manage_site->value = json_encode($value);
         $manage_site->save();
 
-        return redirect()->back()->with('success', $request->key . ' Update Successfully');
+        return redirect()->back()->with('success', $request->key . ' Cập nhật thành công');
     }
     function footer(Request $request)
     {
@@ -123,7 +123,7 @@ class ManageSiteController extends Controller
         ];
         $manage_site->value = json_encode($value);
         $manage_site->save();
-        return redirect()->back()->with('success', $request->key . ' Update Successfully');
+        return redirect()->back()->with('success', $request->key . ' Cập nhật thành công');
     }
     function home_page(Request $request)
     {
@@ -153,7 +153,7 @@ class ManageSiteController extends Controller
         ];
         $manage_site->value = json_encode($value);
         $manage_site->save();
-        return redirect()->back()->with('success', $request->key . ' Update Successfully');
+        return redirect()->back()->with('success', $request->key . ' Cập nhật thành công');
     }
     function first_three_column(Request $request)
     {
@@ -193,7 +193,7 @@ class ManageSiteController extends Controller
         ];
         $manage_site->value = json_encode($value);
         $manage_site->save();
-        return redirect()->back()->with('success', $request->key . ' Update Successfully');
+        return redirect()->back()->with('success', $request->key . ' Cập nhật thành công');
     }
     function second_three_column(Request $request)
     {
@@ -233,7 +233,7 @@ class ManageSiteController extends Controller
         ];
         $manage_site->value = json_encode($value);
         $manage_site->save();
-        return redirect()->back()->with('success', $request->key . ' Update Successfully');
+        return redirect()->back()->with('success', $request->key . ' Cập nhật thành công');
     }
     function third_two_column(Request $request)
     {
@@ -263,7 +263,7 @@ class ManageSiteController extends Controller
         ];
         $manage_site->value = json_encode($value);
         $manage_site->save();
-        return redirect()->back()->with('success', $request->key . ' Update Successfully');
+        return redirect()->back()->with('success', $request->key . ' Cập nhật thành công');
     }
     function four_three_column(Request $request)
     {
@@ -303,6 +303,6 @@ class ManageSiteController extends Controller
         ];
         $manage_site->value = json_encode($value);
         $manage_site->save();
-        return redirect()->back()->with('success', $request->key . ' Update Successfully');
+        return redirect()->back()->with('success', $request->key . ' Cập nhật thành công');
     }
 }

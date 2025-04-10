@@ -29,7 +29,7 @@ class BlogCategoryController extends Controller
             'name'=>$request->name,
             'slug'=>Str::slug($request->name),
         ]);
-        return redirect()->route('admin.blog-category.index')->with('success', 'Faq category add successfully');
+        return redirect()->route('admin.blog-category.index')->with('success', 'Thêm danh mục Blog thành công');
     }
     function edit($id): View
     {
@@ -45,12 +45,12 @@ class BlogCategoryController extends Controller
             'name'=>$request->name,
             'slug'=>Str::slug($request->name),
         ]);
-        return redirect()->route('admin.blog-category.index')->with('success', 'Faq category update successfully');
+        return redirect()->route('admin.blog-category.index')->with('success', 'Cập nhật danh mục Blog thành công');
     }
     function delete($id): RedirectResponse
     {
         BlogCategory::findOrFail($id)->delete();
-        return redirect()->route('admin.blog-category.index')->with('success', 'Faq category delete successfully');
+        return redirect()->route('admin.blog-category.index')->with('success', 'Xóa danh mục Blog thành công');
     }
 
     function update_status($id): RedirectResponse
@@ -60,12 +60,12 @@ class BlogCategoryController extends Controller
             $blog_category->status = 0;
             $blog_category->save();
 
-            return redirect()->route('admin.blog-category.index')->with('success', 'BlogCategory Status un-active successfully');
+            return redirect()->route('admin.blog-category.index')->with('success', 'Đã tắt trạng thái danh mục Blog thành công');
         } else {
             $blog_category->status = 1;
             $blog_category->save();
 
-            return redirect()->route('admin.blog-category.index')->with('success', 'BlogCategory Status active successfully');
+            return redirect()->route('admin.blog-category.index')->with('success', 'Đã kích hoạt trạng thái danh mục Blog thành công');
         }
     }
 }

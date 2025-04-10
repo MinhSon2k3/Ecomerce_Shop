@@ -65,7 +65,7 @@ class BlogController extends Controller
         $blog->meta_description = $request->meta_description;
         $blog->meta_keyword = $request->meta_keywords;
         $blog->save();
-        return redirect()->route('admin.blog.index')->with('success', 'Blog Create successfully');
+        return redirect()->route('admin.blog.index')->with('success', 'Tạo blog thành công');
     }
     function edit($id): View
     {
@@ -100,7 +100,7 @@ class BlogController extends Controller
         $blog->meta_description = $request->meta_description;
         $blog->meta_keyword = $request->meta_keywords;
         $blog->save();
-        return redirect()->route('admin.blog.index')->with('success', 'Blog Update successfully');
+        return redirect()->route('admin.blog.index')->with('success', 'Cập nhật blog thành công');
     }
     function delete($id): RedirectResponse
     {
@@ -110,6 +110,6 @@ class BlogController extends Controller
             File::delete($path);
         }
         $blog->delete();
-        return redirect()->route('admin.blog.index')->with('success', 'Blog Delete successfully');
+        return redirect()->route('admin.blog.index')->with('success', 'Xóa blog thành công');
     }
 }

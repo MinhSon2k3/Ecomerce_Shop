@@ -8,7 +8,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <ul class="breadcrumbs">
-                        <li><a href="/">Home</a>
+                        <li><a href="/">Trang chủ</a>
                         </li>
                         <li class="separator"></li>
                         <li><a href="/shop">Sản phẩm</a>

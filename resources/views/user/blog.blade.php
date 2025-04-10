@@ -8,7 +8,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <ul class="breadcrumbs">
-                        <li><a href="/">Home</a> </li>
+                        <li><a href="/">Trang chủ</a> </li>
                         <li class="separator"></li>
                         <li>Blog</li>
                     </ul>
@@ -39,7 +39,6 @@
                                     <li><i class="icon-user"></i>Admin</li>
                                     <li><i class="icon-clock"></i>{{ \Carbon\Carbon::now()->format('Y, M d',strtotime($blog->created_at)) }}</li>
                                 </ul>
-                                <p>{!! substr($blog->description, 0, 50) !!}
                                 </p>
                             </div>
                         </a>

@@ -27,17 +27,17 @@ class LoginController extends Controller
                 // 'regex:/^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]+$/',
             ],
         ], [
-            'email.email' => 'Please enter a valid email address.',
-            'email.exists' => 'The email address is not registered.',
-            'password.required' => 'The password field is required.',
-            'password.min' => 'The password must be at least 8 characters long.',
-            'password.regex' => 'The password must contain at least one uppercase letter, one lowercase letter, one number, and one special character.',
+            'email.email' => 'Vui lòng nhập địa chỉ email hợp lệ.',
+            'email.exists' => 'Địa chỉ email chưa được đăng ký.',
+            'password.required' => 'Trường mật khẩu là bắt buộc.',
+            'password.min' => 'Mật khẩu phải có ít nhất 8 ký tự.',
+            'password.regex' => 'Mật khẩu phải chứa ít nhất một chữ cái viết hoa, một chữ cái viết thường, một chữ số và một ký tự đặc biệt.',
         ]);
         $admin = Auth::guard('admin')->attempt(['email' => $request->email, 'password' => $request->password]);
         if ($admin) {
             return redirect()->route('admin.dashboard')->with('success', 'Đăng nhập thành công');
         } else {
-            return redirect()->back()->with('error', 'Invalid username and password');
+            return redirect()->back()->with('error', 'Tên đăng nhập và mật khẩu không hợp lệ');
         }
     }
 
@@ -58,9 +58,9 @@ class LoginController extends Controller
             ],
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048'
         ], [
-            'email.email' => 'Please enter a valid email address.',
-            'phone.required' => 'The phone number field is required.',
-            'phone.unique' => 'The phone number is already in use.',
+            'email.email' => 'Vui lòng nhập địa chỉ email hợp lệ.',
+            'phone.required' => 'Trường số điện thoại là bắt buộc.',
+            'phone.unique' => 'Số điện thoại đã được sử dụng.',
         ]);
         $admin = Admin::findOrFail(Auth::guard('admin')->user()->id);
 
@@ -69,9 +69,9 @@ class LoginController extends Controller
                 'password' => 'required|confirmed'
             ]);
 
-            // check if existing password is correct
+            // kiểm tra xem mật khẩu hiện tại có chính xác không
             if (!Hash::check($request->existing_password, $admin->password)) {
-                return redirect()->back()->with('error', 'Existing password is incorrect');
+                return redirect()->back()->with('error', 'Mật khẩu hiện tại không chính xác');
             }
         }
 
@@ -92,12 +92,12 @@ class LoginController extends Controller
         }
 
         $admin->save();
-        return redirect()->back()->with('success', 'Profile update successfully');
+        return redirect()->back()->with('success', 'Cập nhật hồ sơ thành công');
     }
 
     function logout()
     {
         Auth::guard('admin')->logout();
-        return redirect()->route('admin.auth.login')->with('success', 'Logout successfully');
+        return redirect()->route('admin.auth.login')->with('success', 'Đăng xuất thành công');
     }
 }

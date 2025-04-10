@@ -37,7 +37,7 @@ class SliderController extends Controller
         $slider->title = $request->title;
         $slider->details = $request->details;
         $slider->save();
-        return redirect()->route('admin.slider.index')->with('success', 'Slider add successfully');
+        return redirect()->route('admin.slider.index')->with('success', 'Slider đã được thêm thành công');
     }
     function edit($id): View
     {
@@ -47,7 +47,6 @@ class SliderController extends Controller
     function update(Request $request, $id): RedirectResponse
     {
         $request->validate([
-            
             'url' => 'required',
             'image' => 'nullable|image|mimes:jpg,png,jpeg|max:2096',
         ]);
@@ -63,7 +62,7 @@ class SliderController extends Controller
         $slider->title = $request->title;
         $slider->details = $request->details;
         $slider->save();
-        return redirect()->route('admin.slider.index')->with('success', 'Slider Update successfully');
+        return redirect()->route('admin.slider.index')->with('success', 'Slider đã được cập nhật thành công');
     }
     function delete($id): RedirectResponse
     {
@@ -73,6 +72,6 @@ class SliderController extends Controller
             File::delete($path);
         }
         $slider->delete();
-        return redirect()->route('admin.slider.index')->with('success', 'Slider Delete successfully');
+        return redirect()->route('admin.slider.index')->with('success', 'Slider đã được xóa thành công');
     }
 }

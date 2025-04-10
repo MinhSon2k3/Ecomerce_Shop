@@ -34,7 +34,7 @@ class SubCategoryController extends Controller
         $sub_category->slug = Str::slug($request->name);
         $sub_category->cat_id = $request->cat_id;
         $sub_category->save();
-        return redirect()->route('admin.sub-category.index')->with('success', 'Thêm thành công danh mục con');
+        return redirect()->route('admin.sub-category.index')->with('success', 'Thêm danh mục con thành công');
     }
     function edit($id): View
     {
@@ -59,7 +59,7 @@ class SubCategoryController extends Controller
     function delete($id): RedirectResponse
     {
         SubCategory::findOrFail($id)->delete();
-        return redirect()->route('admin.sub-category.index')->with('success', 'Đã xóa thành công danh mục phụ');
+        return redirect()->route('admin.sub-category.index')->with('success', 'Xóa danh mục phụ thành công');
     }
 
     function update_status($id): RedirectResponse

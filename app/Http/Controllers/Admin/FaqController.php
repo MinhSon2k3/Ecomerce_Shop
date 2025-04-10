@@ -29,7 +29,7 @@ class FaqController extends Controller
             'details' => 'required',
         ]);
         Faq::create($validate);
-        return redirect()->route('admin.faq.index')->with('success', 'Faq  add successfully');
+        return redirect()->route('admin.faq.index')->with('success', 'Thêm câu hỏi thường gặp thành công');
     }
     function edit($id): View
     {
@@ -45,12 +45,12 @@ class FaqController extends Controller
             'details' => 'required',
         ]);
         Faq::where('id', $id)->update($validate);
-        return redirect()->route('admin.faq.index')->with('success', 'Faq  update successfully');
+        return redirect()->route('admin.faq.index')->with('success', 'Cập nhật câu hỏi thường gặp thành công');
     }
     function delete($id): RedirectResponse
     {
         Faq::findOrFail($id)->delete();
-        return redirect()->route('admin.faq.index')->with('success', 'Faq  delete successfully');
+        return redirect()->route('admin.faq.index')->with('success', 'Xóa câu hỏi thường gặp thành công');
     }
- 
+
 }

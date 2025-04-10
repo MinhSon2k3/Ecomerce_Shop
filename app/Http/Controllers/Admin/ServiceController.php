@@ -37,7 +37,7 @@ class ServiceController extends Controller
         $service->title = $request->title;
         $service->details = $request->details;
         $service->save();
-        return redirect()->route('admin.service.index')->with('success', 'Service add successfully');
+        return redirect()->route('admin.service.index')->with('success', 'Dịch vụ đã được thêm thành công');
     }
     function edit($id): View
     {
@@ -61,7 +61,7 @@ class ServiceController extends Controller
         $service->title = $request->title;
         $service->details = $request->details;
         $service->save();
-        return redirect()->route('admin.service.index')->with('success', 'Service Update successfully');
+        return redirect()->route('admin.service.index')->with('success', 'Dịch vụ đã được cập nhật thành công');
     }
     function delete($id): RedirectResponse
     {
@@ -71,6 +71,6 @@ class ServiceController extends Controller
             File::delete($path);
         }
         $service->delete();
-        return redirect()->route('admin.service.index')->with('success', 'Service Delete successfully');
+        return redirect()->route('admin.service.index')->with('success', 'Dịch vụ đã được xóa thành công');
     }
 }

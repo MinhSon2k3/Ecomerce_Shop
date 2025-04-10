@@ -35,7 +35,7 @@ class FaqCategoryController extends Controller
             'meta_keyword' => $validate['meta_keyword'],
             'meta_description' => $validate['meta_description'],
         ]);
-        return redirect()->route('admin.faq-category.index')->with('success', 'Faq category add successfully');
+        return redirect()->route('admin.faq-category.index')->with('success', 'Thêm danh mục câu hỏi thường gặp thành công');
     }
     function edit($id): View
     {
@@ -52,17 +52,17 @@ class FaqCategoryController extends Controller
         ]);
         FaqCategory::where('id', $id)->update([
             'name' => $validate['name'],
-            'text' => $validate['text'], // add this line just for now
+            'text' => $validate['text'],
             'slug' => Str::slug($validate['name']),
             'meta_keyword' => $validate['meta_keyword'],
             'meta_description' => $validate['meta_description'],
         ]);
-        return redirect()->route('admin.faq-category.index')->with('success', 'Faq category update successfully');
+        return redirect()->route('admin.faq-category.index')->with('success', 'Cập nhật danh mục câu hỏi thường gặp thành công');
     }
     function delete($id): RedirectResponse
     {
         FaqCategory::findOrFail($id)->delete();
-        return redirect()->route('admin.faq-category.index')->with('success', 'Faq category delete successfully');
+        return redirect()->route('admin.faq-category.index')->with('success', 'Xóa danh mục câu hỏi thường gặp thành công');
     }
 
     function update_status($id): RedirectResponse
@@ -72,12 +72,12 @@ class FaqCategoryController extends Controller
             $faq_category->status = 0;
             $faq_category->save();
 
-            return redirect()->route('admin.faq-category.index')->with('success', 'FaqCategory Status un-active successfully');
+            return redirect()->route('admin.faq-category.index')->with('success', 'Tắt trạng thái danh mục câu hỏi thường gặp thành công');
         } else {
             $faq_category->status = 1;
             $faq_category->save();
 
-            return redirect()->route('admin.faq-category.index')->with('success', 'FaqCategory Status active successfully');
+            return redirect()->route('admin.faq-category.index')->with('success', 'Bật trạng thái danh mục câu hỏi thường gặp thành công');
         }
     }
 }

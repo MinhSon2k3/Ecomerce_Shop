@@ -29,8 +29,6 @@ class ProductController extends Controller
     }
     function store(Request $request): RedirectResponse
     {
-        
-
         $request->validate([
             'name' => 'required|unique:products',
             'featured_image' => 'required|image|mimes:jpg,png,jpeg|max:2096',
@@ -47,12 +45,10 @@ class ProductController extends Controller
             'total_stock' => 'required',
         ]);
 
-
         $filename = '';
         if ($request->file('featured_image')) {
             $filename = $request->file('featured_image')->store('products', 'public');
         }
-
 
         $product = new Product();
         $product->name = $request->name;
@@ -71,9 +67,9 @@ class ProductController extends Controller
         $product->sub_cat_id = $request->sub_cat_id;
         $product->brand_id = $request->brand_id;
         $product->total_stock = $request->total_stock;
-      
+
         $product->save();
-        return redirect()->route('admin.product.index')->with('success', 'Product Add successfully');
+        return redirect()->route('admin.product.index')->with('success', 'Sản phẩm đã được thêm thành công');
     }
     function edit($id): View
     {
@@ -99,16 +95,15 @@ class ProductController extends Controller
             'brand_id' => 'required|exists:brands,id',
             'total_stock' => 'required',
         ]);
-      
+
         $product = Product::findOrFail($id);
-      
+
         $filename = '';
         if ($request->file('featured_image')) {
             $filename = $request->file('featured_image')->store('products', 'public');
         } else {
             $filename = $product->featured_image;
         }
-
 
         $product->name = $request->name;
         $product->slug = Str::slug($request->name);
@@ -126,9 +121,9 @@ class ProductController extends Controller
         $product->sub_cat_id = $request->sub_cat_id;
         $product->brand_id = $request->brand_id;
         $product->total_stock = $request->total_stock;
-      
+
         $product->save();
-        return redirect()->route('admin.product.index')->with('success', 'Product Update successfully');
+        return redirect()->route('admin.product.index')->with('success', 'Sản phẩm đã được cập nhật thành công');
     }
     
     public function delete($id): RedirectResponse
@@ -157,36 +152,7 @@ class ProductController extends Controller
         // Xóa sản phẩm khỏi cơ sở dữ liệu
         $product->delete();
     
-        return redirect()->route('admin.product.index')->with('success', 'Product deleted successfully');
-    }
-
-    function get_sub_category(Request $request)
-    {
-        $sub_categories = SubCategory::where('cat_id', $request->cat_id)->latest()->get();
-        $output = "";
-        if (count($sub_categories) > 0) {
-            foreach ($sub_categories as $category) {
-                $output .= "<option value='{$category->id}'>{$category->name}</option>";
-            }
-        } else {
-            $output .= "<option value=''>Record not found</option>";
-        }
-
-        echo $output;
-    }
-    function get_child_category(Request $request)
-    {
-        $child_categories = ChildCategory::where('sub_cat_id', $request->sub_cat_id)->latest()->get();
-        $output = "";
-        if (count($child_categories) > 0) {
-            foreach ($child_categories as $category) {
-                $output .= "<option value='{$category->id}'>{$category->name}</option>";
-            }
-        } else {
-            $output .= "<option value=''>Record not found</option>";
-        }
-
-        echo $output;
+        return redirect()->route('admin.product.index')->with('success', 'Sản phẩm đã được xóa thành công');
     }
 
     function update_status($id): RedirectResponse
@@ -196,11 +162,11 @@ class ProductController extends Controller
             $product->status = 0;
             $product->save();
 
-            return redirect()->route('admin.product.index')->with('success', 'Đã ẩn sản phẩm');
+            return redirect()->route('admin.product.index')->with('success', 'Sản phẩm đã bị ẩn');
         } else {
             $product->status = 1;
             $product->save();
-            return redirect()->route('admin.product.index')->with('success', 'Đã hiện sản phẩm');
+            return redirect()->route('admin.product.index')->with('success', 'Sản phẩm đã được hiển thị');
         }
     }
 }

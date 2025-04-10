@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 @section('title')
-    Blog Category Create
+    Tạo Danh mục Blog
 @endsection
 @section('content')
     <div class="content">
@@ -8,13 +8,13 @@
 
             <div class="container-fluid">
 
-                <!-- Page Heading -->
+                <!-- Tiêu đề Trang -->
                 <div class="card mb-4">
                     <div class="card-body">
                         <div class="d-sm-flex align-items-center justify-content-between">
-                            <h3 class="mb-0 bc-title"><b>Create Blog Category</b> </h3>
+                            <h3 class="mb-0 bc-title"><b>Tạo Danh mục Blog</b> </h3>
                             <a class="btn btn-primary btn-sm" href="{{ route('admin.blog-category.index') }}"><i
-                                    class="fas fa-chevron-left"></i> Back</a>
+                                    class="fas fa-chevron-left"></i> Quay lại</a>
                         </div>
                     </div>
                 </div>
@@ -25,7 +25,7 @@
                     <div class="col-xl-12 col-lg-12 col-md-12">
 
                         <div class="card o-hidden border-0 shadow-lg">
-                            <div class="card-body ">
+                            <div class="card-body">
                                 <!-- Nested Row within Card Body -->
                                 <div class="row justify-content-center">
                                     <div class="col-lg-12">
@@ -33,16 +33,16 @@
                                             method="POST" enctype="multipart/form-data">
                                             @csrf
                                             <div class="form-group">
-                                                <label for="name">Name *</label>
+                                                <label for="name">Tên *</label>
                                                 <input type="text" name="name" class="form-control item-name"
-                                                    id="name" placeholder="Enter Name" value="">
+                                                    id="name" placeholder="Nhập tên" value="">
                                                 @error('name')
                                                     <span class="text-danger">{{ $message }}</span>
                                                 @enderror
                                             </div>
 
                                             <div class="form-group">
-                                                <button type="submit" class="btn btn-secondary ">Submit</button>
+                                                <button type="submit" class="btn btn-secondary ">Gửi</button>
                                             </div>
                                         </form>
                                     </div>

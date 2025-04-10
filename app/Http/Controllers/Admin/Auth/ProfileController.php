@@ -40,7 +40,7 @@ class ProfileController extends Controller
         $admin->image = $filename;
         $admin->save();
 
-        return redirect()->back()->with('success', 'Profile updated successfully');
+        return redirect()->back()->with('success', 'Cập nhật hồ sơ thành công');
     }
 
     function change_password_view(): View
@@ -59,16 +59,15 @@ class ProfileController extends Controller
         if (Hash::check($request->old_password, $admin->password)) {
             $admin->password = Hash::make($request->password);
             $admin->save();
-            return redirect()->back()->with('success', 'Password change successfully');
+            return redirect()->back()->with('success', 'Đổi mật khẩu thành công');
         } else {
-            return redirect()->back()->with('error', 'Invalid old password');
+            return redirect()->back()->with('error', 'Mật khẩu cũ không chính xác');
         }
     }
-
 
     function logout(): RedirectResponse
     {
         Auth::guard('admin')->logout();
-        return redirect()->route('admin.auth.login')->with('success', 'Logout successfully');
+        return redirect()->route('admin.auth.login')->with('success', 'Đăng xuất thành công');
     }
 }
