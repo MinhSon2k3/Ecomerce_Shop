@@ -183,14 +183,6 @@ class HomeController extends Controller
         return view('user.shop', compact('categories', 'products', 'brands'));
     }
 
-    function product_by_child_category($id, $cat_id, $sub_id): View
-    {
-        $categories = Category::latest()->get();
-        $brands = Brand::latest()->get();
-        $products = Product::where(['child_cat_id' => $id, 'sub_cat_id' => $sub_id, 'cat_id' => $cat_id])->latest()->get();
-        return view('user.shop', compact('categories', 'products', 'brands'));
-    }
-
     function product_by_brand($slug): View
     {
         
@@ -237,7 +229,7 @@ class HomeController extends Controller
 
     function blog_details($id): View
     {
-        $blog = Blog::findOrFail($id);
+        $blog = Blog::with('category')->findOrFail($id);
         $recent_blogs = Blog::limit(4)->latest()->get();
         $categories = BlogCategory::latest()->get();
         return view('user.blog-details', compact('blog', 'categories', 'recent_blogs'));

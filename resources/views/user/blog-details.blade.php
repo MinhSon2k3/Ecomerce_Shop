@@ -36,7 +36,7 @@
                         <ul class="post-meta mb-4">
                             <li><i class="icon-user"></i><a href="javascript:;}">Admin</a></li>
                             <li><i class="icon-tag"></i><a
-                                    href="{{ route('user.blog.category', ['id' => $blog->cat_id]) }}">Beauty</a></li>
+                                    href="{{ route('user.blog.category', ['id' => $blog->cat_id]) }}">{{ $blog->category->name }}</a></li>
                             <li><i class="icon-clock"></i><a
                                     href="javascript:;">{{ \Carbon\Carbon::now()->format('Y , M d', strtotime($blog->created_at)) }}</a>
                             </li>

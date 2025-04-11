@@ -33,19 +33,5 @@ class Category extends Model
         return $this->hasMany(SubCategory::class, 'cat_id');
     }
 
-    // function child_category(): HasMany
-    // {
-    //     return $this->hasMany(ChildCategory::class, 'cat_id');
-    // }
-    public function child_category()
-    {
-        return $this->hasManyThrough(
-            ChildCategory::class, 
-            SubCategory::class, 
-            'cat_id',  // Khóa ngoại của SubCategory
-            'sub_cat_id', // Khóa ngoại của ChildCategory
-            'id',  // Khóa chính của Category
-            'id'   // Khóa chính của SubCategory
-        );
-    }
+  
 }

@@ -99,6 +99,7 @@ class BlogController extends Controller
         $blog->tags = $request->tags;
         $blog->meta_description = $request->meta_description;
         $blog->meta_keyword = $request->meta_keywords;
+        $blog->cat_id = $request->cat_id;
         $blog->save();
         return redirect()->route('admin.blog.index')->with('success', 'Cập nhật blog thành công');
     }

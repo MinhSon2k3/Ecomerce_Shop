@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('title')
-    Profie
+    Hồ sơ
 @endsection
 @section('content')
     <div class="page-title">
@@ -8,9 +8,9 @@
             <div class="row">
                 <div class="col-lg-12">
                     <ul class="breadcrumbs">
-                        <li><a href="/">Home</a> </li>
+                        <li><a href="/">Trang chủ</a> </li>
                         <li class="separator"></li>
-                        <li>Profile</li>
+                        <li>Hồ sơ</li>
                     </ul>
                 </div>
             </div>
@@ -34,25 +34,25 @@
                                 </div>
                             </div>
                             @php
-                                $name=explode(' ',Auth::user()->name);
+                                $name = explode(' ', Auth::user()->name);
                             @endphp
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="account-fn">First Name</label>
-                                    <input class="form-control"  name="first_name" type="text" id="account-fn"
+                                    <label for="account-fn">Tên</label>
+                                    <input class="form-control" name="first_name" type="text" id="account-fn"
                                         value="{{ $name[0] }}">
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="account-ln">Last Name</label>
+                                    <label for="account-ln">Họ</label>
                                     <input class="form-control" type="text" name="last_name" id="account-ln"
                                         value="{{ $name[1] }}">
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="account-email">E-mail</label>
+                                    <label for="account-email">Email</label>
                                     <input class="form-control" name="email" type="email" id="account-email"
                                         value="{{ Auth::user()->email }}">
                                 </div>
@@ -66,9 +66,9 @@
                             </div>
                             <!-- <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="account-pass">New Password</label>
+                                    <label for="account-pass">Mật khẩu mới</label>
                                     <input class="form-control" name="password" type="text" id="account-pass"
-                                        placeholder="Change your password">
+                                        placeholder="Đổi mật khẩu">
                                 </div>
                             </div> -->
                             <div class="col-12">

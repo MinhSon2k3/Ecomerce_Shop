@@ -64,9 +64,9 @@
                                         </a></h3>
                                
                                     <h4 class="product-price">
-                                        <del>${{ $product->previous_price }}</del>
+                                        <del>{{ $product->previous_price }}đ</del>
 
-                                        ${{ $product->current_price }}
+                                        {{ $product->current_price }}đ
                                     </h4>
                                 </div>
                             </div>
