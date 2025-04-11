@@ -17,11 +17,11 @@ class DashboardController extends Controller
 {
     function index(): View
     {
-        $pending_orders = Order::whereOrderStatus('pending')->count();
-        $progress_orders = Order::whereOrderStatus('progress')->count();
-        $delivered_orders = Order::whereOrderStatus('delivered')->count();
-        $canceled_orders = Order::whereOrderStatus('canceled')->count();
-        $all_orders = Order::whereUserId(auth()->id())->count();
+        $pending_orders = Order::whereOrderStatus('Chưa xử lý')->count();
+        $progress_orders = Order::whereOrderStatus('Đang vận chuyển')->count();
+        $delivered_orders = Order::whereOrderStatus('Đã giao')->count();
+        $canceled_orders = Order::whereOrderStatus('Hủy')->count();
+        $all_orders = Order::count();
         $total_earning = Order::whereUserId(auth()->id())->sum('total_amount');
         $total_products=Product::count();
         $total_customer=User::count();
@@ -33,7 +33,6 @@ class DashboardController extends Controller
             'pending_orders',
             'progress_orders',
             'delivered_orders',
-            'canceled_orders',
             'canceled_orders',
             'all_orders',
             'total_earning',

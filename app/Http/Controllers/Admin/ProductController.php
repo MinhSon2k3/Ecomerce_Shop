@@ -23,15 +23,17 @@ class ProductController extends Controller
     }
     function create(): View
     {
-        $categories = Category::latest()->get();
+        $categories = Category::with('sub_category')->latest()->get();
         $brands = Brand::latest()->get();
+    
         return view('admin.product.create', compact('categories', 'brands'));
     }
+    
     function store(Request $request): RedirectResponse
     {
         $request->validate([
             'name' => 'required|unique:products',
-            'featured_image' => 'required|image|mimes:jpg,png,jpeg|max:2096',
+           
             'short_description' => 'required',
             'description' => 'required',
             'tags' => 'required',
@@ -71,13 +73,20 @@ class ProductController extends Controller
         $product->save();
         return redirect()->route('admin.product.index')->with('success', 'Sản phẩm đã được thêm thành công');
     }
-    function edit($id): View
+    public function edit($id): View
     {
-        $product = Product::findOrFail($id);
-        $categories = Category::latest()->get();
-        $brands = Brand::latest()->get();
-        return view('admin.product.update', compact('product','brands','categories'));
+        $product = Product::findOrFail($id); // Tìm sản phẩm theo ID
+        $categories = Category::latest()->get(); // Lấy tất cả danh mục cha
+        $brands = Brand::latest()->get(); // Lấy tất cả thương hiệu
+    
+        // Lấy danh mục con của danh mục cha sản phẩm đang thuộc về
+        $subCategories = $product->categories->sub_category; // Lấy danh mục con dựa trên danh mục cha của sản phẩm
+    
+    
+        return view('admin.product.update', compact('product', 'brands', 'categories', 'subCategories'));
     }
+    
+    
     function update(Request $request, $id): RedirectResponse
     {
         $request->validate([

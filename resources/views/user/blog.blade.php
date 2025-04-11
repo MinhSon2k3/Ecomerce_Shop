@@ -35,7 +35,6 @@
                                 <h3 class="post-title"> {{ $blog->title }}
                                 </h3>
                                 <ul class="post-meta">
-
                                     <li><i class="icon-user"></i>Admin</li>
                                     <li><i class="icon-clock"></i>{{ \Carbon\Carbon::now()->format('Y, M d',strtotime($blog->created_at)) }}</li>
                                 </ul>
@@ -44,7 +43,6 @@
                         </a>
                     </div>
                     @endforeach
-                   
                 </div>
             </div>
             <!-- Sidebar          -->

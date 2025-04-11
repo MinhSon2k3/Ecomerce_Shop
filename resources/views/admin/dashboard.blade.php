@@ -44,8 +44,27 @@
                                     </div>
                                     <div class="col col-stats ml-3 ml-sm-0">
                                         <div class="numbers">
-                                            <p class="mb-0"><b>Đơn hàng chưa giải quyết</b></p>
+                                            <p class="mb-0"><b>Đơn hàng chưa xử lý</b></p>
                                             <h4 class="card-title">{{ $pending_orders }}</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-md-6">
+                        <div class="card card-stats card-round">
+                            <div class="card-body ">
+                                <div class="row align-items-center">
+                                    <div class="col-icon">
+                                        <div class="icon-big text-center icon-success bubble-shadow-small">
+                                            <i class="fas fa-shopping-cart"></i>
+                                        </div>
+                                    </div>
+                                    <div class="col col-stats ml-3 ml-sm-0">
+                                        <div class="numbers">
+                                            <p class="mb-0"><b>Đơn hàng đang vận chuyển</b></p>
+                                            <h4 class="card-title">{{ $progress_orders }}</h4>
                                         </div>
                                     </div>
                                 </div>

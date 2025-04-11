@@ -33,7 +33,7 @@ class LoginController extends Controller
         if ($user) {
             return redirect()->route('user.dashboard')->with('success', 'Đăng nhập thành công');
         } else {
-            return redirect()->route('user.register')->with('error', 'Invalid email and password');
+            return redirect()->route('user.register')->with('error', 'Sai Email hoặc mật khẩu');
         }
     }
 }

@@ -17,7 +17,7 @@ class CheckoutController extends Controller
     function index()
     {
         if(Cart::whereUserId(auth()->id())->count() <= 0){
-            return redirect()->route('user.shop')->with('error','Your cart is empty');
+            return redirect()->route('user.shop')->with('error','Giỏ hàng của bạn đang trống');
         }
         $billing_address = BillingAddress::whereUserId(auth()->id())->first();
         if (!$billing_address) {
@@ -37,7 +37,6 @@ class CheckoutController extends Controller
 
     function update_billing_address(Request $request)
     {
-        
         $validate = $request->validate([
             'address1' => 'required',
             'address2' => 'required',
@@ -58,13 +57,13 @@ class CheckoutController extends Controller
                 'phone' => $request->phone,
             ]);
         }
-        return redirect()->route('user.payment')->with('success', 'billing address add successfully');
+        return redirect()->route('user.payment')->with('success', 'Cập nhật địa chỉ thanh toán thành công');
     }
 
     function payment()
     {
         if(Cart::whereUserId(auth()->id())->count() <= 0){
-            return redirect()->route('user.shop')->with('error','Your cart is empty');
+            return redirect()->route('user.shop')->with('error','Giỏ hàng của bạn đang trống');
         }
         $billing_address = BillingAddress::whereUserId(auth()->id())->first();
         return view('user.payment', compact('billing_address'));
@@ -98,7 +97,7 @@ class CheckoutController extends Controller
 
         Cart::whereUserId(auth()->id())->delete();
 
-        return redirect()->route('user.order')->with('success', 'Order place successfully');
+        return redirect()->route('user.order')->with('success', 'Đặt hàng thành công');
     }
 
     function order()
@@ -109,7 +108,6 @@ class CheckoutController extends Controller
 
     public function stripePost(Request $request)
     {
-        dd($request->all());
         $total_amount = Cart::whereUserId(auth()->id())->sum('sub_total');
         $stripeToken = $request->input('_token');
         Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
@@ -117,11 +115,10 @@ class CheckoutController extends Controller
             "amount" => 100 * $total_amount,
             "currency" => "usd",
             "source" => $request->stripeToken,
-            "description" => "Payment Successfully From " . Auth::user()->name,
+            "description" => "Thanh toán thành công từ " . Auth::user()->name,
         ]);
-   
-        if ($charge->status) {
 
+        if ($charge->status) {
             $order = new Order();
             $transaction = new Transaction();
             $characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
@@ -147,7 +144,7 @@ class CheckoutController extends Controller
 
             Cart::whereUserId(auth()->id())->delete();
 
-            return redirect()->route('user.order')->with('success', 'Order place successfully');
+            return redirect()->route('user.order')->with('success', 'Đặt hàng thành công');
         }
     }
 
@@ -179,6 +176,6 @@ class CheckoutController extends Controller
 
         Cart::whereUserId(auth()->id())->delete();
 
-        return redirect()->route('user.order')->with('success', 'Order place successfully');
+        return redirect()->route('user.order')->with('success', 'Đặt hàng thành công');
     }
 }

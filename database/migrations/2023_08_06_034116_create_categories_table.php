@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::create('categories', function (Blueprint $table) {
             $table->id();
             $table->string('image');
-            $table->text('name')->unique();
-            $table->text('slug')->unique();
+            $table->text('name');
+            $table->text('slug');
             $table->text('meta_keyword');
             $table->longText('meta_description');
             $table->integer('serial');

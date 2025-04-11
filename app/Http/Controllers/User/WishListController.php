@@ -18,12 +18,12 @@ class WishListController extends Controller
     function clear_wishlist()
     {
         Wishlist::whereUserId(auth()->id())->delete();
-        return redirect()->route('user.wishlist')->with('success', 'wishlist empty successfully');
+        return redirect()->route('user.wishlist')->with('success', 'Đã xóa toàn bộ danh sách yêu thích thành công');
     }
 
     function remove_wishlist($id)
     {
         Wishlist::findOrFail($id)->delete();
-        return redirect()->route('user.wishlist')->with('success', 'wishlist remove successfully');
+        return redirect()->route('user.wishlist')->with('success', 'Đã xóa sản phẩm khỏi danh sách yêu thích thành công');
     }
 }

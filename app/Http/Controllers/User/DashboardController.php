@@ -15,10 +15,10 @@ class DashboardController extends Controller
 {
     function index()
     {
-        $pending_orders = Order::whereUserIdAndOrderStatus(auth()->id(), 'pending')->count();
-        $progress_orders = Order::whereUserIdAndOrderStatus(auth()->id(), 'progress')->count();
-        $delivered_orders = Order::whereUserIdAndOrderStatus(auth()->id(), 'delivered')->count();
-        $canceled_orders = Order::whereUserIdAndOrderStatus(auth()->id(), 'canceled')->count();
+        $pending_orders = Order::whereUserIdAndOrderStatus(auth()->id(), 'Chưa xử lý')->count();
+        $progress_orders = Order::whereUserIdAndOrderStatus(auth()->id(), 'Đang vận chuyển')->count();
+        $delivered_orders = Order::whereUserIdAndOrderStatus(auth()->id(), 'Đã giao')->count();
+        $canceled_orders = Order::whereUserIdAndOrderStatus(auth()->id(), 'Hủy')->count();
         $all_orders = Order::whereUserId(auth()->id())->count();
         return view('user.auth.dashboard', compact(
             'pending_orders',
@@ -73,12 +73,12 @@ class DashboardController extends Controller
         $address->city = $request->city;
         $address->company = $request->company;
         $address->save();
-        return redirect()->route('user.dashboard.address')->with('success', 'User update successfully');
+        return redirect()->route('user.dashboard.address')->with('success', 'Cập nhật người dùng thành công');
     }
 
     function  logout()
     {
         Auth::logout();
-        return redirect()->route('user.login');
+        return redirect()->route('user.home')->with('success', 'Đăng xuất thành công');
     }
 }
