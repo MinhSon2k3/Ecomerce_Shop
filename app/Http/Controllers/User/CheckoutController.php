@@ -10,7 +10,9 @@ use App\Models\Transaction;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Http;
 use Stripe;
+use Illuminate\Support\Str;
 
 class CheckoutController extends Controller
 {
@@ -68,6 +70,95 @@ class CheckoutController extends Controller
         $billing_address = BillingAddress::whereUserId(auth()->id())->first();
         return view('user.payment', compact('billing_address'));
     }
+
+
+    //MOMO
+    public function checkout_submit_momo(Request $request)
+    {
+        $total_amount = Cart::whereUserId(auth()->id())->sum('sub_total');
+        $order_id = Str::uuid()->toString(); // Mã đơn hàng duy nhất
+    
+        $endpoint = "https://test-payment.momo.vn/v2/gateway/api/create";
+        $partnerCode = 'MOMOBKUN20180529';
+        $accessKey = 'klm05TvNBzhg7h7j';
+        $secretKey = 'at67qH6mk8w5Y1nAyMoYKMWACiEi2bsa';
+        $redirectUrl = "https://webhook.site/b3088a6a-2d17-4f8d-a383-71389a6c600b";
+        $ipnUrl = "https://webhook.site/b3088a6a-2d17-4f8d-a383-71389a6c600b";
+        $orderInfo = "Thanh toán đơn hàng #" . $order_id;
+    
+        $requestId = Str::uuid()->toString();
+        $extraData = ""; // Có thể mã hóa thông tin người dùng tại đây
+    
+        $rawHash = "accessKey=$accessKey&amount=$total_amount&extraData=$extraData&ipnUrl=$ipnUrl&orderId=$order_id&orderInfo=$orderInfo&partnerCode=$partnerCode&redirectUrl=$redirectUrl&requestId=$requestId&requestType=captureWallet";
+
+        // Tạo chữ ký với hash_hmac
+        $signature = hash_hmac("sha256", $rawHash, $secretKey);
+        
+
+        $data = [
+            'partnerCode' => $partnerCode,
+            'accessKey' => $accessKey,
+            'requestId' => $requestId,
+            'amount' => $total_amount,
+            'orderId' => $order_id,
+            'orderInfo' => $orderInfo,
+            'redirectUrl' => $redirectUrl,
+            'ipnUrl' => $ipnUrl,
+            'extraData' => $extraData,
+            'requestType' => 'captureWallet',
+            'signature' => $signature,
+            'lang' => 'vi'
+        ];
+       
+    
+        $response = Http::withOptions([
+            'verify' => false, // Tắt kiểm tra SSL
+        ])->post($endpoint, $data);
+        if ($response->successful() && isset($response['payUrl'])) {
+            // Lưu session order_id để xử lý sau
+            session(['momo_order_id' => $order_id, 'momo_total' => $total_amount]);
+            return redirect($response['payUrl']);
+        }
+    
+        return back()->with('error', 'Không thể kết nối với cổng thanh toán Momo');
+    }
+
+    public function momo_redirect(Request $request)
+{
+    $order_id = session('momo_order_id');
+    $total_amount = session('momo_total');
+
+    if ($request->resultCode == 0) {
+        // Thanh toán thành công
+        $product_ids = Cart::whereUserId(auth()->id())->pluck('product_id');
+
+        $order = new Order();
+        $order->uuid = $order_id;
+        $order->transaction_id = $request->transId;
+        $order->user_id = auth()->id();
+        $order->total_amount = $total_amount;
+        $order->payment_status = 'paid';
+        $order->order_status = 'pending';
+        $order->product_id = json_encode($product_ids);
+        $order->payment_method = 'momo';
+        $order->save();
+
+        $transaction = new Transaction();
+        $transaction->order_id = $order_id;
+        $transaction->user_id = auth()->id();
+        $transaction->payment_status = 'paid';
+        $transaction->order_status = 'pending';
+        $transaction->total_amount = $total_amount;
+        $transaction->save();
+
+        Cart::whereUserId(auth()->id())->delete();
+
+        return redirect()->route('user.order')->with('success', 'Đặt hàng thành công qua Momo');
+    }
+
+    return redirect()->route('user.payment')->with('error', 'Thanh toán thất bại');
+}
+
 
     function checkout_submit_cash_on_delivery(Request $request)
     {

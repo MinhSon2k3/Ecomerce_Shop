@@ -87,6 +87,9 @@ Route::middleware(['auth'])->group(function () {
         Route::post('/checkout/cash-on-delivery', 'checkout_submit_cash_on_delivery')->name('user.checkout.cash.on.delivery');
         Route::post('/checkout/bank-transfer', 'checkout_submit_back_transfer')->name('user.checkout.bank.transfer');
         Route::post('/stripe', 'stripePost')->name('user.checkout.stripe');
+        //Momo
+        Route::post('/checkout/momo', 'checkout_submit_momo')->name('user.checkout.momo');
+        Route::get('/checkout/momo/callback', 'momo_callback')->name('user.checkout.momo.callback');
     });
 
     Route::controller(DashboardController::class)->group(function () {

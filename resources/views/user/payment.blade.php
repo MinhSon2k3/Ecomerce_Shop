@@ -46,6 +46,14 @@
                                             <p>Stripe</p>
                                         </a>
                                     </div>
+                                    
+                                    <div class="single-payment-method">
+                                        <a class="text-decoration-none" href="#" data-bs-toggle="modal" data-bs-target="#momoModal">
+                                            <img src="https://upload.wikimedia.org/wikipedia/vi/f/fe/MoMo_Logo.png" alt="Momo" title="Momo" style="height: 40px;">
+                                            <p>Momo</p>
+                                        </a>
+                                    </div>
+
                                     <div class="single-payment-method">
                                         <a class="text-decoration-none" href="#" data-bs-toggle="modal" data-bs-target="#bank">
                                             <img src="https://geniusdevs.com/codecanyon/omnimart40/assets/images/1638530860pngwing.com (1).png"
@@ -127,6 +135,28 @@
                             </div>
                         </div>
                     </div>
+                </div>
+                
+                <!-- Modal Momo -->
+                <div class="modal fade" id="momoModal" tabindex="-1" aria-labelledby="momoLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                    <form action="{{ route('user.checkout.momo') }}" method="POST">
+                        @csrf
+                        <div class="modal-header">
+                        <h5 class="modal-title" id="momoLabel">Xác nhận thanh toán bằng Momo</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Đóng"></button>
+                        </div>
+                        <div class="modal-body">
+                        Bạn có chắc muốn thanh toán đơn hàng bằng Momo?
+                        </div>
+                        <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
+                        <button type="submit" class="btn btn-primary">Thanh toán</button>
+                        </div>
+                    </form>
+                    </div>
+                </div>
                 </div>
 
                 <!-- Modal Flutterwave -->
