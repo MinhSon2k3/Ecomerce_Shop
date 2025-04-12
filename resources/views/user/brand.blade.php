@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('title')
-    Brand
+    Thương hiệu
 @endsection
 @section('content')
     <div class="page-title">

@@ -107,6 +107,7 @@ Route::prefix('admin')->group(function () {
             Route::get('/faq/edit/{id}', 'edit')->name('admin.faq.edit');
             Route::post('/faq/update/{id}', 'update')->name('admin.faq.update');
             Route::get('/faq/delete/{id}', 'delete')->name('admin.faq.delete');
+            Route::post('/upload/image1', 'uploadImage')->name('admin.faq.uploadImage');
         });
 
         Route::controller(BlogCategoryController::class)->group(function () {

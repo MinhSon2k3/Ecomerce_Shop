@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('title')
-    Category
+    Danh mục
 @endsection
 @section('content')
     <div class="page-title">

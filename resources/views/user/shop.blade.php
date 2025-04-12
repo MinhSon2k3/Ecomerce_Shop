@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('title')
-    Shop
+    Sản phẩm
 @endsection
 @section('content')
     <div class="page-title">

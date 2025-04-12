@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('title')
-Home
+Trang chủ
 @endsection
 @section('content')
 <div class="slider-area-wrapper">
@@ -56,7 +56,6 @@ Home
     </div>
 </div>
 
-
 <section class="service-section">
     <div class="container">
         <div class="row">
@@ -75,6 +74,7 @@ Home
         </div>
     </div>
 </section>
+
 <div class="deal-of-day-section mt-20">
     <div class="container">
         <div class="row">
@@ -141,7 +141,6 @@ Home
         </div>
     </div>
 </div>
-
 
 <div class="bannner-section mt-60">
     <div class="container ">

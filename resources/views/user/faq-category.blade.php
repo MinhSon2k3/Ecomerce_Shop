@@ -22,9 +22,8 @@
             <div class="col-lg-4 col-md-6">
                 <a href="{{ route('user.faqs', ['slug' => $faq->slug]) }}" class="card mb-4 faq-box">
                     <div class="card-body">
-                        <h6 class="card-title">{{ $faq->name }}</h6>
                         <p class="card-text">{{ $faq->text }}</p>
-                        <span class="text-sm text-muted link">View Details <i class="icon-chevron-right"></i></span>
+                        <span class="text-sm text-muted link">Xem chi tiết <i class="icon-chevron-right"></i></span>
                     </div>
                 </a>
             </div>

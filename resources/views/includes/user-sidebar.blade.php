@@ -38,26 +38,4 @@
                 href="{{ route('user.logout') }}"><i class="icon-log-out"></i>Đăng xuất</a>
         </nav>
     </aside>
-
-    <div class="modal" tabindex="-1">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Remove Account</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal"
-                        aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <p>Are You Sure?</p>
-                    <p>Do you remove you account?</p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <a href="https://geniusdevs.com/codecanyon/omnimart40/admin/remove/account" type="button"
-                        class="btn btn-danger">Remove Account</a>
-                </div>
-            </div>
-        </div>
-    </div>
-
 </div>

@@ -42,7 +42,6 @@ class BlogController extends Controller
     function store(Request $request): RedirectResponse
     {
         $request->validate([
-            'image' => 'required|image|mimes:jpg,png,jpeg|max:2096',
             'title' => 'required',
             'description' => 'required',
             'cat_id' => 'required',
@@ -76,7 +75,6 @@ class BlogController extends Controller
     function update(Request $request, $id): RedirectResponse
     {
         $request->validate([
-            'image' => 'nullable|image|mimes:jpg,png,jpeg|max:2096',
             'title' => 'required',
             'description' => 'required',
             'cat_id' => 'required',

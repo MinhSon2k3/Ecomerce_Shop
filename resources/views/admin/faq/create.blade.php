@@ -3,6 +3,7 @@
     Tạo Câu Hỏi Thường Gặp
 @endsection
 @section('content')
+<script src="https://cdn.ckeditor.com/ckeditor5/40.2.0/classic/ckeditor.js"></script>
     <div class="content">
         <div class="page-inner">
 
@@ -41,12 +42,27 @@
                                             </div>
 
                                             <div class="form-group">
-                                                <label for="details">Chi tiết</label>
-                                                <textarea name="details" id="details" class="form-control" rows="5"
-                                                    placeholder="Nhập nội dung chi tiết"></textarea>
-                                                @error('details')
+                                                <label for="details">Chi tiết *</label>
+                                                <textarea name="details" id="details" class="form-control text-editor" rows="5" placeholder="Nhập chi tiết"></textarea>
+                                                @error('description')
                                                     <span class="text-danger">{{ $message }}</span>
                                                 @enderror
+                                                <script>
+                                                    ClassicEditor
+                                                        .create(document.querySelector('#details'), {
+                                                            // Thêm cấu hình tải lên hình ảnh
+                                                            ckfinder: {
+                                                                uploadUrl: '{{ route('admin.faq.uploadImage') . '?_token=' . csrf_token() }}',
+                                                            },
+                                                        })
+                                                        .then(editor => {
+                                                            console.log(editor);
+                                                        })
+                                                        .catch(error => {
+                                                            console.error(error);
+                                                        });
+                                                </script>
+
                                             </div>
 
                                             <div class="form-group">

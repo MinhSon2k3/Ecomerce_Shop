@@ -2,6 +2,7 @@
 @php
     $media_setting=\App\Models\ManageSite::where('key','media')->first();
     $footer_setting=\App\Models\ManageSite::where('key','footer')->first();
+    $faq_categories = \App\Models\FaqCategory::latest()->get();
     $media_value=json_decode($media_setting->value);
     $footer_value=json_decode($footer_setting->value);
 @endphp
@@ -64,24 +65,18 @@ body_theme1
             <div class="container">
                 <div class="row">
                     <div class="col-md-4">
-                        <div class="t-m-s-a">
-                            <a class="track-order-link compare-mobile d-lg-none"
-                                href="{{ route('user.compare') }}">Compare</a>
-                        </div>
                     </div>
                     <div class="col-md-8">
                         <div class="right-area">
 
                             <a class="track-order-link wishlist-mobile d-inline-block d-lg-none"
-                                href="{{ route('user.wishlist') }}"><i
-                                    class="icon-heart"></i>Wishlist</a>
-
+                                href="{{ route('user.wishlist') }}"><i class="fas fa-heart"></i></a>
                             @if (Auth::check())
                             <div class="login-register ">
                                 <a class="track-order-link mr-0" href="{{ route('user.dashboard') }}">
                                 <i class="fas fa-home"></i>
                                 </a>
-                                <a style="margin-left: 20px;" class="track-order-link mr-0" href="{{ route('user.logout') }}">
+                                <a style="margin-left: 14px;" class="track-order-link mr-0" href="{{ route('user.logout') }}">
                                 <i class="fas fa-sign-out-alt"></i>
                                  </a>
                             </div>
@@ -92,7 +87,6 @@ body_theme1
                                 </a>
                             </div>
                             @endif
-
                         </div>
                     </div>
                 </div>
@@ -218,7 +212,7 @@ body_theme1
                         <div class="mobile-menu">
                             <!-- Slideable (Mobile) Menu-->
                             <div class="mm-heading-area">
-                                <h4>Navigation</h4>
+                                <h4>Điều hướng</h4>
                                 <div class="toolbar-item visible-on-mobile mobile-menu-toggle mm-t-two">
                                     <a href="#">
                                         <div> <i class="icon-x"></i></div>
@@ -232,7 +226,7 @@ body_theme1
                                 </li>
                                 <li class="nav-item" role="presentation99">
                                     <span class="" id="mcat-tab" data-bs-toggle="tab" data-bs-target="#mcat"
-                                        role="tab" aria-controls="mcat" aria-selected="false">Category</span>
+                                        role="tab" aria-controls="mcat" aria-selected="false">Danh mục</span>
                                 </li>
 
                             </ul>
@@ -371,40 +365,7 @@ body_theme1
     @yield('content')
 
 
-    <!--    announcement banner section start   -->
-    {{-- <a class="announcement-banner" href="#announcement-modal"></a>
-    <div id="announcement-modal" class="mfp-hide white-popup d-none">
-        <div class="announcement-with-content">
-            <div class="left-area">
-                <img src="https://geniusdevs.com/codecanyon/omnimart40/assets/images/1638791990Untitled-1.jpg"
-                    alt="">
-            </div>
-            <div class="right-area">
-                <h3 class="">Get 50% Discount.</h3>
-                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Exercitationem, facere nesciunt doloremque
-                    nobis debitis sint?</p>
-                <form class="subscriber-form" action="https://geniusdevs.com/codecanyon/omnimart40/subscriber/submit"
-                    method="post">
-                    <input type="hidden" name="_token" value="qYRQwOc3pjdT0Bvq9gFiqBQZceM45tq5xC53blMH">
-                    <div class="input-group">
-                        <input class="form-control" type="email" name="email" placeholder="Your e-mail">
-                        <span class="input-group-addon"><i class="icon-mail"></i></span>
-                    </div>
-                    <div aria-hidden="true">
-                        <input type="hidden" name="b_c7103e2c981361a6639545bd5_1194bb7544" tabindex="-1">
-                    </div>
-
-                    <button class="btn btn-primary btn-block mt-2" type="submit">
-                        <span>Subscribe</span>
-                    </button>
-                </form>
-            </div>
-        </div>
-
-
-    </div> --}}
-    <!--    announcement banner section end   -->
-
+   
     <!-- Site Footer-->
     <footer class="site-footer" style="margin-top: 30px">
         <div class="container">
@@ -428,11 +389,15 @@ body_theme1
                 <div class="col-lg-4 col-sm-6">
                     <!-- Customer Info-->
                     <div class="widget widget-links widget-light-skin">
-                        <h3 class="widget-title">Usefull Links</h3>
+                        <h3 class="widget-title">Liên kết</h3>
                         <ul>
-                            <li>
-                                <a class="" href="{{ route('user.faq') }}">Faq</a>
-                            </li>
+                                @foreach ($faq_categories as $faq)
+                                <li>
+                                <a href="{{ route('user.faqs', ['slug' => $faq->slug]) }}">
+                                {{ $faq->text }}
+                                </a>
+                                </li>
+                                @endforeach
                         </ul>
                     </div>
                 </div>

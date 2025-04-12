@@ -35,24 +35,29 @@ class RegisterController extends Controller
                 // 'regex:/^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]+$/',
             ],
         ], [
-            'first_name.required' => 'The first name field is required.',
-            'first_name.alpha' => 'The first name should contain only letters.',
-            'last_name.required' => 'The last name field is required.',
-            'last_name.alpha' => 'The last name should contain only letters.',
-            'email.required' => 'The email field is required.',
-            'email.email' => 'Please enter a valid email address.',
-            'email.unique' => 'The email address is already in use.',
-            'phone.required' => 'The phone number field is required.',
-            'phone.regex' => 'Please enter a valid 10-digit phone number.',
-            'phone.unique' => 'The phone number is already in use.',
-            'password.required' => 'The password field is required.',
-            'password.confirmed' => 'The password confirmation does not match.',
-            'password.min' => 'The password must be at least 8 characters long.',
+            'first_name.required' => 'Trường họ là bắt buộc.',
+            'first_name.alpha' => 'Họ chỉ được chứa các chữ cái.',
+
+            'last_name.required' => 'Trường tên là bắt buộc.',
+            'last_name.alpha' => 'Tên chỉ được chứa các chữ cái.',
+
+            'email.required' => 'Trường email là bắt buộc.',
+            'email.email' => 'Vui lòng nhập địa chỉ email hợp lệ.',
+            'email.unique' => 'Địa chỉ email đã được sử dụng.',
+
+            'phone.required' => 'Trường số điện thoại là bắt buộc.',
+            'phone.regex' => 'Vui lòng nhập số điện thoại hợp lệ gồm 10 chữ số.',
+            'phone.unique' => 'Số điện thoại đã được sử dụng.',
+
+            'password.required' => 'Trường mật khẩu là bắt buộc.',
+            'password.confirmed' => 'Xác nhận mật khẩu không khớp.',
+            'password.min' => 'Mật khẩu phải có ít nhất 8 ký tự.',
+
             // 'password.regex' => 'The password must contain at least one uppercase letter, one lowercase letter, one number, and one special character.',
         ]);
 
         $user = new User();
-        $user->name = $request->first_name . ' ' . $request->last_name;
+        $user->name = $request->last_name. ' ' . $request->first_name;
         $user->email = $request->email;
         $user->phone = $request->phone;
         $user->first_name = $request->first_name;
@@ -70,6 +75,6 @@ class RegisterController extends Controller
             'city' => ' ',
             'phone' => ' ',
         ]);
-        return redirect()->route('user.register')->with('success', 'Register successfully');
+        return redirect()->route('user.register')->with('success', 'Đăng ký thành công');
     }
 }

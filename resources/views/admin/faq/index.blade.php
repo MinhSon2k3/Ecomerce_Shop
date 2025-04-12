@@ -30,7 +30,7 @@
                                     <tr>
                                         <th>Tiêu đề</th>
                                         <th>Danh mục</th>
-                                        <th>Chi tiết</th>
+                                        <!-- <th>Chi tiết</th> -->
                                         <th>Hành động</th>
                                     </tr>
                                 </thead>
@@ -40,7 +40,7 @@
                                         <tr>
                                             <td>{{ $faq->title }}</td>
                                             <td>{{ $faq->category->name }}</td>
-                                            <td>{{ $faq->details }}</td>
+                                            <!-- <td>{{ $faq->details }}</td> -->
                                             <td>
                                                 <div class="action-list">
                                                     <a class="btn btn-secondary btn-sm"

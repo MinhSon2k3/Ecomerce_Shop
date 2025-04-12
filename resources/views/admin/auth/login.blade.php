@@ -3,7 +3,7 @@
 
 <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>Login | Admin | Pakistan Online ( Online Bazzar )</title>
+    <title>Login | Admin </title>
     <meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
     <link rel="icon" href="https://geniusdevs.com/codecanyon/omnimart40/assets/images/1629651232pre.png"
         type="image/x-icon" />
@@ -27,13 +27,13 @@
 
     <div class="wrapper wrapper-login">
         <div class="container container-login animated fadeIn">
-            <h3 class="text-center">Sign In To Admin</h3>
+            <h3 class="text-center">Đăng nhập Admin</h3>
             <div class="login-form">
                 <form action="{{ route('admin.auth.make.login') }}" method="POST">
                     @csrf
                     <div class="form-group form-floating-label">
                         <input id="email" name="email" type="email" class="form-control input-border-bottom">
-                        <label for="email" class="placeholder">Email Address</label>
+                        <label for="email" class="placeholder">Email</label>
 
                         @error('email')
                             <span class="text-danger">{{ $message }}</span>
@@ -41,7 +41,7 @@
                     </div>
                     <div class="form-group form-floating-label">
                         <input id="password" name="password" type="password" class="form-control input-border-bottom">
-                        <label for="password" class="placeholder">Password</label>
+                        <label for="password" class="placeholder">Mật khẩu</label>
                         <div class="show-password">
                             <i class="fa-solid fa-eye"></i>
                         </div>
@@ -51,7 +51,7 @@
                     </div>
 
                     <div class="form-action mb-3">
-                        <button type="submit" class="btn btn-secondary  btn-login">Sign In</button>
+                        <button type="submit" class="btn btn-secondary  btn-login">Đăng nhập</button>
                     </div>
 
                 </form>
