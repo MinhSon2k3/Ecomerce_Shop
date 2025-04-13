@@ -24,17 +24,20 @@
     ```
 
 3.Cài đặt các thư viện PHP:
-`bash
+    ```bash
     composer install
-    ` 4. Tạo file .env từ file mẫu và cấu hình thông tin cơ sở dữ liệu.
+    ```
+4. Tạo file .env từ file mẫu và cấu hình thông tin cơ sở dữ liệu.
 5.Tạo application key:
-`bash
+    ```bash
     php artisan key:generate
-    ` 6. Chạy migration để tạo bảng dữ liệu:
-`bash
+    ```
+6. Chạy migration để tạo bảng dữ liệu:
+    ```bash
     php artisan migrate
-    `
-7.Khởi chạy ứng dụng:
-`bash
+    ```
+7. Chạy ứng dụng:
+    ```bash
     php artisan serve
-    ` 8. Chạy thử úng dụng tại [http://127.0.0.1:8000](http://127.0.0.1:8000)
+    ```
+8. Chạy thử [http://127.0.0.1:8000](http://127.0.0.1:8000) in your browser to view the app.
