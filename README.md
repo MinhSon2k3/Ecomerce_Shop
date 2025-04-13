@@ -24,11 +24,14 @@
     ```
 
 3.Cài đặt các thư viện PHP:
+
     ```bash
     composer install
     ```
 4. Tạo file .env từ file mẫu và cấu hình thông tin cơ sở dữ liệu.
+
 5.Tạo application key:
+
     ```bash
     php artisan key:generate
     ```
