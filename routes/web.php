@@ -89,7 +89,7 @@ Route::middleware(['auth'])->group(function () {
         Route::post('/stripe', 'stripePost')->name('user.checkout.stripe');
         //Momo
         Route::post('/checkout/momo', 'checkout_submit_momo')->name('user.checkout.momo');
-        Route::get('/checkout/momo/callback', 'momo_callback')->name('user.checkout.momo.callback');
+        Route::get('/checkout/momo/callback', 'momo_redirect')->name('user.checkout.momo.callback');
     });
 
     Route::controller(DashboardController::class)->group(function () {

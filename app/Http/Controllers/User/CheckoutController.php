@@ -82,7 +82,7 @@ class CheckoutController extends Controller
         $partnerCode = 'MOMOBKUN20180529';
         $accessKey = 'klm05TvNBzhg7h7j';
         $secretKey = 'at67qH6mk8w5Y1nAyMoYKMWACiEi2bsa';
-        $redirectUrl = "https://webhook.site/b3088a6a-2d17-4f8d-a383-71389a6c600b";
+        $redirectUrl = "http://127.0.0.1:8000/";
         $ipnUrl = "https://webhook.site/b3088a6a-2d17-4f8d-a383-71389a6c600b";
         $orderInfo = "Thanh toán đơn hàng #" . $order_id;
     
@@ -94,7 +94,6 @@ class CheckoutController extends Controller
         // Tạo chữ ký với hash_hmac
         $signature = hash_hmac("sha256", $rawHash, $secretKey);
         
-
         $data = [
             'partnerCode' => $partnerCode,
             'accessKey' => $accessKey,
@@ -110,7 +109,6 @@ class CheckoutController extends Controller
             'lang' => 'vi'
         ];
        
-    
         $response = Http::withOptions([
             'verify' => false, // Tắt kiểm tra SSL
         ])->post($endpoint, $data);
@@ -124,40 +122,40 @@ class CheckoutController extends Controller
     }
 
     public function momo_redirect(Request $request)
-{
-    $order_id = session('momo_order_id');
-    $total_amount = session('momo_total');
+    {
+        $order_id = session('momo_order_id');
+        $total_amount = session('momo_total');
 
-    if ($request->resultCode == 0) {
-        // Thanh toán thành công
-        $product_ids = Cart::whereUserId(auth()->id())->pluck('product_id');
+        if ($request->resultCode == 0) {
+            // Thanh toán thành công
+            $product_ids = Cart::whereUserId(auth()->id())->pluck('product_id');
 
-        $order = new Order();
-        $order->uuid = $order_id;
-        $order->transaction_id = $request->transId;
-        $order->user_id = auth()->id();
-        $order->total_amount = $total_amount;
-        $order->payment_status = 'paid';
-        $order->order_status = 'pending';
-        $order->product_id = json_encode($product_ids);
-        $order->payment_method = 'momo';
-        $order->save();
+            $order = new Order();
+            $order->uuid = $order_id;
+            $order->transaction_id = $request->transId;
+            $order->user_id = auth()->id();
+            $order->total_amount = $total_amount;
+            $order->payment_status = 'paid';
+            $order->order_status = 'pending';
+            $order->product_id = json_encode($product_ids);
+            $order->payment_method = 'momo';
+            $order->save();
 
-        $transaction = new Transaction();
-        $transaction->order_id = $order_id;
-        $transaction->user_id = auth()->id();
-        $transaction->payment_status = 'paid';
-        $transaction->order_status = 'pending';
-        $transaction->total_amount = $total_amount;
-        $transaction->save();
+            $transaction = new Transaction();
+            $transaction->order_id = $order_id;
+            $transaction->user_id = auth()->id();
+            $transaction->payment_status = 'paid';
+            $transaction->order_status = 'pending';
+            $transaction->total_amount = $total_amount;
+            $transaction->save();
 
-        Cart::whereUserId(auth()->id())->delete();
+            Cart::whereUserId(auth()->id())->delete();
 
-        return redirect()->route('user.order')->with('success', 'Đặt hàng thành công qua Momo');
+            return redirect()->route('user.order')->with('success', 'Đặt hàng thành công qua Momo');
+        }
+
+        return redirect()->route('user.payment')->with('error', 'Thanh toán thất bại');
     }
-
-    return redirect()->route('user.payment')->with('error', 'Thanh toán thất bại');
-}
 
 
     function checkout_submit_cash_on_delivery(Request $request)
@@ -173,16 +171,16 @@ class CheckoutController extends Controller
         $order->transaction_id = 'null';
         $order->user_id = auth()->id();
         $order->total_amount = $total_amount;
-        $order->payment_status = 'unpaid';
-        $order->order_status = 'pending';
+        $order->payment_status = 'Chưa thanh toán';
+        $order->order_status = 'Chưa xử lý';
         $order->product_id = json_encode($product_ids);
         $order->payment_method = $request->payment_method;
         $order->save();
 
         $transaction->order_id = $order->uuid;
         $transaction->user_id = auth()->id();
-        $transaction->payment_status = 'unpaid';
-        $transaction->order_status = 'pending';
+        $transaction->payment_status = 'Chưa thanh toán';
+        $transaction->order_status = 'Chưa xử lý';
         $transaction->total_amount = $total_amount;
         $transaction->save();
 
@@ -197,47 +195,47 @@ class CheckoutController extends Controller
         return view('user.order', compact('orders'));
     }
 
-    public function stripePost(Request $request)
-    {
-        $total_amount = Cart::whereUserId(auth()->id())->sum('sub_total');
-        $stripeToken = $request->input('_token');
-        Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
-        $charge = Stripe\Charge::create([
-            "amount" => 100 * $total_amount,
-            "currency" => "usd",
-            "source" => $request->stripeToken,
-            "description" => "Thanh toán thành công từ " . Auth::user()->name,
-        ]);
+    // public function stripePost(Request $request)
+    // {
+    //     $total_amount = Cart::whereUserId(auth()->id())->sum('sub_total');
+    //     $stripeToken = $request->input('_token');
+    //     Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
+    //     $charge = Stripe\Charge::create([
+    //         "amount" => 100 * $total_amount,
+    //         "currency" => "usd",
+    //         "source" => $request->stripeToken,
+    //         "description" => "Thanh toán thành công từ " . Auth::user()->name,
+    //     ]);
 
-        if ($charge->status) {
-            $order = new Order();
-            $transaction = new Transaction();
-            $characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-            $randomString = substr(str_shuffle($characters), 0, 10);
+    //     if ($charge->status) {
+    //         $order = new Order();
+    //         $transaction = new Transaction();
+    //         $characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    //         $randomString = substr(str_shuffle($characters), 0, 10);
 
-            $product_ids = Cart::whereUserId(auth()->id())->pluck('product_id');
-            $order->uuid = $randomString;
-            $order->transaction_id = $charge->id;
-            $order->user_id = auth()->id();
-            $order->total_amount = $total_amount;
-            $order->payment_status = $charge->status == 'succeeded' ? 'paid' : 'unpaid';
-            $order->order_status = 'pending';
-            $order->product_id = json_encode($product_ids);
-            $order->payment_method = $request->payment_method;
-            $order->save();
+    //         $product_ids = Cart::whereUserId(auth()->id())->pluck('product_id');
+    //         $order->uuid = $randomString;
+    //         $order->transaction_id = $charge->id;
+    //         $order->user_id = auth()->id();
+    //         $order->total_amount = $total_amount;
+    //         $order->payment_status = $charge->status == 'succeeded' ? 'paid' : 'unpaid';
+    //         $order->order_status = 'pending';
+    //         $order->product_id = json_encode($product_ids);
+    //         $order->payment_method = $request->payment_method;
+    //         $order->save();
 
-            $transaction->order_id = $order->uuid;
-            $transaction->user_id = auth()->id();
-            $transaction->payment_status = $charge->status == 'succeeded' ? 'paid' : 'unpaid';
-            $transaction->order_status = 'pending';
-            $transaction->total_amount = $total_amount;
-            $transaction->save();
+    //         $transaction->order_id = $order->uuid;
+    //         $transaction->user_id = auth()->id();
+    //         $transaction->payment_status = $charge->status == 'succeeded' ? 'paid' : 'unpaid';
+    //         $transaction->order_status = 'pending';
+    //         $transaction->total_amount = $total_amount;
+    //         $transaction->save();
 
-            Cart::whereUserId(auth()->id())->delete();
+    //         Cart::whereUserId(auth()->id())->delete();
 
-            return redirect()->route('user.order')->with('success', 'Đặt hàng thành công');
-        }
-    }
+    //         return redirect()->route('user.order')->with('success', 'Đặt hàng thành công');
+    //     }
+    // }
 
     function checkout_submit_back_transfer(Request $request)
     {
@@ -252,16 +250,16 @@ class CheckoutController extends Controller
         $order->transaction_id = $request->transaction;
         $order->user_id = auth()->id();
         $order->total_amount = $total_amount;
-        $order->payment_status = 'unpaid';
-        $order->order_status = 'pending';
+        $order->payment_status = 'Đã thanh toán';
+        $order->order_status = 'Đang xử lý';
         $order->product_id = json_encode($product_ids);
         $order->payment_method = $request->payment_method;
         $order->save();
 
         $transaction->order_id = $order->uuid;
         $transaction->user_id = auth()->id();
-        $transaction->payment_status = 'unpaid';
-        $transaction->order_status = 'pending';
+        $transaction->payment_status = 'Đã thanh toán';
+        $transaction->order_status = 'Đang xử lý';
         $transaction->total_amount = $total_amount;
         $transaction->save();
 

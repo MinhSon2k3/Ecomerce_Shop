@@ -39,21 +39,26 @@
                         <div class="row mt-4">
                             <div class="col-12">
                                 <div class="payment-methods">
-                                    <div class="single-payment-method">
+                                    <!-- //Stripe -->
+                                    <!-- <div class="single-payment-method">
                                         <a class="text-decoration-none" href="#" data-bs-toggle="modal" data-bs-target="#stripe">
                                             <img src="https://geniusdevs.com/codecanyon/omnimart40/assets/images/1601930611stripe-logo-blue.png"
                                                 alt="Stripe" title="Stripe">
                                             <p>Stripe</p>
                                         </a>
-                                    </div>
-                                    
+                                    </div> -->
+                                    <!-- //Stripe -->
+
+                                    <!-- MOMO -->
                                     <div class="single-payment-method">
                                         <a class="text-decoration-none" href="#" data-bs-toggle="modal" data-bs-target="#momoModal">
                                             <img src="https://upload.wikimedia.org/wikipedia/vi/f/fe/MoMo_Logo.png" alt="Momo" title="Momo" style="height: 40px;">
                                             <p>Momo</p>
                                         </a>
                                     </div>
+                                    <!-- MOMO -->
 
+                                    <!-- BANK -->
                                     <div class="single-payment-method">
                                         <a class="text-decoration-none" href="#" data-bs-toggle="modal" data-bs-target="#bank">
                                             <img src="https://geniusdevs.com/codecanyon/omnimart40/assets/images/1638530860pngwing.com (1).png"
@@ -61,7 +66,9 @@
                                             <p>Chuyển khoản ngân hàng</p>
                                         </a>
                                     </div>
+                                    <!-- BANK -->
 
+                                    <!-- Cash -->
                                     <div class="single-payment-method">
                                         <a class="text-decoration-none" href="#" data-bs-toggle="modal" data-bs-target="#cod">
                                             <img src="https://support.sitegiant.com/wp-content/uploads/2022/08/cash-on-delivery-banner.png"
@@ -69,6 +76,7 @@
                                             <p>Thanh toán khi nhận hàng</p>
                                         </a>
                                     </div>
+                                     <!-- Cash -->
                                 </div>
                             </div>
                         </div>
@@ -98,7 +106,7 @@
                     </div>
                 </div>
 
-                <!-- Modal Stripe -->
+                <!-- Modal Stripe
                 <div class="modal fade" id="stripe" tabindex="-1" aria-hidden="true">
                     <div class="modal-dialog">
                         <div class="modal-content">
@@ -136,7 +144,7 @@
                         </div>
                     </div>
                 </div>
-                
+                 -->
                 <!-- Modal Momo -->
                 <div class="modal fade" id="momoModal" tabindex="-1" aria-labelledby="momoLabel" aria-hidden="true">
                 <div class="modal-dialog">
@@ -157,32 +165,6 @@
                     </form>
                     </div>
                 </div>
-                </div>
-
-                <!-- Modal Flutterwave -->
-                <div class="modal fade" id="flutterwave" tabindex="-1" aria-hidden="true">
-                    <form class="interactive-credit-card row" action="https://geniusdevs.com/codecanyon/omnimart40/flutterwave/submit" method="POST">
-                        <input type="hidden" name="_token" value="sXahNV8HiLbT9glsyMxedbtDGJmeA8qZf5UfwM7k">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h6 class="modal-title">Giao dịch qua Flutterwave</h6>
-                                    <button class="close" type="button" data-bs-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
-                                </div>
-                                <div class="modal-body">
-                                    <div class="card-body">
-                                        <p>Flutterwave là phương thức thanh toán nhanh và an toàn. Thanh toán trực tuyến qua Flutterwave.</p>
-                                    </div>
-                                </div>
-                                <input type="hidden" name="payment_method" value="Flutterwave">
-                                <input type="hidden" name="state_id" value="" class="state_id_setup">
-                                <div class="modal-footer">
-                                    <button class="btn btn-primary btn-sm" type="button" data-bs-dismiss="modal">Hủy</button>
-                                    <button class="btn btn-primary btn-sm" type="submit">Thanh toán qua Flutterwave</button>
-                                </div>
-                            </div>
-                        </div>
-                    </form>
                 </div>
 
                 <!-- Modal chuyển khoản ngân hàng -->
